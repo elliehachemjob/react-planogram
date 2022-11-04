@@ -3,7 +3,8 @@ import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import Link from 'next/link';
 
-export default function Home() {
+export default function Home({ articles }: any) {
+  console.log(articles);
   return (
     <div className={styles.container}>
       <Head>
@@ -70,3 +71,15 @@ export default function Home() {
     </div>
   );
 }
+
+export const getStaticProps = async () => {
+  const res = await fetch(
+    `https://jsonplaceholder.typicode.com/posts?_limit=6`
+  );
+  const articles = await res.json();
+  return {
+    props: {
+      articles: articles,
+    },
+  };
+};
