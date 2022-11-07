@@ -3,14 +3,28 @@ import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../../styles/welcome-page.module.css';
 import { useRouter } from 'next/router';
+import ISO6391 from 'iso-639-1';
+import { useEffect } from 'react';
 
 export default function WelcomePage({ welcomePageData }: any) {
   const router = useRouter();
-
+  let langSelected: any;
   function navigateLanguagesPageSelectALanguageToStart(country: string): void {
     window.localStorage.setItem('country', country);
     router.replace('/languages', country.toLowerCase().replace(/\s+/g, ''));
   }
+
+  function getAndSetLanguage(langSelected: any) {
+    langSelected = localStorage.getItem('language');
+    if (langSelected === null || undefined)
+      langSelected = ISO6391.getName(window.navigator.language.substring(0, 2));
+    else if (langSelected === null || undefined) langSelected = 'english';
+    return langSelected.toLowerCase();
+  }
+
+  useEffect(() => {
+    langSelected = getAndSetLanguage(langSelected);
+  }, []);
 
   return (
     <div>
