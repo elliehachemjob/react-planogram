@@ -6,12 +6,13 @@ export default function handler(
   res: NextApiResponse<any>
 ) {
 
-  const welcomePage = {
+  const welcomePageData = {
     countries: ["UAE", "MALDIVES", "PAKISTAN", "SRI LANKA", "ALGERIA", "NIGERIA", "ANGOLA", "MAURITIUS", "KENYA", "EGYPT", "OMAN", "KUWAIT", "QATAR", "JORDAN", "BAHRAIN", "KSA", "LEBANON", "GHANA"],
     siteName: 'WINGMAN',
     image: "/assets/logo.png",
-    welcomeProgram: "program"
+    welcomeProgram: "program 2022",
+    welcomeSelectACountryToStart: "Select country to start",
   };
 
-  res.status(200).json(welcomePage);
+  res.status(200).json(welcomePageData);
 }

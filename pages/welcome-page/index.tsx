@@ -2,9 +2,15 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../../styles/welcome-page.module.css';
+import { useRouter } from 'next/router';
 
 export default function WelcomePage({ welcomePageData }: any) {
-  const siteName: string = 'WINGMAN';
+  const router = useRouter();
+
+  function navigateLanguagesPageSelectALanguageToStart(country: string): void {
+    window.localStorage.setItem('country', country);
+    router.replace('/languages', country.toLowerCase().replace(/\s+/g, ''));
+  }
 
   return (
     <div>
@@ -25,28 +31,34 @@ export default function WelcomePage({ welcomePageData }: any) {
               />
             </div>
             <div className='plano-wing-titles-cont'>
-              <span className='wingman-title'>{siteName}</span>
+              <span className='wingman-title'> {welcomePageData.siteName}</span>
               <br />
               {welcomePageData.welcomeProgram}
-              {/* {'welcomeProgram' | CustomTranslation:langSelected} {year} */}
+              {/* {'welcomeProgram' | CustomTranslation:langSelected} */}
             </div>
             <div
               className='wlc-page-countries-cont countries-list'
               id='country-list'
             >
               <div className='country-cont'>
-                <div className='country-content {{country.toLowerCase()}}'>
-                  {welcomePageData.countries.map((country: string) => (
-                    <div>{country}</div>
-                  ))}
-                </div>
+                {welcomePageData.countries.map((country: string) => (
+                  <div
+                    onClick={(event) =>
+                      navigateLanguagesPageSelectALanguageToStart(country)
+                    }
+                    className={`country-content ${country.toLowerCase()}`}
+                  >
+                    {country}
+                  </div>
+                ))}
               </div>
               <div className='select-country'>
-                {'{'}
+                {/* {'{'}
                 {'{'}'welcomeSelectACountryToStart' |
                 CustomTranslation:langSelected
                 {'}'}
-                {'}'}
+                {'}'} */}
+                {welcomePageData.welcomeSelectACountryToStart}
               </div>
             </div>
           </div>
