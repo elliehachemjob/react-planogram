@@ -6,5 +6,5 @@ export default function Article() {
   const router: any = useRouter();
   const { id } = router.query;
 
-  return <div>This is article {id}</div>;
+  return <div>Dynamic Home Page {id}</div>;
 }
