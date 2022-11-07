@@ -14,9 +14,7 @@ export default function Home({ articles }: any) {
       </Head>
       test
       {articles.map((article: any, index: number) => (
-        <div>
-          <h3 key={index}>{article.title}</h3>
-        </div>
+        <div key={index}>{article.title}</div>
       ))}
     </div>
   );
