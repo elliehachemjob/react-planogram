@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'Bull';
-  src: url('../assets/font/Bull-Regular.eot');
-  src: url('../assets/font/Bull-Regular.eot?#iefix') format('embedded-opentype'), url('../assets/font/Bull-Regular.woff2') format('woff2'), url('../assets/font/Bull-Regular.woff') format('woff'), url('../assets/font/Bull-Regular.ttf') format('truetype');
+  src: url('../public/assets/font/Bull-Regular.eot');
+  src: url('../public/assets/font/Bull-Regular.eot?#iefix') format('embedded-opentype'), url('../public/assets/font/Bull-Regular.woff2') format('woff2'), url('../public/assets/font/Bull-Regular.woff') format('woff'), url('../public/assets/font/Bull-Regular.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -9,8 +9,8 @@
 
 @font-face {
   font-family: 'NotoKu';
-  src: url('../assets/font/NotoKufiArabic-Regular.eot');
-  src: url('../assets/font/NotoKufiArabic-Regular.eot?#iefix') format('embedded-opentype'), url('../assets/font/NotoKufiArabic-Regular.woff2') format('woff2'), url('../assets/font/NotoKufiArabic-Regular.woff') format('woff'), url('../assets/font/NotoKufiArabic-Regular.ttf') format('truetype');
+  src: url('../public/assets/font/NotoKufiArabic-Regular.eot');
+  src: url('../public/assets/font/NotoKufiArabic-Regular.eot?#iefix') format('embedded-opentype'), url('../public/assets/font/NotoKufiArabic-Regular.woff2') format('woff2'), url('../public/assets/font/NotoKufiArabic-Regular.woff') format('woff'), url('../public/assets/font/NotoKufiArabic-Regular.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
   font-display: swap;
@@ -18,8 +18,8 @@
 
 @font-face {
   font-family: 'Bull';
-  src: url('../assets/font/Bull-Bold.eot');
-  src: url('../assets/font/Bull-Bold.eot?#iefix') format('embedded-opentype'), url('../assets/font/Bull-Bold.woff2') format('woff2'), url('../assets/font/Bull-Bold.woff') format('woff'), url('../assets/font/Bull-Bold.ttf') format('truetype');
+  src: url('../public/assets/font/Bull-Bold.eot');
+  src: url('../public/assets/font/Bull-Bold.eot?#iefix') format('embedded-opentype'), url('../public/assets/font/Bull-Bold.woff2') format('woff2'), url('../public/assets/font/Bull-Bold.woff') format('woff'), url('../public/assets/font/Bull-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -27,8 +27,8 @@
 
 @font-face {
   font-family: 'NotoKu';
-  src: url('../assets/font/NotoKufiArabic-Bold.eot');
-  src: url('../assets/font/NotoKufiArabic-Bold.eot?#iefix') format('embedded-opentype'), url('../assets/font/NotoKufiArabic-Bold.woff2') format('woff2'), url('../assets/font/NotoKufiArabic-Bold.woff') format('woff'), url('../assets/font/NotoKufiArabic-Bold.ttf') format('truetype');
+  src: url('../public/assets/font/NotoKufiArabic-Bold.eot');
+  src: url('../public/assets/font/NotoKufiArabic-Bold.eot?#iefix') format('embedded-opentype'), url('../public/assets/font/NotoKufiArabic-Bold.woff2') format('woff2'), url('../public/assets/font/NotoKufiArabic-Bold.woff') format('woff'), url('../public/assets/font/NotoKufiArabic-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -36,8 +36,8 @@
 
 @font-face {
   font-family: 'Bull';
-  src: url('../assets/font/Bull-Medium.eot');
-  src: url('../assets/font/Bull-Medium.eot?#iefix') format('embedded-opentype'), url('../assets/font/Bull-Medium.woff2') format('woff2'), url('../assets/font/Bull-Medium.woff') format('woff'), url('../assets/font/Bull-Medium.ttf') format('truetype');
+  src: url('../public/assets/font/Bull-Medium.eot');
+  src: url('../public/assets/font/Bull-Medium.eot?#iefix') format('embedded-opentype'), url('../public/assets/font/Bull-Medium.woff2') format('woff2'), url('../public/assets/font/Bull-Medium.woff') format('woff'), url('../public/assets/font/Bull-Medium.ttf') format('truetype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -45,8 +45,8 @@
 
 @font-face {
   font-family: 'Bull';
-  src: url('../assets/font/Bull-Heavy1.eot');
-  src: url('../assets/font/Bull-Heavy1.eot?#iefix') format('embedded-opentype'), url('../assets/font/Bull-Heavy1.woff2') format('woff2'), url('../assets/font/Bull-Heavy1.woff') format('woff'), url('../assets/font/Bull-Heavy1.ttf') format('truetype');
+  src: url('../public/assets/font/Bull-Heavy1.eot');
+  src: url('../public/assets/font/Bull-Heavy1.eot?#iefix') format('embedded-opentype'), url('../public/assets/font/Bull-Heavy1.woff2') format('woff2'), url('../public/assets/font/Bull-Heavy1.woff') format('woff'), url('../public/assets/font/Bull-Heavy1.ttf') format('truetype');
   font-weight: 800;
   font-style: normal;
   font-display: swap;
@@ -74,7 +74,7 @@ body [dir=rtl] {
 
 .plano-wlc-page-wrapper {
   max-width: 1920px;
-  background-image: url('../assets/splash-bg.png');
+  background-image: url('../public/assets/splash-bg.png');
   background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;
@@ -147,75 +147,75 @@ body [dir=rtl] {
 }
 
 .country-content.uae::before {
-  background-image: url('../assets/flags/uae.png');
+  background-image: url('../public/assets/flags/uae.png');
 }
 
 .country-content.maldives::before {
-  background-image: url('../assets/flags/maldives.png');
+  background-image: url('../public/assets/flags/maldives.png');
 }
 
 .country-content.pakistan::before {
-  background-image: url('../assets/flags/pakistan.png');
+  background-image: url('../public/assets/flags/pakistan.png');
 }
 
 .country-content.sri.lanka::before {
-  background-image: url('../assets/flags/sriLanka.png');
+  background-image: url('../public/assets/flags/sriLanka.png');
 }
 
 .country-content.algeria::before {
-  background-image: url('../assets/flags/algeria.png');
+  background-image: url('../public/assets/flags/algeria.png');
 }
 
 .country-content.nigeria::before {
-  background-image: url('../assets/flags/nigeria.png');
+  background-image: url('../public/assets/flags/nigeria.png');
 }
 
 .country-content.angola::before {
-  background-image: url('../assets/flags/angola.png');
+  background-image: url('../public/assets/flags/angola.png');
 }
 
 .country-content.mauritius::before {
-  background-image: url('../assets/flags/mauritius.png');
+  background-image: url('../public/assets/flags/mauritius.png');
 }
 
 .country-content.kenya::before {
-  background-image: url('../assets/flags/kenya.png');
+  background-image: url('../public/assets/flags/kenya.png');
 }
 
 .country-content.egypt::before {
-  background-image: url('../assets/flags/egypt.png');
+  background-image: url('../public/assets/flags/egypt.png');
 }
 
 .country-content.oman::before {
-  background-image: url('../assets/flags/oman.png');
+  background-image: url('../public/assets/flags/oman.png');
 }
 
 .country-content.kuwait::before {
-  background-image: url('../assets/flags/kuwait.png');
+  background-image: url('../public/assets/flags/kuwait.png');
 }
 
 .country-content.qatar::before {
-  background-image: url('../assets/flags/qatar.png');
+  background-image: url('../public/assets/flags/qatar.png');
 }
 
 .country-content.jordan::before {
-  background-image: url('../assets/flags/jordan.png');
+  background-image: url('../public/assets/flags/jordan.png');
 }
 
 .country-content.bahrain::before {
-  background-image: url('../assets/flags/bahrain.png');
+  background-image: url('../public/assets/flags/bahrain.png');
 }
 
 .country-content.ksa::before {
-  background-image: url('../assets/flags/ksa.png');
+  background-image: url('../public/assets/flags/ksa.png');
 }
 
 .country-content.lebanon::before {
-  background-image: url('../assets/flags/lebanon.png');
+  background-image: url('../public/assets/flags/lebanon.png');
 }
 
 .country-content.ghana::before {
-  background-image: url('../assets/flags/ghana.png');
+  background-image: url('../public/assets/flags/ghana.png');
 }
 
 .select-country {
@@ -388,19 +388,19 @@ body [dir=rtl] {
 }
 
 .discover-category.impulse {
-  background-image: url('../assets/impulse.jpg');
+  background-image: url('../public/assets/impulse.jpg');
 }
 
 .discover-category.cg {
-  background-image: url('../assets/cg.jpg');
+  background-image: url('../public/assets/cg.jpg');
 }
 
 .discover-category.retail {
-  background-image: url('../assets/retail.jpg');
+  background-image: url('../public/assets/retail.jpg');
 }
 
 .discover-category.coolers {
-  background-image: url('../assets/cooler.jpg');
+  background-image: url('../public/assets/cooler.jpg');
 }
 
 .category-title {
