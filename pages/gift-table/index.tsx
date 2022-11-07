@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import styles from '../../styles/gift-table.module.css';
 
 export default function GiftTable({ articles }: any) {
   console.log(articles);
