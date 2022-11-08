@@ -9,7 +9,7 @@ export default function handler(
   const innerPageData = {
     siteName: 'WINGMAN',
     planogramQuickSearchPlaceHolder: "Planogram Quick Search ",
-
+    chosenLanguages: ["English", "Arabic", "French"]
   };
 
   res.status(200).json(innerPageData);

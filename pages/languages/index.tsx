@@ -5,7 +5,6 @@ import styles from '../../styles/languages.module.css';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import ISO6391 from 'iso-639-1';
-
 export default function Languages({ commonData, languagesPageData }: any) {
   const router = useRouter();
   let langSelected: any = '';
