@@ -6,13 +6,11 @@ export default function handler(
   res: NextApiResponse<any>
 ) {
 
-  const commonData = {
+  const innerPageData = {
     siteName: 'WINGMAN',
-    welcomeProgram: "program 2022",
-    discover: "Discover",
-    vip: "VIP",
-    insights: "INSIGHTS"
+    planogramQuickSearchPlaceHolder: "Planogram Quick Search ",
+
   };
 
-  res.status(200).json(commonData);
+  res.status(200).json(innerPageData);
 }

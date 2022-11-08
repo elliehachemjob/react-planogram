@@ -8,20 +8,19 @@ import ISO6391 from 'iso-639-1';
 
 export default function Languages({ commonData, languagesPageData }: any) {
   const router = useRouter();
-
   let langSelected: any = '';
   const [languages, setLanguages] = useState<any>([]);
 
   function navigateInnerPage(language: string): void {
     if (language.toLowerCase() === 'arabic') {
       localStorage.setItem('isRTL', 'true');
-      router.push('/home').then((): void => {
+      router.push('/inner-page').then((): void => {
         window.location.reload();
       });
     } else {
       localStorage.setItem('isRTL', 'false');
     }
-    router.push('/home').then((): void => {
+    router.push('/inner-page').then((): void => {
       window.location.reload();
     });
     localStorage.setItem('language', language);
