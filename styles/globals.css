@@ -958,3 +958,25 @@ th {
 [dir=rtl] .gift-table-section .discover-proceed-arrow svg {
   transform: rotate(180deg);
 }
+
+
+/* dropdown styles react here */
+.MuiSvgIcon-root {
+  fill: white !important
+}
+
+.MuiButtonBase-root {
+  background-color: rgb(0, 29, 60) !important;
+}
+
+.MuiPaper-root {
+  margin: 0 20px !important;
+}
+
+.MuiAccordionSummary-expandIconWrapper {
+  background: red !important;
+  width: 30px;
+  width: 88px;
+  height: 88px;
+  margin-right: -16px;
+}

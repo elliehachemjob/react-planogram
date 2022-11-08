@@ -37,15 +37,16 @@
   color: white;
 }
 
-.sub-cats-title {
+.subCatsTitle {
   font-size: 18px;
   padding: 0px 20px;
   font-weight: 700;
   margin: 0 0 2px 20px;
   padding: 0px;
+  color: white
 }
 
-.sub-cats-sub-title {
+.subCatSubTitle {
   font-size: 13px;
   padding: 0px 20px;
   line-height: 20px;
@@ -53,9 +54,23 @@
   text-transform: uppercase;
   margin: 0 0 2px 20px;
   padding: 0px;
+  color: white
 }
 
 ::ng-deep .mat-expansion-panel-header-title,
 .mat-expansion-panel-header-description {
   display: block !important;
+}
+
+
+
+
+
+/* react dropdown styles here */
+
+.subCategoryContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: rgb(0,29,60); */
 }
