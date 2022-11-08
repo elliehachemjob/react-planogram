@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import ISO6391 from 'iso-639-1';
 import { useEffect } from 'react';
 
-export default function WelcomePage({ welcomePageData }: any) {
+export default function WelcomePage({ commonData, welcomePageData }: any) {
   const router = useRouter();
   let langSelected: any;
   function navigateLanguagesPageSelectALanguageToStart(country: string): void {
@@ -25,6 +25,10 @@ export default function WelcomePage({ welcomePageData }: any) {
   useEffect(() => {
     langSelected = getAndSetLanguage(langSelected);
   }, []);
+
+  // basic loop needed
+  // {welcomePageData.countries.map((country: string) => {}
+  // )}
 
   return (
     <div>
@@ -45,9 +49,9 @@ export default function WelcomePage({ welcomePageData }: any) {
               />
             </div>
             <div className='plano-wing-titles-cont'>
-              <span className='wingman-title'> {welcomePageData.siteName}</span>
+              <span className='wingman-title'> {commonData.siteName}</span>
               <br />
-              {welcomePageData.welcomeProgram}
+              {commonData.welcomeProgram}
               {/* {'welcomeProgram' | CustomTranslation:langSelected} */}
             </div>
             <div
@@ -83,11 +87,15 @@ export default function WelcomePage({ welcomePageData }: any) {
 }
 
 export const getStaticProps = async () => {
+  const commonRes = await fetch(`http://localhost:3000/api/common-data`);
+  const commonData = await commonRes.json();
+
   const res = await fetch(`http://localhost:3000/api/welcome-page`);
   const welcomePageData = await res.json();
   return {
     props: {
       welcomePageData: welcomePageData,
+      commonData: commonData,
     },
   };
 };

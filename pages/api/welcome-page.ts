@@ -8,9 +8,7 @@ export default function handler(
 
   const welcomePageData = {
     countries: ["UAE", "MALDIVES", "PAKISTAN", "SRI LANKA", "ALGERIA", "NIGERIA", "ANGOLA", "MAURITIUS", "KENYA", "EGYPT", "OMAN", "KUWAIT", "QATAR", "JORDAN", "BAHRAIN", "KSA", "LEBANON", "GHANA"],
-    siteName: 'WINGMAN',
     image: "/assets/logo.png",
-    welcomeProgram: "program 2022",
     welcomeSelectACountryToStart: "Select country to start",
   };
 
