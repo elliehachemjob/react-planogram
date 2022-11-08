@@ -9,7 +9,9 @@ import ISO6391 from 'iso-639-1';
 export default function InnerPage({ commonData, innerPageData }: any) {
   const router = useRouter();
   let langSelected: any = '';
+  let categoryChosen: any = [];
   const [isOverlayOpen, setIsOverlayOpen] = useState(true);
+  const [renderCategories, setRenderCategories] = useState([]);
 
   function changeLanguage(language: any) {
     localStorage.setItem('language', language);
@@ -37,6 +39,25 @@ export default function InnerPage({ commonData, innerPageData }: any) {
     }
     return;
   }
+
+  function navigateSubCategory() {
+    router.replace('/sub-categories');
+  }
+
+  function getCategoryChosen(countryChosen: any, listOfCountries: any): void {
+    categoryChosen = listOfCountries.filter(
+      (data: any): boolean => data.country.toLowerCase() === 'lebanon'
+    );
+  }
+
+  useEffect(() => {
+    getCategoryChosen(
+      localStorage.getItem('country')?.toLowerCase(),
+      innerPageData.categories
+    );
+    setRenderCategories(categoryChosen);
+    console.log(renderCategories, 'test');
+  }, []);
 
   return (
     <div
@@ -82,7 +103,6 @@ export default function InnerPage({ commonData, innerPageData }: any) {
                   );
                 })}
               </ul>
-              {/* // replace here svg from material UI which is a good replacement for angular material */}
               <svg
                 onClick={() => {
                   setIsOverlayOpen(!isOverlayOpen);
@@ -99,16 +119,33 @@ export default function InnerPage({ commonData, innerPageData }: any) {
           </div>
         </div>
         <div
-          loopclick='navigateSubCategory()'
+          onClick={() => {
+            navigateSubCategory();
+          }}
           className='plano-inner-page-cont'
         >
           <div className='plano-inner-page-content'>
             <div className='discover-categories-wrapper'>
-              <div
-                loop='let category of categoryChosen'
-                className='discover-categories-container'
-              >
-                <div loop='let categoryChosenData of category.content'>
+              {renderCategories.map((categoryChosenData: any) => {
+                return (
+                  <div>
+                    {categoryChosenData.content.map((category: any) => {
+                      return (
+                        <div
+                          className={`discover-category ${category.background}`}
+                        >
+                          {/* {categoryChosenData.title |
+                      CustomTranslation:langSelected } */}
+                          <div className='category-title'>{category.title}</div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                );
+              })}
+
+              <div className='discover-categories-container'>
+                <div>
                   <div className='discover-category {{categoryChosenData.background}}'>
                     <div className='category-title'>
                       {/* {categoryChosenData.title |

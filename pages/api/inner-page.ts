@@ -9,7 +9,21 @@ export default function handler(
   const innerPageData = {
     siteName: 'WINGMAN',
     planogramQuickSearchPlaceHolder: "Planogram Quick Search ",
-    chosenLanguages: ["English", "Arabic", "French"]
+    chosenLanguages: ["English", "Arabic", "French"],
+    categories: [
+      {
+        "country": "Lebanon",
+        "content": [
+          { title: "impulse", background: "impulse" }, { title: "cAndG", background: "cg" }, { title: "retail", background: "retail" }, { title: "coolers", background: "coolers" }
+        ]
+      },
+      {
+        "country": "Qatar",
+        "content": [
+          { title: "impulse", background: "impulse" }
+        ]
+      },
+    ]
   };
 
   res.status(200).json(innerPageData);
