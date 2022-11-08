@@ -69,11 +69,7 @@ export default function InnerPage({ commonData, innerPageData }: any) {
               <ul className={styles.overlayList}>
                 {innerPageData.chosenLanguages.map((language: any) => {
                   return (
-                    <div
-                      className={`country-cont lang ${
-                        isOverlayOpen ? 'hide' : ''
-                      }`}
-                    >
+                    <div className={` lang ${isOverlayOpen ? 'hide' : ''}`}>
                       <li
                         className={styles.innerOverlay}
                         onClick={() => {
