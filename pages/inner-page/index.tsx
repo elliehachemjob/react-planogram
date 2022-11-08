@@ -10,7 +10,7 @@ export default function InnerPage({ commonData, innerPageData }: any) {
   const router = useRouter();
   let langSelected: any = '';
   let categoryChosen: any = [];
-  const [isOverlayOpen, setIsOverlayOpen] = useState(true);
+  const [isOverlayOpen, setIsOverlayOpen] = useState<any>(true);
   const [renderCategories, setRenderCategories] = useState([]);
 
   function changeLanguage(language: any) {
@@ -62,7 +62,7 @@ export default function InnerPage({ commonData, innerPageData }: any) {
   return (
     <div
       onClick={() => {
-        setIsOverlayOpen(!isOverlayOpen);
+        if (!isOverlayOpen) setIsOverlayOpen(!isOverlayOpen);
       }}
       className={styles.container}
     >
@@ -128,7 +128,7 @@ export default function InnerPage({ commonData, innerPageData }: any) {
             <div className='discover-categories-wrapper'>
               {renderCategories.map((categoryChosenData: any) => {
                 return (
-                  <div>
+                  <div className='discover-categories-container'>
                     {categoryChosenData.content.map((category: any) => {
                       return (
                         <div
@@ -143,31 +143,6 @@ export default function InnerPage({ commonData, innerPageData }: any) {
                   </div>
                 );
               })}
-
-              <div className='discover-categories-container'>
-                <div>
-                  <div className='discover-category {{categoryChosenData.background}}'>
-                    <div className='category-title'>
-                      {/* {categoryChosenData.title |
-                      CustomTranslation:langSelected } */}
-                    </div>
-                    <div className='discover-proceed-arrow'>
-                      <svg
-                        xmlns='http://www.w3.org/2000/svg'
-                        width='18.613'
-                        height='14.083'
-                        viewBox='0 0 18.613 14.083'
-                      >
-                        <path
-                          className='a'
-                          d='M2.814,21.877l6,6A1.039,1.039,0,1,0,10.279,26.4L6.066,22.17H20.075a1.039,1.039,0,1,0,0-2.077H6.066l4.212-4.212a1.028,1.028,0,0,0,0-1.469,1.07,1.07,0,0,0-.745-.314,1.024,1.024,0,0,0-.745.314L2.814,20.387a1.04,1.04,0,0,0,0,1.489Z'
-                          transform='translate(21.113 28.181) rotate(180)'
-                        />
-                      </svg>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
