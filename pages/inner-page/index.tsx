@@ -50,6 +50,14 @@ export default function InnerPage({ commonData, innerPageData }: any) {
     );
   }
 
+  function getAndSetLanguage(langSelected: any) {
+    langSelected = localStorage.getItem('language');
+    if (langSelected === null || undefined)
+      langSelected = ISO6391.getName(window.navigator.language.substring(0, 2));
+    else if (langSelected === null || undefined) langSelected = 'english';
+    return langSelected.toLowerCase();
+  }
+
   useEffect(() => {
     getCategoryChosen(
       localStorage.getItem('country')?.toLowerCase(),
@@ -57,6 +65,7 @@ export default function InnerPage({ commonData, innerPageData }: any) {
     );
     setRenderCategories(categoryChosen);
     console.log(renderCategories, 'test');
+    langSelected = getAndSetLanguage(langSelected);
   }, []);
 
   return (

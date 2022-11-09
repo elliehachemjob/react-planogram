@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../../styles/sub-categories.module.css';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 //For the accordion
 import Accordion from '@mui/material/Accordion';
@@ -11,10 +11,16 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { style } from '@mui/system';
-import React from 'react';
 import { ClassNames } from '@emotion/react';
+import { useRouter } from 'next/router';
+import ISO6391 from 'iso-639-1';
 
 export default function SubCategories({ articles }: any) {
+  const router = useRouter();
+  let langSelected: any = '';
+  let subCategoryChosen: any = [];
+  const [renderSubCategories, setRenderSubCategories] = useState([]);
+
   const [expanded, setExpanded] = useState<string | false>(false);
   //Animation Disable Variables
   const [animationsEnabled, enableAnimations] = React.useState(false);
@@ -25,6 +31,18 @@ export default function SubCategories({ articles }: any) {
     (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
       setExpanded(isExpanded ? panel : false);
     };
+
+  function getAndSetLanguage(langSelected: any) {
+    langSelected = localStorage.getItem('language');
+    if (langSelected === null || undefined)
+      langSelected = ISO6391.getName(window.navigator.language.substring(0, 2));
+    else if (langSelected === null || undefined) langSelected = 'english';
+    return langSelected.toLowerCase();
+  }
+
+  useEffect(() => {
+    langSelected = getAndSetLanguage(langSelected);
+  }, []);
 
   //Animation Disable Hook
   React.useEffect(() => {
