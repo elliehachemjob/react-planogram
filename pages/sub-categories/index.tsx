@@ -95,7 +95,7 @@ export default function SubCategories({
   }
 
   function navigateInnerPage(): void {
-    router.push('/home');
+    router.push('/inner-page');
   }
 
   return (
@@ -114,6 +114,9 @@ export default function SubCategories({
             </div>
             <div
               className='discover-proceed-arrow back-arrow'
+              onClick={() => {
+                navigateInnerPage();
+              }}
               ifclass="{'footer-element-selected':isLogoActive }"
             >
               <svg
