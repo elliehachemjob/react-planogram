@@ -11,14 +11,48 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { style } from '@mui/system';
+import React from 'react';
+import { ClassNames } from '@emotion/react';
 
 export default function SubCategories({ articles }: any) {
   const [expanded, setExpanded] = useState<string | false>(false);
+  //Animation Disable Variables
+  const [animationsEnabled, enableAnimations] = React.useState(false);
+  const stylesheetRef = React.useRef<HTMLStyleElement>();
+  //Animation Disable Variables
 
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
       setExpanded(isExpanded ? panel : false);
     };
+
+  //Animation Disable Hook
+  React.useLayoutEffect(() => {
+    if (!stylesheetRef.current) {
+      console.log('First run, creating a stylesheet');
+      stylesheetRef.current = document.createElement('style');
+      document.head.appendChild(stylesheetRef.current);
+    }
+
+    if (animationsEnabled) {
+      console.log('Enabling animations');
+      const sheet = stylesheetRef.current.sheet;
+      if (sheet?.cssRules.length) {
+        sheet.deleteRule(0);
+      }
+    } else {
+      console.log('Disabling animations');
+      const sheet = stylesheetRef.current.sheet;
+      const styles = `*,
+        *::before,
+        *::after {
+          transition: none !important;
+          animation: none !important;
+        }`;
+      sheet!.insertRule(styles, 0);
+    }
+  }, [animationsEnabled]);
+  //Animation Disable Hook
 
   return (
     <div>
@@ -54,31 +88,7 @@ export default function SubCategories({ articles }: any) {
           </div>
         </div>
         {/* //Keep this for now */}
-        <div className='sub-categories-container'>
-          <div className='sub-categories-content'>
-            <div className='sub-cats-inner-page-cont'>
-              <div className='sub-cats-inner-page'>
-                <div className='sub-cats-inner-page-title'>
-                  {/* {subCategory.nestedDetails.title |
-                  CustomTranslation:langSelected} */}{' '}
-                  subCategory.nestedDetails
-                </div>
-                <div className='sub-cats-inner-page-img'>
-                  <img
-                    src='{{subCategory.nestedDetails.imagePath}}'
-                    alt='{{subCategory'
-                  />
-                </div>
-                <div className='sub-cats-inner-page-flow'>
-                  {/* {subCategory.nestedDetails.flow |
-                  CustomTranslation:langSelected } */}{' '}
-                  subCategory.nestedDetails.flow
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
+        <div className={styles.headerPaddingDiv}></div>
         <div>
           <Accordion
             expanded={expanded === 'panel1'}

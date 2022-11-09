@@ -63,14 +63,11 @@
 }
 
 
+/* Find better solution Here */
+.headerPaddingDiv {
+  padding: 45px 20px;
+}
 
 
 
 /* react dropdown styles here */
-
-.subCategoryContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* background-color: rgb(0,29,60); */
-}
