@@ -8,21 +8,20 @@ export default function handler(
 
   const subCategoriesPageData = {
     subCategoryName: "impulse",
-    categories: [
+    subCategories: [
       {
         "country": "Lebanon",
         "content": [
-          { title: "impulse", background: "impulse" }, { title: "cAndG", background: "cg" }, { title: "retail", background: "retail" }, { title: "coolers", background: "coolers" }
+          { id: 1, title: "impulseA", subTitle: "shelfMainPlacement", nestedDetails: { title: "MinTwelveFacings", imagePath: "/assets/subCategory/1.png", flow: "TrafficFlow", isEmptyContent: false } }, { id: 2, title: "impulseB", subTitle: "shelfMainPlacement", nestedDetails: { title: "MinTwelveFacings", imagePath: "/assets/subCategory/1.png", flow: "TrafficFlow", isEmptyContent: false } }, { id: 3, title: "impulseC", subTitle: "shelfMainPlacement", nestedDetails: { title: "MinTwelveFacings", imagePath: "/assets/subCategory/1.png", flow: "TrafficFlow", isEmptyContent: false } }
         ]
       },
       {
         "country": "Qatar",
         "content": [
-          { title: "impulse", background: "impulse" }
+          { id: 1, title: "Impulse A", subTitle: "shelfMainPlacement", nestedDetails: { title: "MinTwelveFacings", imagePath: "/assets/subCategory/1.png", flow: "TrafficFlow", isEmptyContent: false } }, { id: 2, title: "impulseB", subTitle: "shelfMainPlacement", nestedDetails: { title: "MinTwelveFacings", imagePath: "/assets/subCategory/1.png", flow: "TrafficFlow", isEmptyContent: false } }
         ]
-      },
+      }
     ]
-
 
   };
 

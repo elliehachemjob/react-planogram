@@ -15,10 +15,13 @@ import { ClassNames } from '@emotion/react';
 import { useRouter } from 'next/router';
 import ISO6391 from 'iso-639-1';
 
-export default function SubCategories({ articles }: any) {
+export default function SubCategories({
+  commonData,
+  subCategoriesPageData,
+}: any) {
   const router = useRouter();
   let langSelected: any = '';
-  let subCategoryChosen: any = [];
+  let subCategories: any = [];
   const [renderSubCategories, setRenderSubCategories] = useState([]);
 
   const [expanded, setExpanded] = useState<string | false>(false);
@@ -40,8 +43,19 @@ export default function SubCategories({ articles }: any) {
     return langSelected.toLowerCase();
   }
 
+  function getMethod(mainContent: any, countryChosen: any): void {
+    mainContent = mainContent.filter(
+      (data: any): boolean =>
+        data.country.toLowerCase() === countryChosen.toLowerCase()
+    );
+    mainContent.map((item: any) => (mainContent = item.content));
+    return mainContent;
+  }
+
   useEffect(() => {
     langSelected = getAndSetLanguage(langSelected);
+    subCategories = getMethod(subCategoriesPageData.subCategories, 'lebanon');
+    setRenderSubCategories(subCategories);
   }, []);
 
   //Animation Disable Hook
@@ -72,6 +86,18 @@ export default function SubCategories({ articles }: any) {
   }, [animationsEnabled]);
   //Animation Disable Hook
 
+  function navigateInsightsPage(): void {
+    router.push('/insights');
+  }
+
+  function navigateVipPage(): void {
+    router.push('/vip');
+  }
+
+  function navigateInnerPage(): void {
+    router.push('/home');
+  }
+
   return (
     <div>
       <Head>
@@ -84,7 +110,7 @@ export default function SubCategories({ articles }: any) {
           <div className='fxd-header-sect'>
             <div className='fxd-header-content'>
               {/* {subCategoryName | CustomTranslation:langSelected} */}{' '}
-              subCategoryName
+              {subCategoriesPageData.subCategoryName}
             </div>
             <div
               className='discover-proceed-arrow back-arrow'
@@ -108,56 +134,62 @@ export default function SubCategories({ articles }: any) {
         {/* //Keep this for now */}
         <div className={styles.headerPaddingDiv}></div>
         <div>
-          <Accordion
-            expanded={expanded === 'panel1'}
-            onChange={handleChange('panel1')}
-          >
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
-              aria-controls='panel1bh-content'
-              id='panel1bh-header'
-            >
-              <div>
-                <div className='sub-categories-content'>
-                  {/* {subCategory.title | CustomTranslation:langSelected} {subCategory.subTitle | CustomTranslation:langSelected} */}
-                  <div className={styles.subCatsTitle}>
-                    {/* {{subCategory.title | CustomTranslation:langSelected}} */}
-                    subCategory.title
-                  </div>
-                  <div className={styles.subCatSubTitle}>
-                    {/* {{subCategory.subTitle | CustomTranslation:langSelected}} */}
-                    subCategory.subTitle
-                  </div>
-                </div>
-              </div>
-            </AccordionSummary>
-            <AccordionDetails className={styles.subCategoryContainer}>
-              <div className='sub-categories-container'>
-                <div className='sub-categories-content'>
-                  <div className='sub-cats-inner-page-cont'>
-                    <div className='sub-cats-inner-page'>
-                      <div className='sub-cats-inner-page-title'>
-                        {/* {subCategory.nestedDetails.title |
-                  CustomTranslation:langSelected} */}{' '}
-                        subCategory.nestedDetails
-                      </div>
-                      <div className='sub-cats-inner-page-img'>
-                        <img
-                          src='{{subCategory.nestedDetails.imagePath}}'
-                          alt='{{subCategory'
-                        />
-                      </div>
-                      <div className='sub-cats-inner-page-flow'>
-                        {/* {subCategory.nestedDetails.flow |
-                  CustomTranslation:langSelected } */}{' '}
-                        subCategory.nestedDetails.flow
+          {renderSubCategories.map((subCategory: any) => {
+            return (
+              <div className='general-small-padding'>
+                <Accordion
+                  expanded={expanded === subCategory.id}
+                  onChange={handleChange(subCategory.id)}
+                >
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls='panel1bh-content'
+                    id='panel1bh-header'
+                  >
+                    <div>
+                      <div className='sub-categories-content'>
+                        {/* {subCategory.title | CustomTranslation:langSelected} {subCategory.subTitle | CustomTranslation:langSelected} */}
+                        <div className={styles.subCatsTitle}>
+                          {/* {{subCategory.title | CustomTranslation:langSelected}} */}
+                          {subCategory.title}
+                        </div>
+                        <div className={styles.subCatSubTitle}>
+                          {/* {{subCategory.subTitle | CustomTranslation:langSelected}} */}
+                          {subCategory.subTitle}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </div>
+                  </AccordionSummary>
+                  <AccordionDetails className={styles.subCategoryContainer}>
+                    <div className='sub-categories-container'>
+                      <div className='sub-categories-content'>
+                        <div className='sub-cats-inner-page-cont'>
+                          <div className='sub-cats-inner-page'>
+                            <div className='sub-cats-inner-page-title'>
+                              {/* {subCategory.nestedDetails.title |
+                  CustomTranslation:langSelected} */}{' '}
+                              {subCategory.nestedDetails.title}
+                            </div>
+                            <div className='sub-cats-inner-page-img'>
+                              <img
+                                src={subCategory.nestedDetails.imagePath}
+                                alt='{{subCategory'
+                              />
+                            </div>
+                            <div className='sub-cats-inner-page-flow'>
+                              {/* {subCategory.nestedDetails.flow |
+                  CustomTranslation:langSelected } */}{' '}
+                              {subCategory.nestedDetails.flow}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </AccordionDetails>
+                </Accordion>
               </div>
-            </AccordionDetails>
-          </Accordion>
+            );
+          })}
         </div>
 
         <div className='fxd-footer-sect-cont'>

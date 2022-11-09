@@ -980,3 +980,7 @@ th {
   height: 100px;
   margin-right: -16px;
 }
+
+.general-small-padding {
+  padding: 5px;
+}
