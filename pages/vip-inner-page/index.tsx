@@ -71,7 +71,6 @@ export default function VipInnerPage({ commonData, vipInnerPageData }: any) {
           <div className='fxd-header-sect'>
             <div className='fxd-header-content'>
               {/* { vipCategoriesDetailsHeader | CustomTranslation:langSelected } */}
-              {}
               {vipInnerPageData.vipCategoriesDetailsHeader}
             </div>
             <div className='discover-proceed-arrow back-arrow'>
@@ -162,8 +161,7 @@ export default function VipInnerPage({ commonData, vipInnerPageData }: any) {
             );
           }
         )}
-
-        <Footer />
+        <Footer commonData={commonData} />
       </div>
     </div>
   );

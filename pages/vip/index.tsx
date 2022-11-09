@@ -86,10 +86,7 @@ export default function Vip({ commonData, vipData }: any) {
                 <div className='sub-cats-container'>
                   {renderVipCategories.map((vipCategory: any) => {
                     return (
-                      <div
-                        loop='let vipCategory of vipCategories'
-                        className='sub-cats vip-cats default-margin'
-                      >
+                      <div className='sub-cats vip-cats default-margin'>
                         <div className='sub-cats-title vip-cats-title'>
                           {/* {vipCategory | CustomTranslation:langSelected} */}
                           {vipCategory}
@@ -125,7 +122,7 @@ export default function Vip({ commonData, vipData }: any) {
             </div>
           </div>
         </div>
-        <Footer />
+        <Footer commonData={commonData} />
       </div>
     </div>
   );

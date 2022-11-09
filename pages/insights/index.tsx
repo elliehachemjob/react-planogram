@@ -1,10 +1,43 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import Footer from '../../components/Footer';
 import styles from '../../styles/insights.module.css';
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import ISO6391 from 'iso-639-1';
 
-export default function Insights({ articles }: any) {
-  console.log(articles);
+export default function Insights({ commonData, insightsPageData }: any) {
+  let langSelected: any = '';
+  let inSightsCategories: any = [];
+  const [renderInSightsCategories, setRenderInSightsCategories] = useState([]);
+
+  function getAndSetLanguage(langSelected: any) {
+    langSelected = localStorage.getItem('language');
+    if (langSelected === null || undefined)
+      langSelected = ISO6391.getName(window.navigator.language.substring(0, 2));
+    else if (langSelected === null || undefined) langSelected = 'english';
+    return langSelected.toLowerCase();
+  }
+
+  function getMethod(mainContent: any, countryChosen: any): void {
+    mainContent = mainContent.filter(
+      (data: any): boolean =>
+        data.country.toLowerCase() === countryChosen.toLowerCase()
+    );
+    mainContent.map((item: any) => (mainContent = item.content));
+    return mainContent;
+  }
+
+  useEffect(() => {
+    langSelected = getAndSetLanguage(langSelected);
+    inSightsCategories = getMethod(
+      insightsPageData.inSightsCategories,
+      'lebanon'
+    );
+    setRenderInSightsCategories(inSightsCategories);
+  }, []);
+
   return (
     <div>
       <Head>
@@ -13,148 +46,66 @@ export default function Insights({ articles }: any) {
         <Link rel='icon' href='/favicon.ico' />
       </Head>
       <>
-        <meta charSet='UTF-8' />
-        <meta name='viewport' content='width=device-width, initial-scale=1.0' />
-        <meta httpEquiv='X-UA-Compatible' content='ie=edge' />
-        <link rel='stylesheet' href='stylesheet.css' />
-        <title>VIP</title>
         <div className='insights-sec-wrapper'>
           <div className='fxd-header-sect-cont sub-categories'>
             <div className='fxd-header-sect'>
-              <div className='fxd-header-content'>Good Read</div>
+              <div className='fxd-header-content'>
+                {/* {"insightsPageHeaderContent" |
+                CustomTranslation:langSelected } */}
+                insightsPageHeaderContent
+              </div>
             </div>
           </div>
           <div className='insights-sec-container'>
-            <div className='insights-sec-content'>
-              <div className='good-read-section-wrapper'>
-                <div className='good-read-section'>
-                  <div className='good-read-image'>
-                    <img src='assets/good-read-1.PNG' alt='' />
-                  </div>
-                  <div className='good-read-title'>
-                    FUNCTIONAL PLACEMENTS: LARGE FORMATS
-                  </div>
-                  <div className='good-read-description'>
-                    TOOLS TO ADDRESS COLD RED BULL AVAILABILITY AND INCREASE
-                    SHOPPER BASKETS.
-                  </div>
-                  <div className='good-read-explore-btn'>
-                    <a href='#'>Explore</a>
-                  </div>
-                </div>
-              </div>
-              <div className='good-read-section-wrapper'>
-                <div className='good-read-section'>
-                  <div className='good-read-image'>
-                    <img src='assets/good-read-1.PNG' alt='' />
-                  </div>
-                  <div className='good-read-title'>
-                    FUNCTIONAL PLACEMENTS: LARGE FORMATS
-                  </div>
-                  <div className='good-read-description'>
-                    TOOLS TO ADDRESS COLD RED BULL AVAILABILITY AND INCREASE
-                    SHOPPER BASKETS.
-                  </div>
-                  <div className='good-read-explore-btn'>
-                    <a href='#'>Explore</a>
+            {renderInSightsCategories.map((inSightsCategory: any) => {
+              return (
+                <div className='insights-sec-content'>
+                  <div className='good-read-section-wrapper flex-center-style'>
+                    <div className='good-read-section'>
+                      <div className='good-read-image'>
+                        <img src={inSightsCategory.path} alt='good-read-1' />
+                      </div>
+                      <div className='good-read-title'>
+                        {/* {insight.title | CustomTranslation:langSelected} */}
+                        {inSightsCategory.title}
+                      </div>
+                      <div className='good-read-description'>
+                        {/* {insight.description | CustomTranslation:langSelected } */}
+                        {inSightsCategory.description}
+                      </div>
+                      <div className='good-read-explore-btn'>
+                        <a
+                          href='https://wingmanapi.rbprojects.me/public/uploads/anouncementPdf/1619162839.pdf'
+                          target='_blank'
+                        >
+                          {/* {"insightsPageExplore" |CustomTranslation:langSelected} */}
+                          {inSightsCategory.insightsPageExplore}
+                        </a>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
-              <div className='good-read-section-wrapper'>
-                <div className='good-read-section'>
-                  <div className='good-read-image'>
-                    <img src='assets/good-read-1.PNG' alt='' />
-                  </div>
-                  <div className='good-read-title'>
-                    FUNCTIONAL PLACEMENTS: LARGE FORMATS
-                  </div>
-                  <div className='good-read-description'>
-                    TOOLS TO ADDRESS COLD RED BULL AVAILABILITY AND INCREASE
-                    SHOPPER BASKETS.
-                  </div>
-                  <div className='good-read-explore-btn'>
-                    <a href='#'>Explore</a>
-                  </div>
-                </div>
-              </div>
-            </div>
+              );
+            })}
           </div>
         </div>
-        <div className='fxd-footer-sect-cont'>
-          <div className='fxd-footer-sect'>
-            <div className='footer-elements-wrapper'>
-              <div className='footer-elements' onclick='LogoActive($(this));'>
-                <a href='inner-page.html'>
-                  <div className='footer-elements-logo'>
-                    <svg
-                      xmlns='http://www.w3.org/2000/svg'
-                      width='18.661'
-                      height='18.661'
-                      viewBox='0 0 18.661 18.661'
-                    >
-                      <path
-                        className='a'
-                        d='M30.784,28.582l-3.96-3.968a7.819,7.819,0,1,0-2.21,2.21l3.968,3.96a1.562,1.562,0,0,0,2.2-2.2ZM15.624,20.311A4.687,4.687,0,1,1,17,23.624,4.687,4.687,0,0,1,15.624,20.311Z'
-                        transform='translate(-12.499 -12.5)'
-                      />
-                    </svg>
-                  </div>
-                  <div className='footer-elements-txt'>Discover</div>
-                </a>
-              </div>
-              <div className='footer-elements' onclick='LogoActive($(this));'>
-                <a href='vip.html'>
-                  <div className='footer-elements-logo'>
-                    <svg
-                      xmlns='http://www.w3.org/2000/svg'
-                      width='19.998'
-                      height='19.456'
-                      viewBox='0 0 19.998 19.456'
-                    >
-                      <path
-                        className='a'
-                        d='M19.878,12.967,24.2,13.6a1.522,1.522,0,0,1,.831,2.585l-3.123,3.1a1.531,1.531,0,0,0-.428,1.343l.743,4.367a1.5,1.5,0,0,1-2.165,1.6l-3.868-2.058a1.474,1.474,0,0,0-1.391,0L10.938,26.6a1.5,1.5,0,0,1-2.17-1.6L9.5,20.638A1.531,1.531,0,0,0,9.069,19.3L5.94,16.208a1.522,1.522,0,0,1,.825-2.587l4.32-.642a1.5,1.5,0,0,0,1.124-.831l1.928-3.977a1.485,1.485,0,0,1,2.68,0l1.937,3.971a1.5,1.5,0,0,0,1.125.828Z'
-                        transform='translate(-5.485 -7.325)'
-                      />
-                    </svg>
-                  </div>
-                  <div className='footer-elements-txt'>VIP</div>
-                </a>
-              </div>
-              <div className='footer-elements' onclick='LogoActive($(this));'>
-                <a href='insights.html'>
-                  <div className='footer-elements-logo'>
-                    <svg
-                      xmlns='http://www.w3.org/2000/svg'
-                      width='14.621'
-                      height='20.035'
-                      viewBox='0 0 14.621 20.035'
-                    >
-                      <path
-                        d='M23.255,6.725a1,1,0,0,1-1,1A1.578,1.578,0,0,0,20.679,9.3a1,1,0,1,1-2,0,3.582,3.582,0,0,1,3.577-3.577,1,1,0,0,1,1,1Zm6.3,2.575a7.323,7.323,0,0,1-3.09,5.969.51.51,0,0,0-.223.417v2.671h0a2,2,0,0,1-1.705,1.977v.787a.914.914,0,0,1-.914.91H20.884a.914.914,0,0,1-.924-.914v-.787a2,2,0,0,1-1.705-1.977V15.684a.516.516,0,0,0-.227-.417A7.308,7.308,0,1,1,29.559,9.3Zm-2,0a5.3,5.3,0,0,0-5.3-5.3q-.19,0-.382.012a5.338,5.338,0,0,0-4.894,4.735,5.267,5.267,0,0,0,2.214,4.885,2.521,2.521,0,0,1,1.073,2.051v.749h3.978v-.75a2.514,2.514,0,0,1,1.07-2.049A5.316,5.316,0,0,0,27.558,9.3Z'
-                        transform='translate(-14.938 -1.995)'
-                      />
-                    </svg>
-                  </div>
-                  <div className='footer-elements-txt'>INSIGHTS</div>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
+        <Footer commonData={commonData} />
       </>
     </div>
   );
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch(
-    `https://jsonplaceholder.typicode.com/posts?_limit=6`
-  );
-  const articles = await res.json();
+  const commonRes = await fetch(`http://localhost:3000/api/common-data`);
+  const commonData = await commonRes.json();
+
+  const res = await fetch(`http://localhost:3000/api/insights`);
+  const insightsPageData = await res.json();
+
   return {
     props: {
-      articles: articles,
+      insightsPageData: insightsPageData,
+      commonData: commonData,
     },
   };
 };

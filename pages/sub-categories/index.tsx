@@ -196,7 +196,7 @@ export default function SubCategories({
           })}
         </div>
 
-        <Footer />
+        <Footer commonData={commonData} />
       </div>
     </div>
   );

@@ -156,7 +156,7 @@ export default function InnerPage({ commonData, innerPageData }: any) {
             </div>
           </div>
         </div>
-        <Footer />
+        <Footer commonData={commonData} />
       </div>
     </div>
   );

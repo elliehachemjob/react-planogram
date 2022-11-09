@@ -2,9 +2,47 @@ import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
 import styles from '../../styles/gift-table.module.css';
+import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
+import ISO6391 from 'iso-639-1';
 
-export default function GiftTable({ articles }: any) {
-  console.log(articles);
+export default function GiftTable({ giftTableData }: any) {
+  const router = useRouter();
+  let langSelected: any = '';
+  let categoriesTableContent: any = [];
+  const [renderCategoriesTableContent, setRenderCategoriesTableContent] =
+    useState([]);
+
+  function navigateInnerVipPage(): void {
+    router.replace('/vip-inner-page');
+  }
+
+  function getAndSetLanguage(langSelected: any) {
+    langSelected = localStorage.getItem('language');
+    if (langSelected === null || undefined)
+      langSelected = ISO6391.getName(window.navigator.language.substring(0, 2));
+    else if (langSelected === null || undefined) langSelected = 'english';
+    return langSelected.toLowerCase();
+  }
+
+  function getMethod(mainContent: any, countryChosen: any): void {
+    mainContent = mainContent.filter(
+      (data: any): boolean =>
+        data.country.toLowerCase() === countryChosen.toLowerCase()
+    );
+    mainContent.map((item: any) => (mainContent = item.content));
+    return mainContent;
+  }
+
+  useEffect(() => {
+    langSelected = getAndSetLanguage(langSelected);
+    categoriesTableContent = getMethod(
+      giftTableData.categoriesTableContent,
+      'lebanon'
+    );
+    setRenderCategoriesTableContent(categoriesTableContent);
+  }, []);
+
   return (
     <div>
       <Head>
@@ -15,9 +53,16 @@ export default function GiftTable({ articles }: any) {
       <div className='gift-table-section'>
         <div className='fxd-header-sect-cont sub-categories'>
           <div className='fxd-header-sect'>
-            <div className='fxd-header-content'>CATEGORY A</div>
+            <div className='fxd-header-content'>
+              {/* {categoryName | translate} */}
+              {giftTableData.tableCategoryName}
+            </div>
             <div className='discover-proceed-arrow back-arrow'>
-              <a href='vip-inner-page.html'>
+              <a
+                onClick={() => {
+                  navigateInnerVipPage();
+                }}
+              >
                 <svg
                   xmlns='http://www.w3.org/2000/svg'
                   width='18.613'
@@ -40,45 +85,38 @@ export default function GiftTable({ articles }: any) {
               <table>
                 <tbody>
                   <tr>
-                    <th>Impulse VIP A</th>
-                    <th>BEFORE</th>
-                    <th>AFTER</th>
+                    <th>
+                      {/* {categoryHeaderName.title | translate} */}
+                      {giftTableData.tableCategoryHeaderName.title}
+                    </th>
+                    <th>
+                      {/* {categoryHeaderName.before | translate} */}
+                      {giftTableData.tableCategoryHeaderName.before}
+                    </th>
+                    <th>
+                      {/* {categoryHeaderName.after | translate} */}
+                      {giftTableData.tableCategoryHeaderName.after}
+                    </th>
                   </tr>
-                  <tr>
-                    <td>Recommended Shelf Price</td>
-                    <td>10.00</td>
-                    <td>10.00</td>
-                  </tr>
-                  <tr>
-                    <td>VAT</td>
-                    <td>0.48</td>
-                    <td>0.48</td>
-                  </tr>
-                  <tr>
-                    <td>Shelf Price Excluding VAT</td>
-                    <td>53.70</td>
-                    <td>55.337</td>
-                  </tr>
-                  <tr>
-                    <td>Excise Tax</td>
-                    <td>10.00</td>
-                    <td>10.00</td>
-                  </tr>
-                  <tr>
-                    <td>Rebate %</td>
-                    <td>10.00</td>
-                    <td>36</td>
-                  </tr>
-                  <tr>
-                    <td>Total Rebates</td>
-                    <td>14.00</td>
-                    <td>11</td>
-                  </tr>
-                  <tr>
-                    <td>Recommended Shelf Price</td>
-                    <td>27.120</td>
-                    <td>10</td>
-                  </tr>
+
+                  {renderCategoriesTableContent.map((category: any) => {
+                    return (
+                      <tr>
+                        <td>
+                          {/* {category.title | translate } */}
+                          {category.title}
+                        </td>
+                        <td>
+                          {/* {category.beforeValue | translate } */}
+                          {category.beforeValue}
+                        </td>
+                        <td>
+                          {/* {category.afterValue | translate} */}
+                          {category.afterValue}
+                        </td>
+                      </tr>
+                    );
+                  })}
                 </tbody>
               </table>
             </div>
@@ -90,13 +128,12 @@ export default function GiftTable({ articles }: any) {
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch(
-    `https://jsonplaceholder.typicode.com/posts?_limit=6`
-  );
-  const articles = await res.json();
+  const res = await fetch(`http://localhost:3000/api/gift-table`);
+  const giftTableData = await res.json();
+
   return {
     props: {
-      articles: articles,
+      giftTableData: giftTableData,
     },
   };
 };
