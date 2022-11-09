@@ -3,10 +3,19 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Footer from '../../components/Footer';
 import styles from '../../styles/vip-inner-page.module.css';
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
+import ISO6391 from 'iso-639-1';
 
-export default function VipInnerPage({ articles }: any) {
+export default function VipInnerPage({ commonData, vipInnerPageData }: any) {
   const router = useRouter();
+  let langSelected: any = '';
+  let vipCategoriesDetailsContent: any = [];
+
+  const [
+    renderVipCategoriesDetailsContent,
+    setRenderVipCategoriesDetailsContent,
+  ] = useState([]);
 
   function navigateInsightsPage(): void {
     router.push('/insights');
@@ -24,6 +33,32 @@ export default function VipInnerPage({ articles }: any) {
     router.replace('/gift-table');
   }
 
+  function getAndSetLanguage(langSelected: any) {
+    langSelected = localStorage.getItem('language');
+    if (langSelected === null || undefined)
+      langSelected = ISO6391.getName(window.navigator.language.substring(0, 2));
+    else if (langSelected === null || undefined) langSelected = 'english';
+    return langSelected.toLowerCase();
+  }
+
+  function getMethod(mainContent: any, countryChosen: any): void {
+    mainContent = mainContent.filter(
+      (data: any): boolean =>
+        data.country.toLowerCase() === countryChosen.toLowerCase()
+    );
+    mainContent.map((item: any) => (mainContent = item.content));
+    return mainContent;
+  }
+
+  useEffect(() => {
+    langSelected = getAndSetLanguage(langSelected);
+    vipCategoriesDetailsContent = getMethod(
+      vipInnerPageData.vipCategoriesDetailsContent,
+      'lebanon'
+    );
+    setRenderVipCategoriesDetailsContent(vipCategoriesDetailsContent);
+  }, []);
+
   return (
     <div>
       <Head>
@@ -36,7 +71,8 @@ export default function VipInnerPage({ articles }: any) {
           <div className='fxd-header-sect'>
             <div className='fxd-header-content'>
               {/* { vipCategoriesDetailsHeader | CustomTranslation:langSelected } */}
-              vipCategoriesDetailsHeader
+              {}
+              {vipInnerPageData.vipCategoriesDetailsHeader}
             </div>
             <div className='discover-proceed-arrow back-arrow'>
               <a
@@ -81,62 +117,69 @@ export default function VipInnerPage({ articles }: any) {
             </div>
           </div>
         </div>
-        <div
-          loop='let vipCategoryDetailContent of vipCategoriesDetailsContent'
-          className='sub-categories-container'
-        >
-          <div className='sub-categories-content'>
-            <div className='sub-cats-container'>
-              <div className='sub-cats vip-inner'>
-                <div className='sub-cats-title'>
-                  {/* {vipCategoryDetailContent.title |
-                  CustomTranslation:langSelected } */}
-                  vipCategoryDetailContent
-                </div>
-                <div className='sub-cat-accordion-cont numbered-circle'>
-                  <div className='sub-cat-accordion'>
-                    <div className='numbered-elements'>
-                      {/* {vipCategoryDetailContent.numberedElementPartOne |
-                      CustomTranslation:langSelected} */}
-                      vipCategoryDetailContent
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className='sub-cats-inner-page-cont visible-inner'>
-                <div className='sub-cats-inner-page'>
-                  <div className='sub-cats-inner-page-title'>
-                    <div className='sub-cats-inner-page-img'>
-                      <img
-                        src='{{vipCategoryDetailContent.path}}'
-                        alt={1630222037}
-                      />
-                    </div>
-                  </div>
-                  <div className='numbered-elements numbered-elements-part-two'>
-                    {/* {vipCategoryDetailContent.numberedElementPartTwo |
+        {renderVipCategoriesDetailsContent.map(
+          (vipCategoryDetailContent: any) => {
+            return (
+              <div className='sub-categories-container'>
+                <div className='sub-categories-content'>
+                  <div className='sub-cats-container'>
+                    <div className='sub-cats vip-inner'>
+                      <div className='sub-cats-title'>
+                        {/* {vipCategoryDetailContent.title |
+                CustomTranslation:langSelected } */}
+                        {vipCategoryDetailContent.title}
+                      </div>
+                      <div className='sub-cat-accordion-cont numbered-circle'>
+                        <div className='sub-cat-accordion'>
+                          <div className='numbered-elements'>
+                            {/* {vipCategoryDetailContent.numberedElementPartOne |
                     CustomTranslation:langSelected} */}
-                    vipCategoryDetailContent
+                            {vipCategoryDetailContent.numberedElementPartOne}
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className='sub-cats-inner-page-cont visible-inner'>
+                      <div className='sub-cats-inner-page'>
+                        <div className='sub-cats-inner-page-title'>
+                          <div className='sub-cats-inner-page-img'>
+                            <img
+                              src={vipCategoryDetailContent.path}
+                              alt='1630222037'
+                            />
+                          </div>
+                        </div>
+                        <div className='numbered-elements numbered-elements-part-two'>
+                          {/* {vipCategoryDetailContent.numberedElementPartTwo |
+                  CustomTranslation:langSelected} */}
+                          {vipCategoryDetailContent.numberedElementPartTwo}
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <Footer />
-        </div>
+            );
+          }
+        )}
+
+        <Footer />
       </div>
     </div>
   );
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch(
-    `https://jsonplaceholder.typicode.com/posts?_limit=6`
-  );
-  const articles = await res.json();
+  const commonRes = await fetch(`http://localhost:3000/api/common-data`);
+  const commonData = await commonRes.json();
+
+  const res = await fetch(`http://localhost:3000/api/vip-inner-page`);
+  const vipInnerPageData = await res.json();
+
   return {
     props: {
-      articles: articles,
+      vipInnerPageData: vipInnerPageData,
+      commonData: commonData,
     },
   };
 };
