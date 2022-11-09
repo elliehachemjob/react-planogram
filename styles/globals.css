@@ -976,7 +976,7 @@ th {
 .MuiAccordionSummary-expandIconWrapper {
   background: red !important;
   width: 30px;
-  width: 88px;
-  height: 88px;
+  width: 100px;
+  height: 100px;
   margin-right: -16px;
 }

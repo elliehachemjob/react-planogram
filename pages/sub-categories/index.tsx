@@ -53,6 +53,7 @@ export default function SubCategories({ articles }: any) {
             </div>
           </div>
         </div>
+        {/* //Keep this for now */}
         <div className='sub-categories-container'>
           <div className='sub-categories-content'>
             <div className='sub-cats-inner-page-cont'>
@@ -102,9 +103,32 @@ export default function SubCategories({ articles }: any) {
                 </div>
               </div>
             </AccordionSummary>
-            <AccordionDetails
-              className={styles.subCategoryContainer}
-            ></AccordionDetails>
+            <AccordionDetails className={styles.subCategoryContainer}>
+              <div className='sub-categories-container'>
+                <div className='sub-categories-content'>
+                  <div className='sub-cats-inner-page-cont'>
+                    <div className='sub-cats-inner-page'>
+                      <div className='sub-cats-inner-page-title'>
+                        {/* {subCategory.nestedDetails.title |
+                  CustomTranslation:langSelected} */}{' '}
+                        subCategory.nestedDetails
+                      </div>
+                      <div className='sub-cats-inner-page-img'>
+                        <img
+                          src='{{subCategory.nestedDetails.imagePath}}'
+                          alt='{{subCategory'
+                        />
+                      </div>
+                      <div className='sub-cats-inner-page-flow'>
+                        {/* {subCategory.nestedDetails.flow |
+                  CustomTranslation:langSelected } */}{' '}
+                        subCategory.nestedDetails.flow
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </AccordionDetails>
           </Accordion>
         </div>
 
