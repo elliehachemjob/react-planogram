@@ -27,7 +27,7 @@ export default function SubCategories({ articles }: any) {
     };
 
   //Animation Disable Hook
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     if (!stylesheetRef.current) {
       console.log('First run, creating a stylesheet');
       stylesheetRef.current = document.createElement('style');
@@ -224,13 +224,16 @@ export default function SubCategories({ articles }: any) {
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch(
-    `https://jsonplaceholder.typicode.com/posts?_limit=6`
-  );
-  const articles = await res.json();
+  const commonRes = await fetch(`http://localhost:3000/api/common-data`);
+  const commonData = await commonRes.json();
+
+  const res = await fetch(`http://localhost:3000/api/sub-categories`);
+  const subCategoriesPageData = await res.json();
+
   return {
     props: {
-      articles: articles,
+      subCategoriesPageData: subCategoriesPageData,
+      commonData: commonData,
     },
   };
 };
