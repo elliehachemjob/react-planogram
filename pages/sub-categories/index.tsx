@@ -114,11 +114,9 @@ export default function SubCategories({
               {subCategoriesPageData.subCategoryName}
             </div>
             <div
-              className='discover-proceed-arrow back-arrow'
               onClick={() => {
                 navigateInnerPage();
               }}
-              ifclass="{'footer-element-selected':isLogoActive }"
             >
               <svg
                 xmlns='http://www.w3.org/2000/svg'
