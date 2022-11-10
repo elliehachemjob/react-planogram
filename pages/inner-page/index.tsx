@@ -65,7 +65,6 @@ export default function InnerPage({ commonData, innerPageData }: any) {
       innerPageData.categories
     );
     setRenderCategories(categoryChosen);
-    console.log(renderCategories, 'test');
     langSelected = getAndSetLanguage(langSelected);
   }, []);
 
@@ -98,20 +97,25 @@ export default function InnerPage({ commonData, innerPageData }: any) {
             </div>
             <div className='lang-selector-cont default-icon-size'>
               <ul className={styles.overlayList}>
-                {innerPageData.chosenLanguages.map((language: any) => {
-                  return (
-                    <div className={` lang ${isOverlayOpen ? 'hide' : ''}`}>
-                      <li
-                        className={styles.innerOverlay}
-                        onClick={() => {
-                          changeLanguage(language);
-                        }}
+                {innerPageData.chosenLanguages.map(
+                  (language: any, index: any) => {
+                    return (
+                      <div
+                        key={index}
+                        className={` lang ${isOverlayOpen ? 'hide' : ''}`}
                       >
-                        {language}
-                      </li>
-                    </div>
-                  );
-                })}
+                        <li
+                          className={styles.innerOverlay}
+                          onClick={() => {
+                            changeLanguage(language);
+                          }}
+                        >
+                          {language}
+                        </li>
+                      </div>
+                    );
+                  }
+                )}
               </ul>
               <svg
                 onClick={() => {
@@ -136,20 +140,25 @@ export default function InnerPage({ commonData, innerPageData }: any) {
         >
           <div className='plano-inner-page-content'>
             <div className='discover-categories-wrapper'>
-              {renderCategories.map((categoryChosenData: any) => {
+              {renderCategories.map((categoryChosenData: any, index: any) => {
                 return (
-                  <div className='discover-categories-container'>
-                    {categoryChosenData.content.map((category: any) => {
-                      return (
-                        <div
-                          className={`discover-category ${category.background}`}
-                        >
-                          {/* {categoryChosenData.title |
+                  <div key={index} className='discover-categories-container'>
+                    {categoryChosenData.content.map(
+                      (category: any, index: any) => {
+                        return (
+                          <div
+                            key={index}
+                            className={`discover-category ${category.background}`}
+                          >
+                            {/* {categoryChosenData.title |
                       CustomTranslation:langSelected } */}
-                          <div className='category-title'>{category.title}</div>
-                        </div>
-                      );
-                    })}
+                            <div className='category-title'>
+                              {category.title}
+                            </div>
+                          </div>
+                        );
+                      }
+                    )}
                   </div>
                 );
               })}

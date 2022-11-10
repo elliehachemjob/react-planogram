@@ -57,36 +57,38 @@ export default function Insights({ commonData, insightsPageData }: any) {
             </div>
           </div>
           <div className='insights-sec-container'>
-            {renderInSightsCategories.map((inSightsCategory: any) => {
-              return (
-                <div className='insights-sec-content'>
-                  <div className='good-read-section-wrapper flex-center-style'>
-                    <div className='good-read-section'>
-                      <div className='good-read-image'>
-                        <img src={inSightsCategory.path} alt='good-read-1' />
-                      </div>
-                      <div className='good-read-title'>
-                        {/* {insight.title | CustomTranslation:langSelected} */}
-                        {inSightsCategory.title}
-                      </div>
-                      <div className='good-read-description'>
-                        {/* {insight.description | CustomTranslation:langSelected } */}
-                        {inSightsCategory.description}
-                      </div>
-                      <div className='good-read-explore-btn'>
-                        <a
-                          href='https://wingmanapi.rbprojects.me/public/uploads/anouncementPdf/1619162839.pdf'
-                          target='_blank'
-                        >
-                          {/* {"insightsPageExplore" |CustomTranslation:langSelected} */}
-                          {inSightsCategory.insightsPageExplore}
-                        </a>
+            {renderInSightsCategories.map(
+              (inSightsCategory: any, index: any) => {
+                return (
+                  <div key={index} className='insights-sec-content'>
+                    <div className='good-read-section-wrapper flex-center-style'>
+                      <div className='good-read-section'>
+                        <div className='good-read-image'>
+                          <img src={inSightsCategory.path} alt='good-read-1' />
+                        </div>
+                        <div className='good-read-title'>
+                          {/* {insight.title | CustomTranslation:langSelected} */}
+                          {inSightsCategory.title}
+                        </div>
+                        <div className='good-read-description'>
+                          {/* {insight.description | CustomTranslation:langSelected } */}
+                          {inSightsCategory.description}
+                        </div>
+                        <div className='good-read-explore-btn'>
+                          <a
+                            href='https://wingmanapi.rbprojects.me/public/uploads/anouncementPdf/1619162839.pdf'
+                            target='_blank'
+                          >
+                            {/* {"insightsPageExplore" |CustomTranslation:langSelected} */}
+                            {inSightsCategory.insightsPageExplore}
+                          </a>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              );
-            })}
+                );
+              }
+            )}
           </div>
         </div>
         <Footer commonData={commonData} />

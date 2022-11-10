@@ -117,9 +117,9 @@ export default function VipInnerPage({ commonData, vipInnerPageData }: any) {
           </div>
         </div>
         {renderVipCategoriesDetailsContent.map(
-          (vipCategoryDetailContent: any) => {
+          (vipCategoryDetailContent: any, index: any) => {
             return (
-              <div className='sub-categories-container'>
+              <div key={index} className='sub-categories-container'>
                 <div className='sub-categories-content'>
                   <div className='sub-cats-container'>
                     <div className='sub-cats vip-inner'>

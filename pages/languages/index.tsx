@@ -70,9 +70,10 @@ export default function Languages({ commonData, languagesPageData }: any) {
               className='wlc-page-countries-cont language-menu'
               id='lang-list'
             >
-              {languages.map((language: any) => {
+              {languages.map((language: any, index: any) => {
                 return (
                   <div
+                    key={index}
                     onClick={() => {
                       navigateInnerPage(language);
                     }}

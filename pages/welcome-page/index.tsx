@@ -59,16 +59,19 @@ export default function WelcomePage({ commonData, welcomePageData }: any) {
               id='country-list'
             >
               <div className='country-cont'>
-                {welcomePageData.countries.map((country: string) => (
-                  <div
-                    onClick={(event) =>
-                      navigateLanguagesPageSelectALanguageToStart(country)
-                    }
-                    className={`country-content ${country.toLowerCase()}`}
-                  >
-                    {country}
-                  </div>
-                ))}
+                {welcomePageData.countries.map(
+                  (country: string, index: any) => (
+                    <div
+                      key={index}
+                      onClick={(event) =>
+                        navigateLanguagesPageSelectALanguageToStart(country)
+                      }
+                      className={`country-content ${country.toLowerCase()}`}
+                    >
+                      {country}
+                    </div>
+                  )
+                )}
               </div>
               <div className='select-country'>
                 {/* {'{'}

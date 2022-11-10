@@ -76,17 +76,20 @@ export default function Vip({ commonData, vipData }: any) {
               <div className='vip-header-txt'>
                 {/* {vipHeaderText[0] | CustomTranslation:langSelected} */}
                 {/* {vipData.vipHeaderText} */}
-                {renderVipHeaderText.map((vipHeaderText: any) => {
-                  return <>{vipHeaderText}</>;
+                {renderVipHeaderText.map((vipHeaderText: any, index: any) => {
+                  return <div key={index}>{vipHeaderText}</div>;
                 })}
               </div>
             </div>
             <div className='sub-categories-container vip-cat-container'>
               <div className='sub-categories-content'>
                 <div className='sub-cats-container'>
-                  {renderVipCategories.map((vipCategory: any) => {
+                  {renderVipCategories.map((vipCategory: any, index: any) => {
                     return (
-                      <div className='sub-cats vip-cats default-margin'>
+                      <div
+                        key={index}
+                        className='sub-cats vip-cats default-margin'
+                      >
                         <div className='sub-cats-title vip-cats-title'>
                           {/* {vipCategory | CustomTranslation:langSelected} */}
                           {vipCategory}

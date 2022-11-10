@@ -99,24 +99,26 @@ export default function GiftTable({ giftTableData }: any) {
                     </th>
                   </tr>
 
-                  {renderCategoriesTableContent.map((category: any) => {
-                    return (
-                      <tr>
-                        <td>
-                          {/* {category.title | translate } */}
-                          {category.title}
-                        </td>
-                        <td>
-                          {/* {category.beforeValue | translate } */}
-                          {category.beforeValue}
-                        </td>
-                        <td>
-                          {/* {category.afterValue | translate} */}
-                          {category.afterValue}
-                        </td>
-                      </tr>
-                    );
-                  })}
+                  {renderCategoriesTableContent.map(
+                    (category: any, index: any) => {
+                      return (
+                        <tr key={index}>
+                          <td>
+                            {/* {category.title | translate } */}
+                            {category.title}
+                          </td>
+                          <td>
+                            {/* {category.beforeValue | translate } */}
+                            {category.beforeValue}
+                          </td>
+                          <td>
+                            {/* {category.afterValue | translate} */}
+                            {category.afterValue}
+                          </td>
+                        </tr>
+                      );
+                    }
+                  )}
                 </tbody>
               </table>
             </div>

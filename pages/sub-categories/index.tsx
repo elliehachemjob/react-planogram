@@ -62,19 +62,16 @@ export default function SubCategories({
   //Animation Disable Hook
   React.useEffect(() => {
     if (!stylesheetRef.current) {
-      console.log('First run, creating a stylesheet');
       stylesheetRef.current = document.createElement('style');
       document.head.appendChild(stylesheetRef.current);
     }
 
     if (animationsEnabled) {
-      console.log('Enabling animations');
       const sheet = stylesheetRef.current.sheet;
       if (sheet?.cssRules.length) {
         sheet.deleteRule(0);
       }
     } else {
-      console.log('Disabling animations');
       const sheet = stylesheetRef.current.sheet;
       const styles = `*,
         *::before,
@@ -136,9 +133,9 @@ export default function SubCategories({
         {/* //Keep this for now */}
         <div className={styles.headerPaddingDiv}></div>
         <div>
-          {renderSubCategories.map((subCategory: any) => {
+          {renderSubCategories.map((subCategory: any, index: any) => {
             return (
-              <div className='general-small-padding'>
+              <div key={index} className='general-small-padding'>
                 <Accordion
                   expanded={expanded === subCategory.id}
                   onChange={handleChange(subCategory.id)}
