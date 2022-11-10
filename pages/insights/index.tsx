@@ -65,6 +65,8 @@ export default function Insights({ commonData, insightsPageData }: any) {
                       <div className='good-read-section'>
                         <div className='good-read-image'>
                           <Image
+                            width={100}
+                            height={100}
                             src={inSightsCategory.path}
                             alt='good-read-1'
                           />

@@ -12,11 +12,11 @@ export default function handler(
         "country": "Lebanon",
         "content": [{
           title: "insightTitleOne", description: "insightDescriptionOne", insightsPageExplore: "Explore",
-          path: "assets/good-read-1.PNG",
+          path: "/assets/good-read-1.PNG",
           explorePdf: "/assets/pdf/1.pdf"
         }, {
           title: "insightTitleTwo", description: "insightDescriptionTwo", insightsPageExplore: "Explore",
-          path: "assets/good-read-2.PNG",
+          path: "/assets/good-read-2.PNG",
           explorePdf: "/assets/pdf/2.pdf"
         }, {
           title: "insightTitleThree", description: "insightDescriptionThree", insightsPageExplore: "Explore",
@@ -31,11 +31,11 @@ export default function handler(
         "content":
           [{
             title: "insightTitleOne", description: "insightDescriptionTwo", insightsPageExplore: "Explore",
-            path: "assets/good-read-1.PNG",
+            path: "/assets/good-read-1.PNG",
             explorePdf: "/assets/pdf/1.pdf"
           }, {
             title: "insightTitleThree", description: "insightDescriptionTwo", insightsPageExplore: "Explore",
-            path: "assets/good-read-2.PNG",
+            path: "/assets/good-read-2.PNG",
             explorePdf: "/assets/pdf/2.pdf"
           }
           ]

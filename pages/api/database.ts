@@ -73,15 +73,15 @@ export default function handler(
           "country": "Lebanon",
           "content": [{
             title: "insightTitleOne", description: "insightDescriptionTwo",
-            path: "assets/good-read-1.PNG",
+            path: "/assets/good-read-1.PNG",
             explorePdf: "/assets/pdf/1.pdf"
           }, {
             title: "insightTitleTwo", description: "insightDescriptionTwo",
-            path: "assets/good-read-2.PNG",
+            path: "/assets/good-read-2.PNG",
             explorePdf: "/assets/pdf/2.pdf"
           }, {
             title: "insightTitleThree", description: "insightDescriptionThree",
-            path: "assets/good-read-3.PNG",
+            path: "/assets/good-read-3.PNG",
             explorePdf: "/assets/pdf/3.pdf"
           }
           ]
@@ -92,11 +92,11 @@ export default function handler(
           "content":
             [{
               title: "insightTitleOne", description: "insightDescriptionTwo",
-              path: "assets/good-read-1.PNG",
+              path: "/assets/good-read-1.PNG",
               explorePdf: "/assets/pdf/1.pdf"
             }, {
               title: "insightTitleThree", description: "insightDescriptionTwo",
-              path: "assets/good-read-2.PNG",
+              path: "/assets/good-read-2.PNG",
               explorePdf: "/assets/pdf/2.pdf"
             }
             ]

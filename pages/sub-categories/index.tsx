@@ -171,6 +171,8 @@ export default function SubCategories({
                             </div>
                             <div className='sub-cats-inner-page-img'>
                               <Image
+                                width={100}
+                                height={100}
                                 src={subCategory.nestedDetails.imagePath}
                                 alt='{{subCategory'
                               />
