@@ -109,6 +109,15 @@ export const getStaticProps = async () => {
         : ''
     }`
   );
+
+  const replaceWithApiOne = {
+    siteName: 'WINGMAN',
+    welcomeProgram: 'program 2022',
+    discover: 'Discover',
+    vip: 'VIP',
+    insights: 'INSIGHTS',
+  };
+
   const commonData = await commonRes.json();
 
   const res = await fetch(
@@ -118,7 +127,60 @@ export const getStaticProps = async () => {
         : ''
     }`
   );
-  const insightsPageData = await res.json();
+
+  const replaceWithApiTwo = {
+    inSightsCategories: [
+      {
+        country: 'Lebanon',
+        content: [
+          {
+            title: 'insightTitleOne',
+            description: 'insightDescriptionOne',
+            insightsPageExplore: 'Explore',
+            path: 'assets/good-read-1.PNG',
+            explorePdf: '/assets/pdf/1.pdf',
+          },
+          {
+            title: 'insightTitleTwo',
+            description: 'insightDescriptionTwo',
+            insightsPageExplore: 'Explore',
+            path: 'assets/good-read-2.PNG',
+            explorePdf: '/assets/pdf/2.pdf',
+          },
+          {
+            title: 'insightTitleThree',
+            description: 'insightDescriptionThree',
+            insightsPageExplore: 'Explore',
+            path: 'assets/good-read-3.PNG',
+            explorePdf: '/assets/pdf/3.pdf',
+          },
+        ],
+      },
+      {
+        country: 'Qatar',
+        content: [
+          {
+            title: 'insightTitleOne',
+            description: 'insightDescriptionTwo',
+            insightsPageExplore: 'Explore',
+            path: 'assets/good-read-1.PNG',
+            explorePdf: '/assets/pdf/1.pdf',
+          },
+          {
+            title: 'insightTitleThree',
+            description: 'insightDescriptionTwo',
+            insightsPageExplore: 'Explore',
+            path: 'assets/good-read-2.PNG',
+            explorePdf: '/assets/pdf/2.pdf',
+          },
+        ],
+      },
+    ],
+  };
+
+  const insightsPageData = `${
+    process.env.NODE_ENV !== 'production' ? await res.json() : replaceWithApiTwo
+  }`;
 
   return {
     props: {

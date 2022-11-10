@@ -139,6 +139,15 @@ export const getStaticProps = async () => {
         : ''
     }`
   );
+
+  const replaceWithApiOne = {
+    siteName: 'WINGMAN',
+    welcomeProgram: 'program 2022',
+    discover: 'Discover',
+    vip: 'VIP',
+    insights: 'INSIGHTS',
+  };
+
   const commonData = await commonRes.json();
 
   const res = await fetch(
@@ -148,7 +157,10 @@ export const getStaticProps = async () => {
         : ''
     }`
   );
-  const vipData = await res.json();
+
+  const vipData = `${
+    process.env.NODE_ENV !== 'production' ? await res.json() : replaceWithApiOne
+  }`;
 
   return {
     props: {

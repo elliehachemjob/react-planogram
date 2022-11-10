@@ -179,6 +179,14 @@ export const getStaticProps = async () => {
         : ''
     }`
   );
+  const replaceWithApiOne = {
+    siteName: 'WINGMAN',
+    welcomeProgram: 'program 2022',
+    discover: 'Discover',
+    vip: 'VIP',
+    insights: 'INSIGHTS',
+  };
+
   const commonData = await commonRes.json();
 
   const res = await fetch(
@@ -188,7 +196,30 @@ export const getStaticProps = async () => {
         : ''
     }`
   );
-  const innerPageData = await res.json();
+  const replaceWithApiTwo = {
+    siteName: 'WINGMAN',
+    planogramQuickSearchPlaceHolder: 'Planogram Quick Search ',
+    chosenLanguages: ['English', 'Arabic', 'French'],
+    categories: [
+      {
+        country: 'Lebanon',
+        content: [
+          { title: 'impulse', background: 'impulse' },
+          { title: 'cAndG', background: 'cg' },
+          { title: 'retail', background: 'retail' },
+          { title: 'coolers', background: 'coolers' },
+        ],
+      },
+      {
+        country: 'Qatar',
+        content: [{ title: 'impulse', background: 'impulse' }],
+      },
+    ],
+  };
+
+  const innerPageData = `${
+    process.env.NODE_ENV !== 'production' ? await res.json() : replaceWithApiTwo
+  }`;
 
   return {
     props: {

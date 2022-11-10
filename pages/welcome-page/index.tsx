@@ -99,6 +99,15 @@ export const getStaticProps = async () => {
         : ''
     }`
   );
+
+  const replaceWithApiOne = {
+    siteName: 'WINGMAN',
+    welcomeProgram: 'program 2022',
+    discover: 'Discover',
+    vip: 'VIP',
+    insights: 'INSIGHTS',
+  };
+
   const commonData = await commonRes.json();
 
   const res = await fetch(
@@ -108,7 +117,34 @@ export const getStaticProps = async () => {
         : ''
     }`
   );
-  const welcomePageData = await res.json();
+
+  const replaceWithApiTwo = {
+    countries: [
+      'UAE',
+      'MALDIVES',
+      'PAKISTAN',
+      'SRI LANKA',
+      'ALGERIA',
+      'NIGERIA',
+      'ANGOLA',
+      'MAURITIUS',
+      'KENYA',
+      'EGYPT',
+      'OMAN',
+      'KUWAIT',
+      'QATAR',
+      'JORDAN',
+      'BAHRAIN',
+      'KSA',
+      'LEBANON',
+      'GHANA',
+    ],
+    image: '/assets/logo.png',
+    welcomeSelectACountryToStart: 'Select country to start',
+  };
+  const welcomePageData = `${
+    process.env.NODE_ENV !== 'production' ? await res.json() : replaceWithApiOne
+  }`;
 
   return {
     props: {

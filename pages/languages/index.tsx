@@ -110,6 +110,15 @@ export const getStaticProps = async () => {
         : ''
     }`
   );
+
+  const replaceWithApiOne = {
+    siteName: 'WINGMAN',
+    welcomeProgram: 'program 2022',
+    discover: 'Discover',
+    vip: 'VIP',
+    insights: 'INSIGHTS',
+  };
+
   const commonData = await commonRes.json();
 
   const res = await fetch(
@@ -119,8 +128,23 @@ export const getStaticProps = async () => {
         : ''
     }`
   );
-  const languagesPageData = await res.json();
+  const replaceWithApTwo = {
+    languages: [
+      {
+        country: 'Lebanon',
+        content: ['Arabic', 'French', 'Urdu', 'English'],
+      },
+      {
+        country: 'Qatar',
+        content: ['Arabic', 'English'],
+      },
+    ],
+    languagesPageSelectALanguageToStart: 'Select language from above to start',
+  };
 
+  const languagesPageData = `${
+    process.env.NODE_ENV !== 'production' ? await res.json() : replaceWithApTwo
+  }`;
   return {
     props: {
       languagesPageData: languagesPageData,
