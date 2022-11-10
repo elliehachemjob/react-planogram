@@ -102,11 +102,69 @@ export default function Insights({ commonData, insightsPageData }: any) {
 }
 
 export const getStaticProps = async () => {
-  const commonRes = await fetch(`http://localhost:3000/api/common-data`);
-  const commonData = await commonRes.json();
+  // const commonRes = await fetch(`http://localhost:3000/api/common-data`);
+  // const commonData = await commonRes.json();
 
-  const res = await fetch(`http://localhost:3000/api/insights`);
-  const insightsPageData = await res.json();
+  // const res = await fetch(`http://localhost:3000/api/insights`);
+  // const insightsPageData = await res.json();
+
+  const commonData = {
+    siteName: 'WINGMAN',
+    welcomeProgram: 'program 2022',
+    discover: 'Discover',
+    vip: 'VIP',
+    insights: 'INSIGHTS',
+  };
+
+  const insightsPageData = {
+    inSightsCategories: [
+      {
+        country: 'Lebanon',
+        content: [
+          {
+            title: 'insightTitleOne',
+            description: 'insightDescriptionOne',
+            insightsPageExplore: 'Explore',
+            path: 'assets/good-read-1.PNG',
+            explorePdf: '/assets/pdf/1.pdf',
+          },
+          {
+            title: 'insightTitleTwo',
+            description: 'insightDescriptionTwo',
+            insightsPageExplore: 'Explore',
+            path: 'assets/good-read-2.PNG',
+            explorePdf: '/assets/pdf/2.pdf',
+          },
+          {
+            title: 'insightTitleThree',
+            description: 'insightDescriptionThree',
+            insightsPageExplore: 'Explore',
+            path: 'assets/good-read-3.PNG',
+            explorePdf: '/assets/pdf/3.pdf',
+          },
+        ],
+      },
+      {
+        country: 'Qatar',
+        content: [
+          {
+            title: 'insightTitleOne',
+            description: 'insightDescriptionTwo',
+            insightsPageExplore: 'Explore',
+            path: 'assets/good-read-1.PNG',
+            explorePdf: '/assets/pdf/1.pdf',
+          },
+          {
+            title: 'insightTitleThree',
+            description: 'insightDescriptionTwo',
+            insightsPageExplore: 'Explore',
+            path: 'assets/good-read-2.PNG',
+            explorePdf: '/assets/pdf/2.pdf',
+          },
+        ],
+      },
+    ],
+  };
 
   return {
     props: {

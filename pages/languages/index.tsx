@@ -98,11 +98,32 @@ export default function Languages({ commonData, languagesPageData }: any) {
 }
 
 export const getStaticProps = async () => {
-  const commonRes = await fetch(`http://localhost:3000/api/common-data`);
-  const commonData = await commonRes.json();
+  // const commonRes = await fetch(`http://localhost:3000/api/common-data`);
+  // const commonData = await commonRes.json();
 
-  const res = await fetch(`http://localhost:3000/api/languages`);
-  const languagesPageData = await res.json();
+  // const res = await fetch(`http://localhost:3000/api/languages`);
+  // const languagesPageData = await res.json();
+  const commonData = {
+    siteName: 'WINGMAN',
+    welcomeProgram: 'program 2022',
+    discover: 'Discover',
+    vip: 'VIP',
+    insights: 'INSIGHTS',
+  };
+
+  const languagesPageData = {
+    languages: [
+      {
+        country: 'Lebanon',
+        content: ['Arabic', 'French', 'Urdu', 'English'],
+      },
+      {
+        country: 'Qatar',
+        content: ['Arabic', 'English'],
+      },
+    ],
+    languagesPageSelectALanguageToStart: 'Select language from above to start',
+  };
 
   return {
     props: {

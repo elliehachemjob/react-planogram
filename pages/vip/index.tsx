@@ -132,12 +132,43 @@ export default function Vip({ commonData, vipData }: any) {
 }
 
 export const getStaticProps = async () => {
-  const commonRes = await fetch(`http://localhost:3000/api/common-data`);
-  const commonData = await commonRes.json();
+  // const commonRes = await fetch(`http://localhost:3000/api/common-data`);
+  // const commonData = await commonRes.json();
 
-  const res = await fetch(`http://localhost:3000/api/vip`);
-  const vipData = await res.json();
+  // const res = await fetch(`http://localhost:3000/api/vip`);
+  // const vipData = await res.json();
 
+  const commonData = {
+    siteName: 'WINGMAN',
+    welcomeProgram: 'program 2022',
+    discover: 'Discover',
+    vip: 'VIP',
+    insights: 'INSIGHTS',
+  };
+  const vipData = {
+    vipHeaderText: [
+      {
+        country: 'Lebanon',
+        content: ['specialPromotion'],
+      },
+      {
+        country: 'Qatar',
+        content: [
+          'This is a Qatar members club where you will receive discounts based on counterparts in store that will drive incremental sales, helping you earn more profit!',
+        ],
+      },
+    ],
+    vipCategories: [
+      {
+        country: 'Lebanon',
+        content: ['CategoryA', 'CategoryB', 'CategoryC'],
+      },
+      {
+        country: 'Qatar',
+        content: ['CategoryA', 'CategoryB'],
+      },
+    ],
+  };
   return {
     props: {
       vipData: vipData,
