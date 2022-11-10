@@ -64,7 +64,10 @@ export default function Insights({ commonData, insightsPageData }: any) {
                     <div className='good-read-section-wrapper flex-center-style'>
                       <div className='good-read-section'>
                         <div className='good-read-image'>
-                          <img src={inSightsCategory.path} alt='good-read-1' />
+                          <Image
+                            src={inSightsCategory.path}
+                            alt='good-read-1'
+                          />
                         </div>
                         <div className='good-read-title'>
                           {/* {insight.title | CustomTranslation:langSelected} */}

@@ -41,7 +41,7 @@ export default function WelcomePage({ commonData, welcomePageData }: any) {
         <div className='plano-wlc-page-container'>
           <div className='plano-wlc-page-content'>
             <div className='plano-bull-logo-cont'>
-              <img
+              <Image
                 width='50'
                 height='50'
                 alt='Red Bull'

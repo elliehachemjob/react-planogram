@@ -68,10 +68,10 @@ export default function Vip({ commonData, vipData }: any) {
           <div className='vip-sec-content'>
             <div className='vip-sec-upper-part'>
               <div className='vip-top-img-wrapper'>
-                <img src='assets/top-img.png' alt='top-img' />
+                <Image src='assets/top-img.png' alt='top-img' />
               </div>
               <div className='vip-rb-cans-wrapper'>
-                <img src='assets/rb-cans.png' alt='rb-cans' />
+                <Image src='assets/rb-cans.png' alt='rb-cans' />
               </div>
               <div className='vip-header-txt'>
                 {/* {vipHeaderText[0] | CustomTranslation:langSelected} */}

@@ -170,7 +170,7 @@ export default function SubCategories({
                               {subCategory.nestedDetails.title}
                             </div>
                             <div className='sub-cats-inner-page-img'>
-                              <img
+                              <Image
                                 src={subCategory.nestedDetails.imagePath}
                                 alt='{{subCategory'
                               />

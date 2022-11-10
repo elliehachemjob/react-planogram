@@ -58,7 +58,7 @@ export default function Languages({ commonData, languagesPageData }: any) {
         <div className='plano-wlc-page-container'>
           <div className='plano-wlc-page-content'>
             <div className='plano-bull-logo-cont'>
-              <img src='assets/logo.png' alt='Red Bull' />
+              <Image src='assets/logo.png' alt='Red Bull' />
             </div>
             <div className='plano-wing-titles-cont'>
               <span className='wingman-title'>{commonData.siteName}</span>
