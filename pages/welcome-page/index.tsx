@@ -92,59 +92,51 @@ export default function WelcomePage({ commonData, welcomePageData }: any) {
 }
 
 export const getStaticProps = async () => {
-  const commonRes = await fetch(
-    `${
-      process.env.NODE_ENV !== 'production'
-        ? 'http://localhost:3000/api/common-data'
-        : ''
-    }`
-  );
+  let commonRes: any;
+  let commonData: any;
+  let res: any;
+  let welcomePageData: any;
 
-  const replaceWithApiOne = {
-    siteName: 'WINGMAN',
-    welcomeProgram: 'program 2022',
-    discover: 'Discover',
-    vip: 'VIP',
-    insights: 'INSIGHTS',
-  };
+  if (process.env.NODE_ENV !== 'production') {
+    commonRes = await fetch(`http://localhost:3000/api/common-data`);
+    commonData = await commonRes.json();
 
-  const commonData = await commonRes.json();
-
-  const res = await fetch(
-    `${
-      process.env.NODE_ENV !== 'production'
-        ? 'http://localhost:3000/api/welcome-page'
-        : ''
-    }`
-  );
-
-  const replaceWithApiTwo = {
-    countries: [
-      'UAE',
-      'MALDIVES',
-      'PAKISTAN',
-      'SRI LANKA',
-      'ALGERIA',
-      'NIGERIA',
-      'ANGOLA',
-      'MAURITIUS',
-      'KENYA',
-      'EGYPT',
-      'OMAN',
-      'KUWAIT',
-      'QATAR',
-      'JORDAN',
-      'BAHRAIN',
-      'KSA',
-      'LEBANON',
-      'GHANA',
-    ],
-    image: '/assets/logo.png',
-    welcomeSelectACountryToStart: 'Select country to start',
-  };
-  const welcomePageData = `${
-    process.env.NODE_ENV !== 'production' ? await res.json() : replaceWithApiOne
-  }`;
+    res = await fetch(`http://localhost:3000/api/welcome-page`);
+    welcomePageData = await res.json();
+  } else {
+    commonData = {
+      siteName: 'WINGMAN',
+      welcomeProgram: 'program 2022',
+      discover: 'Discover',
+      vip: 'VIP',
+      insights: 'INSIGHTS',
+    };
+    welcomePageData = {
+      countries: [
+        'UAE',
+        'MALDIVES',
+        'PAKISTAN',
+        'SRI LANKA',
+        'ALGERIA',
+        'NIGERIA',
+        'ANGOLA',
+        'MAURITIUS',
+        'KENYA',
+        'EGYPT',
+        'OMAN',
+        'KUWAIT',
+        'QATAR',
+        'JORDAN',
+        'BAHRAIN',
+        'KSA',
+        'LEBANON',
+        'GHANA',
+      ],
+      image: '/assets/logo.png',
+      welcomeSelectACountryToStart: 'Select country to start',
+    };
+    const test = process.env.NODE_ENV !== 'production';
+  }
 
   return {
     props: {

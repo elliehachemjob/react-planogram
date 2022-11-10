@@ -198,106 +198,97 @@ export default function SubCategories({
 }
 
 export const getStaticProps = async () => {
-  const commonRes = await fetch(
-    `${
-      process.env.NODE_ENV !== 'production'
-        ? 'http://localhost:3000/api/common-data'
-        : ''
-    }`
-  );
+  let commonRes: any;
+  let commonData: any;
+  let res: any;
+  let subCategoriesPageData: any;
 
-  const replaceWithApiOne = {
-    siteName: 'WINGMAN',
-    welcomeProgram: 'program 2022',
-    discover: 'Discover',
-    vip: 'VIP',
-    insights: 'INSIGHTS',
-  };
+  if (process.env.NODE_ENV !== 'production') {
+    commonRes = await fetch(`http://localhost:3000/api/common-data`);
+    commonData = await commonRes.json();
 
-  const commonData = await commonRes.json();
+    res = await fetch(`http://localhost:3000/api/sub-categories`);
+    subCategoriesPageData = await res.json();
+  } else {
+    commonData = {
+      siteName: 'WINGMAN',
+      welcomeProgram: 'program 2022',
+      discover: 'Discover',
+      vip: 'VIP',
+      insights: 'INSIGHTS',
+    };
 
-  const res = await fetch(
-    `${
-      process.env.NODE_ENV !== 'production'
-        ? 'http://localhost:3000/api/sub-categories'
-        : ''
-    }`
-  );
-
-  const replaceWithApiTwo = {
-    subCategoryName: 'impulse',
-    subCategories: [
-      {
-        country: 'Lebanon',
-        content: [
-          {
-            id: 1,
-            title: 'impulseA',
-            subTitle: 'shelfMainPlacement',
-            nestedDetails: {
-              title: 'MinTwelveFacings',
-              imagePath: '/assets/subCategory/1.png',
-              flow: 'TrafficFlow',
-              isEmptyContent: false,
+    subCategoriesPageData = {
+      subCategoryName: 'impulse',
+      subCategories: [
+        {
+          country: 'Lebanon',
+          content: [
+            {
+              id: 1,
+              title: 'impulseA',
+              subTitle: 'shelfMainPlacement',
+              nestedDetails: {
+                title: 'MinTwelveFacings',
+                imagePath: '/assets/subCategory/1.png',
+                flow: 'TrafficFlow',
+                isEmptyContent: false,
+              },
             },
-          },
-          {
-            id: 2,
-            title: 'impulseB',
-            subTitle: 'shelfMainPlacement',
-            nestedDetails: {
-              title: 'MinTwelveFacings',
-              imagePath: '/assets/subCategory/1.png',
-              flow: 'TrafficFlow',
-              isEmptyContent: false,
+            {
+              id: 2,
+              title: 'impulseB',
+              subTitle: 'shelfMainPlacement',
+              nestedDetails: {
+                title: 'MinTwelveFacings',
+                imagePath: '/assets/subCategory/1.png',
+                flow: 'TrafficFlow',
+                isEmptyContent: false,
+              },
             },
-          },
-          {
-            id: 3,
-            title: 'impulseC',
-            subTitle: 'shelfMainPlacement',
-            nestedDetails: {
-              title: 'MinTwelveFacings',
-              imagePath: '/assets/subCategory/1.png',
-              flow: 'TrafficFlow',
-              isEmptyContent: false,
+            {
+              id: 3,
+              title: 'impulseC',
+              subTitle: 'shelfMainPlacement',
+              nestedDetails: {
+                title: 'MinTwelveFacings',
+                imagePath: '/assets/subCategory/1.png',
+                flow: 'TrafficFlow',
+                isEmptyContent: false,
+              },
             },
-          },
-        ],
-      },
-      {
-        country: 'Qatar',
-        content: [
-          {
-            id: 1,
-            title: 'Impulse A',
-            subTitle: 'shelfMainPlacement',
-            nestedDetails: {
-              title: 'MinTwelveFacings',
-              imagePath: '/assets/subCategory/1.png',
-              flow: 'TrafficFlow',
-              isEmptyContent: false,
+          ],
+        },
+        {
+          country: 'Qatar',
+          content: [
+            {
+              id: 1,
+              title: 'Impulse A',
+              subTitle: 'shelfMainPlacement',
+              nestedDetails: {
+                title: 'MinTwelveFacings',
+                imagePath: '/assets/subCategory/1.png',
+                flow: 'TrafficFlow',
+                isEmptyContent: false,
+              },
             },
-          },
-          {
-            id: 2,
-            title: 'impulseB',
-            subTitle: 'shelfMainPlacement',
-            nestedDetails: {
-              title: 'MinTwelveFacings',
-              imagePath: '/assets/subCategory/1.png',
-              flow: 'TrafficFlow',
-              isEmptyContent: false,
+            {
+              id: 2,
+              title: 'impulseB',
+              subTitle: 'shelfMainPlacement',
+              nestedDetails: {
+                title: 'MinTwelveFacings',
+                imagePath: '/assets/subCategory/1.png',
+                flow: 'TrafficFlow',
+                isEmptyContent: false,
+              },
             },
-          },
-        ],
-      },
-    ],
-  };
-
-  const subCategoriesPageData = `${
-    process.env.NODE_ENV !== 'production' ? await res.json() : replaceWithApiTwo
-  }`;
+          ],
+        },
+      ],
+    };
+  }
 
   return {
     props: {

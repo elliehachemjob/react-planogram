@@ -172,54 +172,46 @@ export default function InnerPage({ commonData, innerPageData }: any) {
 }
 
 export const getStaticProps = async () => {
-  const commonRes = await fetch(
-    `${
-      process.env.NODE_ENV !== 'production'
-        ? 'http://localhost:3000/api/common-data'
-        : ''
-    }`
-  );
-  const replaceWithApiOne = {
-    siteName: 'WINGMAN',
-    welcomeProgram: 'program 2022',
-    discover: 'Discover',
-    vip: 'VIP',
-    insights: 'INSIGHTS',
-  };
+  let commonRes: any;
+  let commonData: any;
+  let res: any;
+  let innerPageData: any;
 
-  const commonData = await commonRes.json();
+  if (process.env.NODE_ENV !== 'production') {
+    commonRes = await fetch(`http://localhost:3000/api/common-data`);
+    commonData = await commonRes.json();
 
-  const res = await fetch(
-    `${
-      process.env.NODE_ENV !== 'production'
-        ? 'http://localhost:3000/api/inner-page'
-        : ''
-    }`
-  );
-  const replaceWithApiTwo = {
-    siteName: 'WINGMAN',
-    planogramQuickSearchPlaceHolder: 'Planogram Quick Search ',
-    chosenLanguages: ['English', 'Arabic', 'French'],
-    categories: [
-      {
-        country: 'Lebanon',
-        content: [
-          { title: 'impulse', background: 'impulse' },
-          { title: 'cAndG', background: 'cg' },
-          { title: 'retail', background: 'retail' },
-          { title: 'coolers', background: 'coolers' },
-        ],
-      },
-      {
-        country: 'Qatar',
-        content: [{ title: 'impulse', background: 'impulse' }],
-      },
-    ],
-  };
-
-  const innerPageData = `${
-    process.env.NODE_ENV !== 'production' ? await res.json() : replaceWithApiTwo
-  }`;
+    res = await fetch(`http://localhost:3000/api/inner-page`);
+    innerPageData = await res.json();
+  } else {
+    commonData = {
+      siteName: 'WINGMAN',
+      welcomeProgram: 'program 2022',
+      discover: 'Discover',
+      vip: 'VIP',
+      insights: 'INSIGHTS',
+    };
+    innerPageData = {
+      siteName: 'WINGMAN',
+      planogramQuickSearchPlaceHolder: 'Planogram Quick Search ',
+      chosenLanguages: ['English', 'Arabic', 'French'],
+      categories: [
+        {
+          country: 'Lebanon',
+          content: [
+            { title: 'impulse', background: 'impulse' },
+            { title: 'cAndG', background: 'cg' },
+            { title: 'retail', background: 'retail' },
+            { title: 'coolers', background: 'coolers' },
+          ],
+        },
+        {
+          country: 'Qatar',
+          content: [{ title: 'impulse', background: 'impulse' }],
+        },
+      ],
+    };
+  }
 
   return {
     props: {

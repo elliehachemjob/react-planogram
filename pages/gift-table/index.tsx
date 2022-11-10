@@ -130,69 +130,64 @@ export default function GiftTable({ giftTableData }: any) {
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch(
-    `${
-      process.env.NODE_ENV !== 'production'
-        ? 'http://localhost:3000/api/gift-table'
-        : ''
-    }`
-  );
-
-  const replaceWithApi = {
-    tableCategoryName: 'CategoryA',
-    tableCategoryHeaderName: {
-      title: 'Impulse VIP A',
-      before: 'before',
-      after: 'after',
-    },
-    categoriesTableContent: [
-      {
-        country: 'Lebanon',
-        content: [
-          {
-            title: 'RECOMMENDED SHELF PRICE',
-            beforeValue: '10.00',
-            afterValue: '10.00',
-          },
-          { title: 'VAT', beforeValue: '0.48', afterValue: '0.48' },
-          {
-            title: 'SHELF PRICE EXCLUDING VAT',
-            beforeValue: '53.70	',
-            afterValue: '55.337',
-          },
-          { title: 'EXCISE TAX', beforeValue: '10.00', afterValue: '10.00	' },
-          { title: 'REBATE %', beforeValue: '10.00', afterValue: '55.337' },
-          { title: 'TOTAL REBATES', beforeValue: '14.00', afterValue: '11' },
-          {
-            title: 'RECOMMENDED SHELF PRICE',
-            beforeValue: '27.120',
-            afterValue: '10',
-          },
-        ],
+  let res: any;
+  let giftTableData: any;
+  if (process.env.NODE_ENV !== 'production') {
+    res = await fetch(`http://localhost:3000/api/gift-table`);
+    giftTableData = await res.json();
+  } else {
+    giftTableData = {
+      tableCategoryName: 'CategoryA',
+      tableCategoryHeaderName: {
+        title: 'Impulse VIP A',
+        before: 'before',
+        after: 'after',
       },
-      {
-        country: 'Qatar',
-        content: [
-          {
-            title: 'RECOMMENDED SHELF PRICE',
-            beforeValue: '10.00',
-            afterValue: '10.00',
-          },
-          { title: 'VAT', beforeValue: '0.48', afterValue: '0.48' },
-          {
-            title: 'SHELF PRICE EXCLUDING VAT',
-            beforeValue: '53.70	',
-            afterValue: '55.337',
-          },
-          { title: 'EXCISE TAX', beforeValue: '10.00', afterValue: '10.00	' },
-        ],
-      },
-    ],
-  };
-
-  const giftTableData = `${
-    process.env.NODE_ENV !== 'production' ? await res.json() : replaceWithApi
-  }`;
+      categoriesTableContent: [
+        {
+          country: 'Lebanon',
+          content: [
+            {
+              title: 'RECOMMENDED SHELF PRICE',
+              beforeValue: '10.00',
+              afterValue: '10.00',
+            },
+            { title: 'VAT', beforeValue: '0.48', afterValue: '0.48' },
+            {
+              title: 'SHELF PRICE EXCLUDING VAT',
+              beforeValue: '53.70	',
+              afterValue: '55.337',
+            },
+            { title: 'EXCISE TAX', beforeValue: '10.00', afterValue: '10.00	' },
+            { title: 'REBATE %', beforeValue: '10.00', afterValue: '55.337' },
+            { title: 'TOTAL REBATES', beforeValue: '14.00', afterValue: '11' },
+            {
+              title: 'RECOMMENDED SHELF PRICE',
+              beforeValue: '27.120',
+              afterValue: '10',
+            },
+          ],
+        },
+        {
+          country: 'Qatar',
+          content: [
+            {
+              title: 'RECOMMENDED SHELF PRICE',
+              beforeValue: '10.00',
+              afterValue: '10.00',
+            },
+            { title: 'VAT', beforeValue: '0.48', afterValue: '0.48' },
+            {
+              title: 'SHELF PRICE EXCLUDING VAT',
+              beforeValue: '53.70	',
+              afterValue: '55.337',
+            },
+            { title: 'EXCISE TAX', beforeValue: '10.00', afterValue: '10.00	' },
+          ],
+        },
+      ],
+    };
+  }
 
   return {
     props: {

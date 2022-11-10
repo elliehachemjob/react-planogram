@@ -132,35 +132,51 @@ export default function Vip({ commonData, vipData }: any) {
 }
 
 export const getStaticProps = async () => {
-  const commonRes = await fetch(
-    `${
-      process.env.NODE_ENV !== 'production'
-        ? 'http://localhost:3000/api/common-data'
-        : ''
-    }`
-  );
+  let commonRes: any;
+  let commonData: any;
 
-  const replaceWithApiOne = {
-    siteName: 'WINGMAN',
-    welcomeProgram: 'program 2022',
-    discover: 'Discover',
-    vip: 'VIP',
-    insights: 'INSIGHTS',
-  };
+  let res: any;
+  let vipData: any;
 
-  const commonData = await commonRes.json();
+  if (process.env.NODE_ENV !== 'production') {
+    commonRes = await fetch(`http://localhost:3000/api/common-data`);
+    commonData = await commonRes.json();
 
-  const res = await fetch(
-    `${
-      process.env.NODE_ENV !== 'production'
-        ? 'http://localhost:3000/api/common-data'
-        : ''
-    }`
-  );
-
-  const vipData = `${
-    process.env.NODE_ENV !== 'production' ? await res.json() : replaceWithApiOne
-  }`;
+    res = await fetch(`http://localhost:3000/api/vip`);
+    vipData = await res.json();
+  } else {
+    commonData = {
+      siteName: 'WINGMAN',
+      welcomeProgram: 'program 2022',
+      discover: 'Discover',
+      vip: 'VIP',
+      insights: 'INSIGHTS',
+    };
+    vipData = {
+      vipHeaderText: [
+        {
+          country: 'Lebanon',
+          content: ['specialPromotion'],
+        },
+        {
+          country: 'Qatar',
+          content: [
+            'This is a Qatar members club where you will receive discounts based on counterparts in store that will drive incremental sales, helping you earn more profit!',
+          ],
+        },
+      ],
+      vipCategories: [
+        {
+          country: 'Lebanon',
+          content: ['CategoryA', 'CategoryB', 'CategoryC'],
+        },
+        {
+          country: 'Qatar',
+          content: ['CategoryA', 'CategoryB'],
+        },
+      ],
+    };
+  }
 
   return {
     props: {

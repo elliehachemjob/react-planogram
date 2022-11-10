@@ -103,48 +103,42 @@ export default function Languages({ commonData, languagesPageData }: any) {
 }
 
 export const getStaticProps = async () => {
-  const commonRes = await fetch(
-    `${
-      process.env.NODE_ENV !== 'production'
-        ? 'http://localhost:3000/api/common-data'
-        : ''
-    }`
-  );
+  let commonRes: any;
+  let commonData: any;
 
-  const replaceWithApiOne = {
-    siteName: 'WINGMAN',
-    welcomeProgram: 'program 2022',
-    discover: 'Discover',
-    vip: 'VIP',
-    insights: 'INSIGHTS',
-  };
+  let res: any;
+  let languagesPageData: any;
 
-  const commonData = await commonRes.json();
+  if (process.env.NODE_ENV !== 'production') {
+    commonRes = await fetch(`http://localhost:3000/api/common-data`);
+    commonData = await commonRes.json();
+    res = await fetch(`http://localhost:3000/api/languages`);
+    languagesPageData = await res.json();
+  } else {
+    commonData = {
+      siteName: 'WINGMAN',
+      welcomeProgram: 'program 2022',
+      discover: 'Discover',
+      vip: 'VIP',
+      insights: 'INSIGHTS',
+    };
 
-  const res = await fetch(
-    `${
-      process.env.NODE_ENV !== 'production'
-        ? 'http://localhost:3000/api/languages'
-        : ''
-    }`
-  );
-  const replaceWithApTwo = {
-    languages: [
-      {
-        country: 'Lebanon',
-        content: ['Arabic', 'French', 'Urdu', 'English'],
-      },
-      {
-        country: 'Qatar',
-        content: ['Arabic', 'English'],
-      },
-    ],
-    languagesPageSelectALanguageToStart: 'Select language from above to start',
-  };
+    languagesPageData = {
+      languages: [
+        {
+          country: 'Lebanon',
+          content: ['Arabic', 'French', 'Urdu', 'English'],
+        },
+        {
+          country: 'Qatar',
+          content: ['Arabic', 'English'],
+        },
+      ],
+      languagesPageSelectALanguageToStart:
+        'Select language from above to start',
+    };
+  }
 
-  const languagesPageData = `${
-    process.env.NODE_ENV !== 'production' ? await res.json() : replaceWithApTwo
-  }`;
   return {
     props: {
       languagesPageData: languagesPageData,

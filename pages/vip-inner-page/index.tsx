@@ -168,81 +168,71 @@ export default function VipInnerPage({ commonData, vipInnerPageData }: any) {
 }
 
 export const getStaticProps = async () => {
-  const commonRes = await fetch(
-    `${
-      process.env.NODE_ENV !== 'production'
-        ? 'http://localhost:3000/api/common-data'
-        : ''
-    }`
-  );
+  let commonRes: any;
+  let commonData: any;
+  let res: any;
+  let vipInnerPageData: any;
 
-  const replaceWithApiOne = {
-    siteName: 'WINGMAN',
-    welcomeProgram: 'program 2022',
-    discover: 'Discover',
-    vip: 'VIP',
-    insights: 'INSIGHTS',
-  };
+  if (process.env.NODE_ENV !== 'production') {
+    commonRes = await fetch(`http://localhost:3000/api/common-data`);
+    commonData = await commonRes.json();
 
-  const commonData = await commonRes.json();
-
-  const res = await fetch(
-    `${
-      process.env.NODE_ENV !== 'production'
-        ? 'http://localhost:3000/api/common-data'
-        : ''
-    }`
-  );
-
-  const replaceWithApiTwo = {
-    vipCategoriesDetailsHeader: 'vipCategoryA',
-    vipCategoriesDetailsContent: [
-      {
-        country: 'Lebanon',
-        content: [
-          {
-            title: 'MainPlacementChilled',
-            numberedElementPartOne: '#1',
-            numberedElementPartTwo: 'Min13facings',
-            path: '/assets/vip/1.png',
-          },
-          {
-            title: 'Range',
-            numberedElementPartOne: ' #2',
-            numberedElementPartTwo: 'MinTwelveFacings',
-            path: '/assets/vip/1.png',
-          },
-          {
-            title: 'Min13facings',
-            numberedElementPartOne: ' #3',
-            numberedElementPartTwo: 'Min13facings',
-            path: '/assets/vip/1.png',
-          },
-        ],
-      },
-      {
-        country: 'Qatar',
-        content: [
-          {
-            title: 'MainPlacementChilled',
-            numberedElementPartOne: '#1',
-            numberedElementPartTwo: 'Min13facings',
-            path: '/assets/vip/1.png',
-          },
-          {
-            title: 'Range',
-            numberedElementPartOne: ' #2',
-            numberedElementPartTwo: 'MinTwelveFacings',
-            path: '/assets/vip/1.png',
-          },
-        ],
-      },
-    ],
-  };
-
-  const vipInnerPageData = `${
-    process.env.NODE_ENV !== 'production' ? await res.json() : replaceWithApiOne
-  }`;
+    res = await fetch(`http://localhost:3000/api/vip-inner-page`);
+    vipInnerPageData = await res.json();
+  } else {
+    commonData = {
+      siteName: 'WINGMAN',
+      welcomeProgram: 'program 2022',
+      discover: 'Discover',
+      vip: 'VIP',
+      insights: 'INSIGHTS',
+    };
+    vipInnerPageData = {
+      vipCategoriesDetailsHeader: 'vipCategoryA',
+      vipCategoriesDetailsContent: [
+        {
+          country: 'Lebanon',
+          content: [
+            {
+              title: 'MainPlacementChilled',
+              numberedElementPartOne: '#1',
+              numberedElementPartTwo: 'Min13facings',
+              path: '/assets/vip/1.png',
+            },
+            {
+              title: 'Range',
+              numberedElementPartOne: ' #2',
+              numberedElementPartTwo: 'MinTwelveFacings',
+              path: '/assets/vip/1.png',
+            },
+            {
+              title: 'Min13facings',
+              numberedElementPartOne: ' #3',
+              numberedElementPartTwo: 'Min13facings',
+              path: '/assets/vip/1.png',
+            },
+          ],
+        },
+        {
+          country: 'Qatar',
+          content: [
+            {
+              title: 'MainPlacementChilled',
+              numberedElementPartOne: '#1',
+              numberedElementPartTwo: 'Min13facings',
+              path: '/assets/vip/1.png',
+            },
+            {
+              title: 'Range',
+              numberedElementPartOne: ' #2',
+              numberedElementPartTwo: 'MinTwelveFacings',
+              path: '/assets/vip/1.png',
+            },
+          ],
+        },
+      ],
+    };
+  }
 
   return {
     props: {
