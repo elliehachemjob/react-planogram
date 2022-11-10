@@ -81,6 +81,7 @@ export default function Insights({ commonData, insightsPageData }: any) {
                           <a
                             href='https://wingmanapi.rbprojects.me/public/uploads/anouncementPdf/1619162839.pdf'
                             target='_blank'
+                            rel='noreferrer'
                           >
                             {/* {"insightsPageExplore" |CustomTranslation:langSelected} */}
                             {inSightsCategory.insightsPageExplore}

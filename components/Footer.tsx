@@ -52,8 +52,33 @@ function Footer({ commonData }: any) {
   function navigateInnerPage(): void {
     router.push('/inner-page');
   }
-
   useEffect(() => {
+    function setLogoActivation() {
+      if (
+        router.pathname.startsWith('/inner-page') ||
+        router.pathname.startsWith('/sub-categories')
+      ) {
+        isDiscoverLogoActive = true;
+        setRenderIsDiscoverLogoActive(isDiscoverLogoActive);
+      } else {
+        isDiscoverLogoActive = false;
+        setRenderIsDiscoverLogoActive(isDiscoverLogoActive);
+      }
+      if (router.pathname.startsWith('/vip')) {
+        isVipLogoActive = true;
+        setRenderIsVipLogoActive(isVipLogoActive);
+      } else {
+        isVipLogoActive = false;
+        setRenderIsVipLogoActive(isVipLogoActive);
+      }
+      if (router.pathname.startsWith('/insights')) {
+        isInsightLogoActive = true;
+        setRenderIsInsightLogoActive(isInsightLogoActive);
+      } else {
+        isInsightLogoActive = false;
+        setRenderIsInsightLogoActive(isInsightLogoActive);
+      }
+    }
     setLogoActivation();
   }, []);
 
