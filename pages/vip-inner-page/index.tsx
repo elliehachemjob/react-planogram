@@ -168,64 +168,25 @@ export default function VipInnerPage({ commonData, vipInnerPageData }: any) {
 }
 
 export const getStaticProps = async () => {
-  // const commonRes = await fetch(`http://localhost:3000/api/common-data`);
-  // const commonData = await commonRes.json();
+  const commonRes = await fetch(
+    `${
+      process.env.NODE_ENV !== 'production'
+        ? 'http://localhost:3000/api/common-data'
+        : ''
+    }`
+  );
 
-  // const res = await fetch(`http://localhost:3000/api/vip-inner-page`);
-  // const vipInnerPageData = await res.json();
+  const commonData = await commonRes.json();
 
-  const commonData = {
-    siteName: 'WINGMAN',
-    welcomeProgram: 'program 2022',
-    discover: 'Discover',
-    vip: 'VIP',
-    insights: 'INSIGHTS',
-  };
-  const vipInnerPageData = {
-    vipCategoriesDetailsHeader: 'vipCategoryA',
-    vipCategoriesDetailsContent: [
-      {
-        country: 'Lebanon',
-        content: [
-          {
-            title: 'MainPlacementChilled',
-            numberedElementPartOne: '#1',
-            numberedElementPartTwo: 'Min13facings',
-            path: '/assets/vip/1.png',
-          },
-          {
-            title: 'Range',
-            numberedElementPartOne: ' #2',
-            numberedElementPartTwo: 'MinTwelveFacings',
-            path: '/assets/vip/1.png',
-          },
-          {
-            title: 'Min13facings',
-            numberedElementPartOne: ' #3',
-            numberedElementPartTwo: 'Min13facings',
-            path: '/assets/vip/1.png',
-          },
-        ],
-      },
-      {
-        country: 'Qatar',
-        content: [
-          {
-            title: 'MainPlacementChilled',
-            numberedElementPartOne: '#1',
-            numberedElementPartTwo: 'Min13facings',
-            path: '/assets/vip/1.png',
-          },
-          {
-            title: 'Range',
-            numberedElementPartOne: ' #2',
-            numberedElementPartTwo: 'MinTwelveFacings',
-            path: '/assets/vip/1.png',
-          },
-        ],
-      },
-    ],
-  };
+  const res = await fetch(
+    `${
+      process.env.NODE_ENV !== 'production'
+        ? 'http://localhost:3000/api/common-data'
+        : ''
+    }`
+  );
+
+  const vipInnerPageData = await res.json();
 
   return {
     props: {

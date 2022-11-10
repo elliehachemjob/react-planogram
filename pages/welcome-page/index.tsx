@@ -24,6 +24,8 @@ export default function WelcomePage({ commonData, welcomePageData }: any) {
 
   useEffect(() => {
     langSelected = getAndSetLanguage(langSelected);
+
+    console.log(process.env.NODE_ENV);
   }, []);
 
   // basic loop needed
@@ -90,44 +92,24 @@ export default function WelcomePage({ commonData, welcomePageData }: any) {
 }
 
 export const getStaticProps = async () => {
-  // const commonRes = await fetch(`http://localhost:3000/api/common-data`);
-  // const commonData = await commonRes.json();
+  const commonRes = await fetch(
+    `${
+      process.env.NODE_ENV !== 'production'
+        ? 'http://localhost:3000/api/common-data'
+        : ''
+    }`
+  );
+  const commonData = await commonRes.json();
 
-  // const res = await fetch(`http://localhost:3000/api/welcome-page`);
-  // const welcomePageData = await res.json();
+  const res = await fetch(
+    `${
+      process.env.NODE_ENV !== 'production'
+        ? 'http://localhost:3000/api/welcome-page'
+        : ''
+    }`
+  );
+  const welcomePageData = await res.json();
 
-  const commonData = {
-    siteName: 'WINGMAN',
-    welcomeProgram: 'program 2022',
-    discover: 'Discover',
-    vip: 'VIP',
-    insights: 'INSIGHTS',
-  };
-
-  const welcomePageData = {
-    countries: [
-      'UAE',
-      'MALDIVES',
-      'PAKISTAN',
-      'SRI LANKA',
-      'ALGERIA',
-      'NIGERIA',
-      'ANGOLA',
-      'MAURITIUS',
-      'KENYA',
-      'EGYPT',
-      'OMAN',
-      'KUWAIT',
-      'QATAR',
-      'JORDAN',
-      'BAHRAIN',
-      'KSA',
-      'LEBANON',
-      'GHANA',
-    ],
-    image: '/assets/logo.png',
-    welcomeSelectACountryToStart: 'Select country to start',
-  };
   return {
     props: {
       welcomePageData: welcomePageData,

@@ -58,7 +58,12 @@ export default function Languages({ commonData, languagesPageData }: any) {
         <div className='plano-wlc-page-container'>
           <div className='plano-wlc-page-content'>
             <div className='plano-bull-logo-cont'>
-              <Image src='assets/logo.png' alt='Red Bull' />
+              <Image
+                width={100}
+                height={100}
+                src='/assets/logo.png'
+                alt='Red Bull'
+              />
             </div>
             <div className='plano-wing-titles-cont'>
               <span className='wingman-title'>{commonData.siteName}</span>
@@ -98,32 +103,23 @@ export default function Languages({ commonData, languagesPageData }: any) {
 }
 
 export const getStaticProps = async () => {
-  // const commonRes = await fetch(`http://localhost:3000/api/common-data`);
-  // const commonData = await commonRes.json();
+  const commonRes = await fetch(
+    `${
+      process.env.NODE_ENV !== 'production'
+        ? 'http://localhost:3000/api/common-data'
+        : ''
+    }`
+  );
+  const commonData = await commonRes.json();
 
-  // const res = await fetch(`http://localhost:3000/api/languages`);
-  // const languagesPageData = await res.json();
-  const commonData = {
-    siteName: 'WINGMAN',
-    welcomeProgram: 'program 2022',
-    discover: 'Discover',
-    vip: 'VIP',
-    insights: 'INSIGHTS',
-  };
-
-  const languagesPageData = {
-    languages: [
-      {
-        country: 'Lebanon',
-        content: ['Arabic', 'French', 'Urdu', 'English'],
-      },
-      {
-        country: 'Qatar',
-        content: ['Arabic', 'English'],
-      },
-    ],
-    languagesPageSelectALanguageToStart: 'Select language from above to start',
-  };
+  const res = await fetch(
+    `${
+      process.env.NODE_ENV !== 'production'
+        ? 'http://localhost:3000/api/languages'
+        : ''
+    }`
+  );
+  const languagesPageData = await res.json();
 
   return {
     props: {
