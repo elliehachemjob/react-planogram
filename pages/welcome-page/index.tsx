@@ -21,7 +21,6 @@ export default function WelcomePage() {
 
   return (
     <div>
-      test deploy
       <div className='plano-wlc-page-wrapper' id='welcome-page'>
         <div className='plano-wlc-page-container'>
           <div className='plano-wlc-page-content'>
