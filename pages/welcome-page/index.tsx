@@ -27,7 +27,6 @@ export default function WelcomePage() {
           <div className='plano-wlc-page-content'>
             <div className='plano-bull-logo-cont'>
               <img
-                priority
                 width='50'
                 height='50'
                 alt='Red Bull'

@@ -43,7 +43,6 @@ export default function Languages() {
               <img
                 width={100}
                 height={100}
-                priority
                 src='/assets/logo.png'
                 alt='Red Bull'
               />

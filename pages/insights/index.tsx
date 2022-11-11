@@ -41,7 +41,6 @@ export default function Insights() {
                       <img
                         width={100}
                         height={100}
-                        priority
                         src={inSightsCategory.path}
                         alt='good-read-1'
                       />
