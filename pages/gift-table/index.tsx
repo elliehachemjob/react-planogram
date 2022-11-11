@@ -6,7 +6,11 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import ISO6391 from 'iso-639-1';
 
-export default function GiftTable({ giftTableData }: any) {
+export default function GiftTable() {
+  let giftTableData: any = JSON.parse(
+    localStorage.getItem('giftTableData') as any
+  );
+
   const router = useRouter();
   let langSelected: any = '';
   let categoriesTableContent: any = [];
@@ -129,69 +133,69 @@ export default function GiftTable({ giftTableData }: any) {
   );
 }
 
-export const getStaticProps = async () => {
-  let giftRes: any;
-  let giftTableData: any;
-  if (process.env.NODE_ENV !== 'production') {
-    giftRes = await fetch(`http://localhost:3000/api/gift-table`);
-    giftTableData = await giftRes.json();
-  } else {
-    giftTableData = {
-      tableCategoryName: 'CategoryA',
-      tableCategoryHeaderName: {
-        title: 'Impulse VIP A',
-        before: 'before',
-        after: 'after',
-      },
-      categoriesTableContent: [
-        {
-          country: 'Lebanon',
-          content: [
-            {
-              title: 'RECOMMENDED SHELF PRICE',
-              beforeValue: '10.00',
-              afterValue: '10.00',
-            },
-            { title: 'VAT', beforeValue: '0.48', afterValue: '0.48' },
-            {
-              title: 'SHELF PRICE EXCLUDING VAT',
-              beforeValue: '53.70	',
-              afterValue: '55.337',
-            },
-            { title: 'EXCISE TAX', beforeValue: '10.00', afterValue: '10.00	' },
-            { title: 'REBATE %', beforeValue: '10.00', afterValue: '55.337' },
-            { title: 'TOTAL REBATES', beforeValue: '14.00', afterValue: '11' },
-            {
-              title: 'RECOMMENDED SHELF PRICE',
-              beforeValue: '27.120',
-              afterValue: '10',
-            },
-          ],
-        },
-        {
-          country: 'Qatar',
-          content: [
-            {
-              title: 'RECOMMENDED SHELF PRICE',
-              beforeValue: '10.00',
-              afterValue: '10.00',
-            },
-            { title: 'VAT', beforeValue: '0.48', afterValue: '0.48' },
-            {
-              title: 'SHELF PRICE EXCLUDING VAT',
-              beforeValue: '53.70	',
-              afterValue: '55.337',
-            },
-            { title: 'EXCISE TAX', beforeValue: '10.00', afterValue: '10.00	' },
-          ],
-        },
-      ],
-    };
-  }
+// export const getStaticProps = async () => {
+//   let giftRes: any;
+//   let giftTableData: any;
+//   if (process.env.NODE_ENV !== 'production') {
+//     giftRes = await fetch(`http://localhost:3000/api/gift-table`);
+//     giftTableData = await giftRes.json();
+//   } else {
+//     giftTableData = {
+//       tableCategoryName: 'CategoryA',
+//       tableCategoryHeaderName: {
+//         title: 'Impulse VIP A',
+//         before: 'before',
+//         after: 'after',
+//       },
+//       categoriesTableContent: [
+//         {
+//           country: 'Lebanon',
+//           content: [
+//             {
+//               title: 'RECOMMENDED SHELF PRICE',
+//               beforeValue: '10.00',
+//               afterValue: '10.00',
+//             },
+//             { title: 'VAT', beforeValue: '0.48', afterValue: '0.48' },
+//             {
+//               title: 'SHELF PRICE EXCLUDING VAT',
+//               beforeValue: '53.70	',
+//               afterValue: '55.337',
+//             },
+//             { title: 'EXCISE TAX', beforeValue: '10.00', afterValue: '10.00	' },
+//             { title: 'REBATE %', beforeValue: '10.00', afterValue: '55.337' },
+//             { title: 'TOTAL REBATES', beforeValue: '14.00', afterValue: '11' },
+//             {
+//               title: 'RECOMMENDED SHELF PRICE',
+//               beforeValue: '27.120',
+//               afterValue: '10',
+//             },
+//           ],
+//         },
+//         {
+//           country: 'Qatar',
+//           content: [
+//             {
+//               title: 'RECOMMENDED SHELF PRICE',
+//               beforeValue: '10.00',
+//               afterValue: '10.00',
+//             },
+//             { title: 'VAT', beforeValue: '0.48', afterValue: '0.48' },
+//             {
+//               title: 'SHELF PRICE EXCLUDING VAT',
+//               beforeValue: '53.70	',
+//               afterValue: '55.337',
+//             },
+//             { title: 'EXCISE TAX', beforeValue: '10.00', afterValue: '10.00	' },
+//           ],
+//         },
+//       ],
+//     };
+//   }
 
-  return {
-    props: {
-      giftTableData: giftTableData,
-    },
-  };
-};
+//   return {
+//     props: {
+//       giftTableData: giftTableData,
+//     },
+//   };
+// };

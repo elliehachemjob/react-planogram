@@ -7,7 +7,10 @@ import { useRouter } from 'next/router';
 import ISO6391 from 'iso-639-1';
 import Footer from '../../components/Footer';
 
-export default function Vip({ commonData, vipData }: any) {
+export default function Vip() {
+  let commonData: any = JSON.parse(localStorage.getItem('commonData') as any);
+  let vipData: any = JSON.parse(localStorage.getItem('vipData') as any);
+
   const router = useRouter();
   let langSelected: any = '';
   let vipHeaderText: any = [];
@@ -143,57 +146,57 @@ export default function Vip({ commonData, vipData }: any) {
   );
 }
 
-export const getStaticProps = async () => {
-  let commonRes: any;
-  let commonData: any;
+// export const getStaticProps = async () => {
+//   let commonRes: any;
+//   let commonData: any;
 
-  let vipDataRes: any;
-  let vipData: any;
+//   let vipDataRes: any;
+//   let vipData: any;
 
-  if (process.env.NODE_ENV !== 'production') {
-    commonRes = await fetch(`http://localhost:3000/api/common-data`);
-    commonData = await commonRes.json();
+//   if (process.env.NODE_ENV !== 'production') {
+//     commonRes = await fetch(`http://localhost:3000/api/common-data`);
+//     commonData = await commonRes.json();
 
-    vipDataRes = await fetch(`http://localhost:3000/api/vip`);
-    vipData = await vipDataRes.json();
-  } else {
-    commonData = {
-      siteName: 'WINGMAN',
-      welcomeProgram: 'program 2022',
-      discover: 'Discover',
-      vip: 'VIP',
-      insights: 'INSIGHTS',
-    };
-    vipData = {
-      vipHeaderText: [
-        {
-          country: 'Lebanon',
-          content: ['specialPromotion'],
-        },
-        {
-          country: 'Qatar',
-          content: [
-            'This is a Qatar members club where you will receive discounts based on counterparts in store that will drive incremental sales, helping you earn more profit!',
-          ],
-        },
-      ],
-      vipCategories: [
-        {
-          country: 'Lebanon',
-          content: ['CategoryA', 'CategoryB', 'CategoryC'],
-        },
-        {
-          country: 'Qatar',
-          content: ['CategoryA', 'CategoryB'],
-        },
-      ],
-    };
-  }
+//     vipDataRes = await fetch(`http://localhost:3000/api/vip`);
+//     vipData = await vipDataRes.json();
+//   } else {
+//     commonData = {
+//       siteName: 'WINGMAN',
+//       welcomeProgram: 'program 2022',
+//       discover: 'Discover',
+//       vip: 'VIP',
+//       insights: 'INSIGHTS',
+//     };
+//     vipData = {
+//       vipHeaderText: [
+//         {
+//           country: 'Lebanon',
+//           content: ['specialPromotion'],
+//         },
+//         {
+//           country: 'Qatar',
+//           content: [
+//             'This is a Qatar members club where you will receive discounts based on counterparts in store that will drive incremental sales, helping you earn more profit!',
+//           ],
+//         },
+//       ],
+//       vipCategories: [
+//         {
+//           country: 'Lebanon',
+//           content: ['CategoryA', 'CategoryB', 'CategoryC'],
+//         },
+//         {
+//           country: 'Qatar',
+//           content: ['CategoryA', 'CategoryB'],
+//         },
+//       ],
+//     };
+//   }
 
-  return {
-    props: {
-      vipData: vipData,
-      commonData: commonData,
-    },
-  };
-};
+//   return {
+//     props: {
+//       vipData: vipData,
+//       commonData: commonData,
+//     },
+//   };
+// };

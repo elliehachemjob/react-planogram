@@ -7,7 +7,12 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import ISO6391 from 'iso-639-1';
 
-export default function Insights({ commonData, insightsPageData }: any) {
+export default function Insights() {
+  let commonData: any = JSON.parse(localStorage.getItem('commonData') as any);
+  let insightsPageData: any = JSON.parse(
+    localStorage.getItem('insightsPageData') as any
+  );
+
   let langSelected: any = '';
   let inSightsCategories: any = [];
   const [renderInSightsCategories, setRenderInSightsCategories] = useState([]);
@@ -104,80 +109,80 @@ export default function Insights({ commonData, insightsPageData }: any) {
   );
 }
 
-export const getStaticProps = async () => {
-  let commonRes: any;
-  let commonData: any;
+// export const getStaticProps = async () => {
+//   let commonRes: any;
+//   let commonData: any;
 
-  let insightsPageDataRes: any;
-  let insightsPageData: any;
-  if (process.env.NODE_ENV !== 'production') {
-    commonRes = await fetch(`http://localhost:3000/api/common-data`);
-    commonData = await commonRes.json();
-    insightsPageDataRes = await fetch(`http://localhost:3000/api/insights`);
-    insightsPageData = await insightsPageDataRes.json();
-  } else {
-    commonData = {
-      siteName: 'WINGMAN',
-      welcomeProgram: 'program 2022',
-      discover: 'Discover',
-      vip: 'VIP',
-      insights: 'INSIGHTS',
-    };
-    insightsPageData = {
-      inSightsCategories: [
-        {
-          country: 'Lebanon',
-          content: [
-            {
-              title: 'insightTitleOne',
-              description: 'insightDescriptionOne',
-              insightsPageExplore: 'Explore',
-              path: 'assets/good-read-1.PNG',
-              explorePdf: '/assets/pdf/1.pdf',
-            },
-            {
-              title: 'insightTitleTwo',
-              description: 'insightDescriptionTwo',
-              insightsPageExplore: 'Explore',
-              path: 'assets/good-read-2.PNG',
-              explorePdf: '/assets/pdf/2.pdf',
-            },
-            {
-              title: 'insightTitleThree',
-              description: 'insightDescriptionThree',
-              insightsPageExplore: 'Explore',
-              path: 'assets/good-read-3.PNG',
-              explorePdf: '/assets/pdf/3.pdf',
-            },
-          ],
-        },
-        {
-          country: 'Qatar',
-          content: [
-            {
-              title: 'insightTitleOne',
-              description: 'insightDescriptionTwo',
-              insightsPageExplore: 'Explore',
-              path: 'assets/good-read-1.PNG',
-              explorePdf: '/assets/pdf/1.pdf',
-            },
-            {
-              title: 'insightTitleThree',
-              description: 'insightDescriptionTwo',
-              insightsPageExplore: 'Explore',
-              path: 'assets/good-read-2.PNG',
-              explorePdf: '/assets/pdf/2.pdf',
-            },
-          ],
-        },
-      ],
-    };
-  }
+//   let insightsPageDataRes: any;
+//   let insightsPageData: any;
+//   if (process.env.NODE_ENV !== 'production') {
+//     commonRes = await fetch(`http://localhost:3000/api/common-data`);
+//     commonData = await commonRes.json();
+//     insightsPageDataRes = await fetch(`http://localhost:3000/api/insights`);
+//     insightsPageData = await insightsPageDataRes.json();
+//   } else {
+//     commonData = {
+//       siteName: 'WINGMAN',
+//       welcomeProgram: 'program 2022',
+//       discover: 'Discover',
+//       vip: 'VIP',
+//       insights: 'INSIGHTS',
+//     };
+//     insightsPageData = {
+//       inSightsCategories: [
+//         {
+//           country: 'Lebanon',
+//           content: [
+//             {
+//               title: 'insightTitleOne',
+//               description: 'insightDescriptionOne',
+//               insightsPageExplore: 'Explore',
+//               path: 'assets/good-read-1.PNG',
+//               explorePdf: '/assets/pdf/1.pdf',
+//             },
+//             {
+//               title: 'insightTitleTwo',
+//               description: 'insightDescriptionTwo',
+//               insightsPageExplore: 'Explore',
+//               path: 'assets/good-read-2.PNG',
+//               explorePdf: '/assets/pdf/2.pdf',
+//             },
+//             {
+//               title: 'insightTitleThree',
+//               description: 'insightDescriptionThree',
+//               insightsPageExplore: 'Explore',
+//               path: 'assets/good-read-3.PNG',
+//               explorePdf: '/assets/pdf/3.pdf',
+//             },
+//           ],
+//         },
+//         {
+//           country: 'Qatar',
+//           content: [
+//             {
+//               title: 'insightTitleOne',
+//               description: 'insightDescriptionTwo',
+//               insightsPageExplore: 'Explore',
+//               path: 'assets/good-read-1.PNG',
+//               explorePdf: '/assets/pdf/1.pdf',
+//             },
+//             {
+//               title: 'insightTitleThree',
+//               description: 'insightDescriptionTwo',
+//               insightsPageExplore: 'Explore',
+//               path: 'assets/good-read-2.PNG',
+//               explorePdf: '/assets/pdf/2.pdf',
+//             },
+//           ],
+//         },
+//       ],
+//     };
+//   }
 
-  return {
-    props: {
-      insightsPageData: insightsPageData,
-      commonData: commonData,
-    },
-  };
-};
+//   return {
+//     props: {
+//       insightsPageData: insightsPageData,
+//       commonData: commonData,
+//     },
+//   };
+// };

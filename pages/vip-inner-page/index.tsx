@@ -7,7 +7,12 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import ISO6391 from 'iso-639-1';
 
-export default function VipInnerPage({ commonData, vipInnerPageData }: any) {
+export default function VipInnerPage() {
+  let commonData: any = JSON.parse(localStorage.getItem('commonData') as any);
+  let vipInnerPageData: any = JSON.parse(
+    localStorage.getItem('vipInnerPageData') as any
+  );
+
   const router = useRouter();
   let langSelected: any = '';
   let vipCategoriesDetailsContent: any = [];
@@ -170,79 +175,79 @@ export default function VipInnerPage({ commonData, vipInnerPageData }: any) {
   );
 }
 
-export const getStaticProps = async () => {
-  let commonRes: any;
-  let commonData: any;
-  let vipInnerPageDataRes: any;
-  let vipInnerPageData: any;
+// export const getStaticProps = async () => {
+//   let commonRes: any;
+//   let commonData: any;
+//   let vipInnerPageDataRes: any;
+//   let vipInnerPageData: any;
 
-  if (process.env.NODE_ENV !== 'production') {
-    commonRes = await fetch(`http://localhost:3000/api/common-data`);
-    commonData = await commonRes.json();
+//   if (process.env.NODE_ENV !== 'production') {
+//     commonRes = await fetch(`http://localhost:3000/api/common-data`);
+//     commonData = await commonRes.json();
 
-    vipInnerPageDataRes = await fetch(
-      `http://localhost:3000/api/vip-inner-page`
-    );
-    vipInnerPageData = await vipInnerPageDataRes.json();
-  } else {
-    commonData = {
-      siteName: 'WINGMAN',
-      welcomeProgram: 'program 2022',
-      discover: 'Discover',
-      vip: 'VIP',
-      insights: 'INSIGHTS',
-    };
-    vipInnerPageData = {
-      vipCategoriesDetailsHeader: 'vipCategoryA',
-      vipCategoriesDetailsContent: [
-        {
-          country: 'Lebanon',
-          content: [
-            {
-              title: 'MainPlacementChilled',
-              numberedElementPartOne: '#1',
-              numberedElementPartTwo: 'Min13facings',
-              path: '/assets/vip/1.png',
-            },
-            {
-              title: 'Range',
-              numberedElementPartOne: ' #2',
-              numberedElementPartTwo: 'MinTwelveFacings',
-              path: '/assets/vip/1.png',
-            },
-            {
-              title: 'Min13facings',
-              numberedElementPartOne: ' #3',
-              numberedElementPartTwo: 'Min13facings',
-              path: '/assets/vip/1.png',
-            },
-          ],
-        },
-        {
-          country: 'Qatar',
-          content: [
-            {
-              title: 'MainPlacementChilled',
-              numberedElementPartOne: '#1',
-              numberedElementPartTwo: 'Min13facings',
-              path: '/assets/vip/1.png',
-            },
-            {
-              title: 'Range',
-              numberedElementPartOne: ' #2',
-              numberedElementPartTwo: 'MinTwelveFacings',
-              path: '/assets/vip/1.png',
-            },
-          ],
-        },
-      ],
-    };
-  }
+//     vipInnerPageDataRes = await fetch(
+//       `http://localhost:3000/api/vip-inner-page`
+//     );
+//     vipInnerPageData = await vipInnerPageDataRes.json();
+//   } else {
+//     commonData = {
+//       siteName: 'WINGMAN',
+//       welcomeProgram: 'program 2022',
+//       discover: 'Discover',
+//       vip: 'VIP',
+//       insights: 'INSIGHTS',
+//     };
+//     vipInnerPageData = {
+//       vipCategoriesDetailsHeader: 'vipCategoryA',
+//       vipCategoriesDetailsContent: [
+//         {
+//           country: 'Lebanon',
+//           content: [
+//             {
+//               title: 'MainPlacementChilled',
+//               numberedElementPartOne: '#1',
+//               numberedElementPartTwo: 'Min13facings',
+//               path: '/assets/vip/1.png',
+//             },
+//             {
+//               title: 'Range',
+//               numberedElementPartOne: ' #2',
+//               numberedElementPartTwo: 'MinTwelveFacings',
+//               path: '/assets/vip/1.png',
+//             },
+//             {
+//               title: 'Min13facings',
+//               numberedElementPartOne: ' #3',
+//               numberedElementPartTwo: 'Min13facings',
+//               path: '/assets/vip/1.png',
+//             },
+//           ],
+//         },
+//         {
+//           country: 'Qatar',
+//           content: [
+//             {
+//               title: 'MainPlacementChilled',
+//               numberedElementPartOne: '#1',
+//               numberedElementPartTwo: 'Min13facings',
+//               path: '/assets/vip/1.png',
+//             },
+//             {
+//               title: 'Range',
+//               numberedElementPartOne: ' #2',
+//               numberedElementPartTwo: 'MinTwelveFacings',
+//               path: '/assets/vip/1.png',
+//             },
+//           ],
+//         },
+//       ],
+//     };
+//   }
 
-  return {
-    props: {
-      vipInnerPageData: vipInnerPageData,
-      commonData: commonData,
-    },
-  };
-};
+//   return {
+//     props: {
+//       vipInnerPageData: vipInnerPageData,
+//       commonData: commonData,
+//     },
+//   };
+// };

@@ -9,8 +9,6 @@ import { useEffect } from 'react';
 export default function WelcomePage({
   commonData,
   welcomePageData,
-  Component,
-  pageProps,
   giftTableData,
   innerPageData,
   insightsPageData,
@@ -19,19 +17,6 @@ export default function WelcomePage({
   vipData,
   vipInnerPageData,
 }: any) {
-  console.log(
-    Component,
-    pageProps,
-    commonData,
-    giftTableData,
-    innerPageData,
-    insightsPageData,
-    languagesPageData,
-    subCategoriesPageData,
-    vipData,
-    vipInnerPageData,
-    welcomePageData
-  );
   const router = useRouter();
   let langSelected: any;
   function navigateLanguagesPageSelectALanguageToStart(country: string): void {
@@ -49,6 +34,29 @@ export default function WelcomePage({
 
   useEffect(() => {
     langSelected = getAndSetLanguage(langSelected);
+
+    welcomePageData;
+
+    localStorage.setItem('commonData', JSON.stringify(commonData));
+    localStorage.setItem('giftTableData', JSON.stringify(giftTableData));
+    localStorage.setItem(
+      'languagesPageData',
+      JSON.stringify(languagesPageData)
+    );
+    localStorage.setItem('innerPageData', JSON.stringify(innerPageData));
+    localStorage.setItem('insightsPageData', JSON.stringify(insightsPageData));
+
+    localStorage.setItem(
+      'languagesPageData',
+      JSON.stringify(languagesPageData)
+    );
+    localStorage.setItem(
+      'subCategoriesPageData',
+      JSON.stringify(subCategoriesPageData)
+    );
+    localStorage.setItem('vipData', JSON.stringify(vipData));
+    localStorage.setItem('vipInnerPageData', JSON.stringify(vipInnerPageData));
+    localStorage.setItem('welcomePageData', JSON.stringify(welcomePageData));
   }, []);
 
   // basic loop needed
@@ -181,7 +189,7 @@ export const getStaticProps = async () => {
   let vipInnerPageData: any;
   let welcomePageData: any;
 
-  if (process.env.NODE_ENV !== 'production') {
+  if (process.env.NODE_ENV === 'production') {
     commonRes = await fetch(`http://localhost:3000/api/common-data`);
     commonData = await commonRes.json();
 
@@ -305,21 +313,21 @@ export const getStaticProps = async () => {
               title: 'insightTitleOne',
               description: 'insightDescriptionOne',
               insightsPageExplore: 'Explore',
-              path: 'assets/good-read-1.PNG',
+              path: '/assets/good-read-1.PNG',
               explorePdf: '/assets/pdf/1.pdf',
             },
             {
               title: 'insightTitleTwo',
               description: 'insightDescriptionTwo',
               insightsPageExplore: 'Explore',
-              path: 'assets/good-read-2.PNG',
+              path: '/assets/good-read-2.PNG',
               explorePdf: '/assets/pdf/2.pdf',
             },
             {
               title: 'insightTitleThree',
               description: 'insightDescriptionThree',
               insightsPageExplore: 'Explore',
-              path: 'assets/good-read-3.PNG',
+              path: '/assets/good-read-3.PNG',
               explorePdf: '/assets/pdf/3.pdf',
             },
           ],
@@ -331,14 +339,14 @@ export const getStaticProps = async () => {
               title: 'insightTitleOne',
               description: 'insightDescriptionTwo',
               insightsPageExplore: 'Explore',
-              path: 'assets/good-read-1.PNG',
+              path: '/assets/good-read-1.PNG',
               explorePdf: '/assets/pdf/1.pdf',
             },
             {
               title: 'insightTitleThree',
               description: 'insightDescriptionTwo',
               insightsPageExplore: 'Explore',
-              path: 'assets/good-read-2.PNG',
+              path: '/assets/good-read-2.PNG',
               explorePdf: '/assets/pdf/2.pdf',
             },
           ],

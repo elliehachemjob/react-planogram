@@ -5,7 +5,13 @@ import styles from '../../styles/languages.module.css';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import ISO6391 from 'iso-639-1';
-export default function Languages({ commonData, languagesPageData }: any) {
+
+export default function Languages() {
+  let commonData: any = JSON.parse(localStorage.getItem('commonData') as any);
+  let languagesPageData: any = JSON.parse(
+    localStorage.getItem('languagesPageData') as any
+  );
+
   const router = useRouter();
   let langSelected: any = '';
   const [languages, setLanguages] = useState<any>([]);
@@ -103,47 +109,47 @@ export default function Languages({ commonData, languagesPageData }: any) {
   );
 }
 
-export const getStaticProps = async () => {
-  let commonRes: any;
-  let commonData: any;
+// export const getStaticProps = async () => {
+//   let commonRes: any;
+//   let commonData: any;
 
-  let languagesPageDataRes: any;
-  let languagesPageData: any;
+//   let languagesPageDataRes: any;
+//   let languagesPageData: any;
 
-  if (process.env.NODE_ENV !== 'production') {
-    commonRes = await fetch(`http://localhost:3000/api/common-data`);
-    commonData = await commonRes.json();
-    languagesPageDataRes = await fetch(`http://localhost:3000/api/languages`);
-    languagesPageData = await languagesPageDataRes.json();
-  } else {
-    commonData = {
-      siteName: 'WINGMAN',
-      welcomeProgram: 'program 2022',
-      discover: 'Discover',
-      vip: 'VIP',
-      insights: 'INSIGHTS',
-    };
+//   if (process.env.NODE_ENV !== 'production') {
+//     commonRes = await fetch(`http://localhost:3000/api/common-data`);
+//     commonData = await commonRes.json();
+//     languagesPageDataRes = await fetch(`http://localhost:3000/api/languages`);
+//     languagesPageData = await languagesPageDataRes.json();
+//   } else {
+//     commonData = {
+//       siteName: 'WINGMAN',
+//       welcomeProgram: 'program 2022',
+//       discover: 'Discover',
+//       vip: 'VIP',
+//       insights: 'INSIGHTS',
+//     };
 
-    languagesPageData = {
-      languages: [
-        {
-          country: 'Lebanon',
-          content: ['Arabic', 'French', 'Urdu', 'English'],
-        },
-        {
-          country: 'Qatar',
-          content: ['Arabic', 'English'],
-        },
-      ],
-      languagesPageSelectALanguageToStart:
-        'Select language from above to start',
-    };
-  }
+//     languagesPageData = {
+//       languages: [
+//         {
+//           country: 'Lebanon',
+//           content: ['Arabic', 'French', 'Urdu', 'English'],
+//         },
+//         {
+//           country: 'Qatar',
+//           content: ['Arabic', 'English'],
+//         },
+//       ],
+//       languagesPageSelectALanguageToStart:
+//         'Select language from above to start',
+//     };
+//   }
 
-  return {
-    props: {
-      languagesPageData: languagesPageData,
-      commonData: commonData,
-    },
-  };
-};
+//   return {
+//     props: {
+//       languagesPageData: languagesPageData,
+//       commonData: commonData,
+//     },
+//   };
+// };

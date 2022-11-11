@@ -16,10 +16,12 @@ import { useRouter } from 'next/router';
 import ISO6391 from 'iso-639-1';
 import Footer from '../../components/Footer';
 
-export default function SubCategories({
-  commonData,
-  subCategoriesPageData,
-}: any) {
+export default function SubCategories() {
+  let commonData: any = JSON.parse(localStorage.getItem('commonData') as any);
+  let subCategoriesPageData: any = JSON.parse(
+    localStorage.getItem('subCategoriesPageData') as any
+  );
+
   const router = useRouter();
   let langSelected: any = '';
   let subCategories: any = [];
@@ -200,105 +202,105 @@ export default function SubCategories({
   );
 }
 
-export const getStaticProps = async () => {
-  let commonRes: any;
-  let commonData: any;
-  let subCategoriesPageDataRes: any;
-  let subCategoriesPageData: any;
+// export const getStaticProps = async () => {
+//   let commonRes: any;
+//   let commonData: any;
+//   let subCategoriesPageDataRes: any;
+//   let subCategoriesPageData: any;
 
-  if (process.env.NODE_ENV !== 'production') {
-    commonRes = await fetch(`http://localhost:3000/api/common-data`);
-    commonData = await commonRes.json();
+//   if (process.env.NODE_ENV !== 'production') {
+//     commonRes = await fetch(`http://localhost:3000/api/common-data`);
+//     commonData = await commonRes.json();
 
-    subCategoriesPageDataRes = await fetch(
-      `http://localhost:3000/api/sub-categories`
-    );
-    subCategoriesPageData = await subCategoriesPageDataRes.json();
-  } else {
-    commonData = {
-      siteName: 'WINGMAN',
-      welcomeProgram: 'program 2022',
-      discover: 'Discover',
-      vip: 'VIP',
-      insights: 'INSIGHTS',
-    };
+//     subCategoriesPageDataRes = await fetch(
+//       `http://localhost:3000/api/sub-categories`
+//     );
+//     subCategoriesPageData = await subCategoriesPageDataRes.json();
+//   } else {
+//     commonData = {
+//       siteName: 'WINGMAN',
+//       welcomeProgram: 'program 2022',
+//       discover: 'Discover',
+//       vip: 'VIP',
+//       insights: 'INSIGHTS',
+//     };
 
-    subCategoriesPageData = {
-      subCategoryName: 'impulse',
-      subCategories: [
-        {
-          country: 'Lebanon',
-          content: [
-            {
-              id: 1,
-              title: 'impulseA',
-              subTitle: 'shelfMainPlacement',
-              nestedDetails: {
-                title: 'MinTwelveFacings',
-                imagePath: '/assets/subCategory/1.png',
-                flow: 'TrafficFlow',
-                isEmptyContent: false,
-              },
-            },
-            {
-              id: 2,
-              title: 'impulseB',
-              subTitle: 'shelfMainPlacement',
-              nestedDetails: {
-                title: 'MinTwelveFacings',
-                imagePath: '/assets/subCategory/1.png',
-                flow: 'TrafficFlow',
-                isEmptyContent: false,
-              },
-            },
-            {
-              id: 3,
-              title: 'impulseC',
-              subTitle: 'shelfMainPlacement',
-              nestedDetails: {
-                title: 'MinTwelveFacings',
-                imagePath: '/assets/subCategory/1.png',
-                flow: 'TrafficFlow',
-                isEmptyContent: false,
-              },
-            },
-          ],
-        },
-        {
-          country: 'Qatar',
-          content: [
-            {
-              id: 1,
-              title: 'Impulse A',
-              subTitle: 'shelfMainPlacement',
-              nestedDetails: {
-                title: 'MinTwelveFacings',
-                imagePath: '/assets/subCategory/1.png',
-                flow: 'TrafficFlow',
-                isEmptyContent: false,
-              },
-            },
-            {
-              id: 2,
-              title: 'impulseB',
-              subTitle: 'shelfMainPlacement',
-              nestedDetails: {
-                title: 'MinTwelveFacings',
-                imagePath: '/assets/subCategory/1.png',
-                flow: 'TrafficFlow',
-                isEmptyContent: false,
-              },
-            },
-          ],
-        },
-      ],
-    };
-  }
+//     subCategoriesPageData = {
+//       subCategoryName: 'impulse',
+//       subCategories: [
+//         {
+//           country: 'Lebanon',
+//           content: [
+//             {
+//               id: 1,
+//               title: 'impulseA',
+//               subTitle: 'shelfMainPlacement',
+//               nestedDetails: {
+//                 title: 'MinTwelveFacings',
+//                 imagePath: '/assets/subCategory/1.png',
+//                 flow: 'TrafficFlow',
+//                 isEmptyContent: false,
+//               },
+//             },
+//             {
+//               id: 2,
+//               title: 'impulseB',
+//               subTitle: 'shelfMainPlacement',
+//               nestedDetails: {
+//                 title: 'MinTwelveFacings',
+//                 imagePath: '/assets/subCategory/1.png',
+//                 flow: 'TrafficFlow',
+//                 isEmptyContent: false,
+//               },
+//             },
+//             {
+//               id: 3,
+//               title: 'impulseC',
+//               subTitle: 'shelfMainPlacement',
+//               nestedDetails: {
+//                 title: 'MinTwelveFacings',
+//                 imagePath: '/assets/subCategory/1.png',
+//                 flow: 'TrafficFlow',
+//                 isEmptyContent: false,
+//               },
+//             },
+//           ],
+//         },
+//         {
+//           country: 'Qatar',
+//           content: [
+//             {
+//               id: 1,
+//               title: 'Impulse A',
+//               subTitle: 'shelfMainPlacement',
+//               nestedDetails: {
+//                 title: 'MinTwelveFacings',
+//                 imagePath: '/assets/subCategory/1.png',
+//                 flow: 'TrafficFlow',
+//                 isEmptyContent: false,
+//               },
+//             },
+//             {
+//               id: 2,
+//               title: 'impulseB',
+//               subTitle: 'shelfMainPlacement',
+//               nestedDetails: {
+//                 title: 'MinTwelveFacings',
+//                 imagePath: '/assets/subCategory/1.png',
+//                 flow: 'TrafficFlow',
+//                 isEmptyContent: false,
+//               },
+//             },
+//           ],
+//         },
+//       ],
+//     };
+//   }
 
-  return {
-    props: {
-      subCategoriesPageData: subCategoriesPageData,
-      commonData: commonData,
-    },
-  };
-};
+//   return {
+//     props: {
+//       subCategoriesPageData: subCategoriesPageData,
+//       commonData: commonData,
+//     },
+//   };
+// };

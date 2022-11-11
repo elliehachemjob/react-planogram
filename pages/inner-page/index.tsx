@@ -7,7 +7,12 @@ import { useState, useEffect } from 'react';
 import ISO6391 from 'iso-639-1';
 import Footer from '../../components/Footer';
 
-export default function InnerPage({ commonData, innerPageData }: any) {
+export default function InnerPage() {
+  let commonData: any = JSON.parse(localStorage.getItem('commonData') as any);
+  let innerPageData: any = JSON.parse(
+    localStorage.getItem('innerPageData') as any
+  );
+
   const router = useRouter();
   let langSelected: any = '';
   let categoryChosen: any = [];
@@ -171,52 +176,52 @@ export default function InnerPage({ commonData, innerPageData }: any) {
   );
 }
 
-export const getStaticProps = async () => {
-  let commonRes: any;
-  let commonData: any;
-  let innerPageDataRes: any;
-  let innerPageData: any;
+// export const getStaticProps = async () => {
+//   let commonRes: any;
+//   let commonData: any;
+//   let innerPageDataRes: any;
+//   let innerPageData: any;
 
-  if (process.env.NODE_ENV !== 'production') {
-    commonRes = await fetch(`http://localhost:3000/api/common-data`);
-    commonData = await commonRes.json();
+//   if (process.env.NODE_ENV !== 'production') {
+//     commonRes = await fetch(`http://localhost:3000/api/common-data`);
+//     commonData = await commonRes.json();
 
-    innerPageDataRes = await fetch(`http://localhost:3000/api/inner-page`);
-    innerPageData = await innerPageDataRes.json();
-  } else {
-    commonData = {
-      siteName: 'WINGMAN',
-      welcomeProgram: 'program 2022',
-      discover: 'Discover',
-      vip: 'VIP',
-      insights: 'INSIGHTS',
-    };
-    innerPageData = {
-      siteName: 'WINGMAN',
-      planogramQuickSearchPlaceHolder: 'Planogram Quick Search ',
-      chosenLanguages: ['English', 'Arabic', 'French'],
-      categories: [
-        {
-          country: 'Lebanon',
-          content: [
-            { title: 'impulse', background: 'impulse' },
-            { title: 'cAndG', background: 'cg' },
-            { title: 'retail', background: 'retail' },
-            { title: 'coolers', background: 'coolers' },
-          ],
-        },
-        {
-          country: 'Qatar',
-          content: [{ title: 'impulse', background: 'impulse' }],
-        },
-      ],
-    };
-  }
+//     innerPageDataRes = await fetch(`http://localhost:3000/api/inner-page`);
+//     innerPageData = await innerPageDataRes.json();
+//   } else {
+//     commonData = {
+//       siteName: 'WINGMAN',
+//       welcomeProgram: 'program 2022',
+//       discover: 'Discover',
+//       vip: 'VIP',
+//       insights: 'INSIGHTS',
+//     };
+//     innerPageData = {
+//       siteName: 'WINGMAN',
+//       planogramQuickSearchPlaceHolder: 'Planogram Quick Search ',
+//       chosenLanguages: ['English', 'Arabic', 'French'],
+//       categories: [
+//         {
+//           country: 'Lebanon',
+//           content: [
+//             { title: 'impulse', background: 'impulse' },
+//             { title: 'cAndG', background: 'cg' },
+//             { title: 'retail', background: 'retail' },
+//             { title: 'coolers', background: 'coolers' },
+//           ],
+//         },
+//         {
+//           country: 'Qatar',
+//           content: [{ title: 'impulse', background: 'impulse' }],
+//         },
+//       ],
+//     };
+//   }
 
-  return {
-    props: {
-      innerPageData: innerPageData,
-      commonData: commonData,
-    },
-  };
-};
+//   return {
+//     props: {
+//       innerPageData: innerPageData,
+//       commonData: commonData,
+//     },
+//   };
+// };
