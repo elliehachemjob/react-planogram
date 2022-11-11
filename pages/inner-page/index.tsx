@@ -174,15 +174,15 @@ export default function InnerPage({ commonData, innerPageData }: any) {
 export const getStaticProps = async () => {
   let commonRes: any;
   let commonData: any;
-  let res: any;
+  let innerPageDataRes: any;
   let innerPageData: any;
 
   if (process.env.NODE_ENV !== 'production') {
     commonRes = await fetch(`http://localhost:3000/api/common-data`);
     commonData = await commonRes.json();
 
-    res = await fetch(`http://localhost:3000/api/inner-page`);
-    innerPageData = await res.json();
+    innerPageDataRes = await fetch(`http://localhost:3000/api/inner-page`);
+    innerPageData = await innerPageDataRes.json();
   } else {
     commonData = {
       siteName: 'WINGMAN',

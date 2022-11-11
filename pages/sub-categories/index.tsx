@@ -203,15 +203,17 @@ export default function SubCategories({
 export const getStaticProps = async () => {
   let commonRes: any;
   let commonData: any;
-  let res: any;
+  let subCategoriesPageDataRes: any;
   let subCategoriesPageData: any;
 
   if (process.env.NODE_ENV !== 'production') {
     commonRes = await fetch(`http://localhost:3000/api/common-data`);
     commonData = await commonRes.json();
 
-    res = await fetch(`http://localhost:3000/api/sub-categories`);
-    subCategoriesPageData = await res.json();
+    subCategoriesPageDataRes = await fetch(
+      `http://localhost:3000/api/sub-categories`
+    );
+    subCategoriesPageData = await subCategoriesPageDataRes.json();
   } else {
     commonData = {
       siteName: 'WINGMAN',

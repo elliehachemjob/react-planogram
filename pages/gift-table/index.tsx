@@ -130,11 +130,11 @@ export default function GiftTable({ giftTableData }: any) {
 }
 
 export const getStaticProps = async () => {
-  let res: any;
+  let giftRes: any;
   let giftTableData: any;
   if (process.env.NODE_ENV !== 'production') {
-    res = await fetch(`http://localhost:3000/api/gift-table`);
-    giftTableData = await res.json();
+    giftRes = await fetch(`http://localhost:3000/api/gift-table`);
+    giftTableData = await giftRes.json();
   } else {
     giftTableData = {
       tableCategoryName: 'CategoryA',

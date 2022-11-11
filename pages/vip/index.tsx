@@ -147,15 +147,15 @@ export const getStaticProps = async () => {
   let commonRes: any;
   let commonData: any;
 
-  let res: any;
+  let vipDataRes: any;
   let vipData: any;
 
   if (process.env.NODE_ENV !== 'production') {
     commonRes = await fetch(`http://localhost:3000/api/common-data`);
     commonData = await commonRes.json();
 
-    res = await fetch(`http://localhost:3000/api/vip`);
-    vipData = await res.json();
+    vipDataRes = await fetch(`http://localhost:3000/api/vip`);
+    vipData = await vipDataRes.json();
   } else {
     commonData = {
       siteName: 'WINGMAN',

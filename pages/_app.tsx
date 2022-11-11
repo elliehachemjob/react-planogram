@@ -33,29 +33,37 @@ export const getStaticProps = async () => {
     commonRes = await fetch(`http://localhost:3000/api/common-data`);
     commonData = await commonRes.json();
 
-    res = await fetch(`http://localhost:3000/api/gift-table`);
-    giftTableData = await res.json();
+    let giftRes = await fetch(`http://localhost:3000/api/gift-table`);
+    giftTableData = await giftRes.json();
 
-    res = await fetch(`http://localhost:3000/api/inner-page`);
-    innerPageData = await res.json();
+    let innerPageDataRes = await fetch(`http://localhost:3000/api/inner-page`);
+    innerPageData = await innerPageDataRes.json();
 
-    res = await fetch(`http://localhost:3000/api/insights`);
-    insightsPageData = await res.json();
+    let insightsPageDataRes = await fetch(`http://localhost:3000/api/insights`);
+    insightsPageData = await insightsPageDataRes.json();
 
-    res = await fetch(`http://localhost:3000/api/languages`);
-    languagesPageData = await res.json();
+    let languagesPageDataRes = await fetch(
+      `http://localhost:3000/api/languages`
+    );
+    languagesPageData = await languagesPageDataRes.json();
 
-    res = await fetch(`http://localhost:3000/api/sub-categories`);
-    subCategoriesPageData = await res.json();
+    let subCategoriesPageDataRes = await fetch(
+      `http://localhost:3000/api/sub-categories`
+    );
+    subCategoriesPageData = await subCategoriesPageDataRes.json();
 
-    res = await fetch(`http://localhost:3000/api/vip`);
-    vipData = await res.json();
+    let vipDataRes = await fetch(`http://localhost:3000/api/vip`);
+    vipData = await vipDataRes.json();
 
-    res = await fetch(`http://localhost:3000/api/vip-inner-page`);
-    vipInnerPageData = await res.json();
+    let vipInnerPageDataRes = await fetch(
+      `http://localhost:3000/api/vip-inner-page`
+    );
+    vipInnerPageData = await vipInnerPageDataRes.json();
 
-    res = await fetch(`http://localhost:3000/api/welcome-page`);
-    welcomePageData = await res.json();
+    let welcomePageDataRes = await fetch(
+      `http://localhost:3000/api/welcome-page`
+    );
+    welcomePageData = await welcomePageDataRes.json();
   } else {
     commonData = {
       siteName: 'WINGMAN',
