@@ -1,7 +1,7 @@
-import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Footer from '../../components/Footer';
 import getAndSetLanguage from '../../helpers/getAndSetLanguage';
+import useRouterFunctionalities from '../../helpers/router';
 import styles from '../../styles/inner-page.module.css';
 
 export default function InnerPage() {
@@ -10,7 +10,7 @@ export default function InnerPage() {
     localStorage.getItem('innerPageData') as any
   );
 
-  const router = useRouter();
+  const router = useRouterFunctionalities();
   let langSelected: any = '';
   let categoryChosen: any = [];
   const [isOverlayOpen, setIsOverlayOpen] = useState<any>(true);

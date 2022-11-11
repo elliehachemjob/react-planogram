@@ -1,16 +1,15 @@
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import getAndSetLanguage from '../../helpers/getAndSetLanguage';
+import useRouterFunctionalities from '../../helpers/router';
 
 export default function WelcomePage() {
   let commonData: any = JSON.parse(localStorage.getItem('commonData') as any);
-
   let welcomePageData: any = JSON.parse(
     localStorage.getItem('welcomePageData') as any
   );
 
-  const router = useRouter();
+  const router = useRouterFunctionalities();
   let langSelected: any;
   function navigateLanguagesPageSelectALanguageToStart(country: string): void {
     window.localStorage.setItem('country', country);

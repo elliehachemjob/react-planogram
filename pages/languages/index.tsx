@@ -1,7 +1,7 @@
 import Image from 'next/image';
-import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import getAndSetLanguage from '../../helpers/getAndSetLanguage';
+import useRouterFunctionalities from '../../helpers/router';
 
 export default function Languages() {
   let commonData: any = JSON.parse(localStorage.getItem('commonData') as any);
@@ -9,7 +9,7 @@ export default function Languages() {
     localStorage.getItem('languagesPageData') as any
   );
 
-  const router = useRouter();
+  const router = useRouterFunctionalities();
   let langSelected: any = '';
   const [languages, setLanguages] = useState<any>([]);
 

@@ -1,17 +1,13 @@
 import Image from 'next/image';
-import Link from 'next/link';
 import React, { useEffect, useState } from 'react';
 import styles from '../../styles/sub-categories.module.css';
-
-//For the accordion
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
-import ISO6391 from 'iso-639-1';
-import { useRouter } from 'next/router';
 import Footer from '../../components/Footer';
 import getAndSetLanguage from '../../helpers/getAndSetLanguage';
+import useRouterFunctionalities from '../../helpers/router';
 
 export default function SubCategories() {
   let commonData: any = JSON.parse(localStorage.getItem('commonData') as any);
@@ -19,7 +15,7 @@ export default function SubCategories() {
     localStorage.getItem('subCategoriesPageData') as any
   );
 
-  const router = useRouter();
+  const router = useRouterFunctionalities();
   let langSelected: any = '';
   let subCategories: any = [];
   const [renderSubCategories, setRenderSubCategories] = useState([]);

@@ -1,10 +1,8 @@
-import Head from 'next/head';
 import Image from 'next/image';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import Footer from '../../components/Footer';
 import getAndSetLanguage from '../../helpers/getAndSetLanguage';
+import useRouterFunctionalities from '../../helpers/router';
 
 export default function VipInnerPage() {
   let commonData: any = JSON.parse(localStorage.getItem('commonData') as any);
@@ -12,7 +10,7 @@ export default function VipInnerPage() {
     localStorage.getItem('vipInnerPageData') as any
   );
 
-  const router = useRouter();
+  const router = useRouterFunctionalities();
   let langSelected: any = '';
   let vipCategoriesDetailsContent: any = [];
 
