@@ -38,7 +38,6 @@ export default function WelcomePage() {
               <span className='wingman-title'> {commonData.siteName}</span>
               <br />
               {commonData.welcomeProgram}
-              {/* {'welcomeProgram' | CustomTranslation:langSelected} */}
             </div>
             <div
               className='wlc-page-countries-cont countries-list'
@@ -60,11 +59,6 @@ export default function WelcomePage() {
                 )}
               </div>
               <div className='select-country'>
-                {/* {'{'}
-                {'{'}'welcomeSelectACountryToStart' |
-                CustomTranslation:langSelected
-                {'}'}
-                {'}'} */}
                 {welcomePageData.welcomeSelectACountryToStart}
               </div>
             </div>
@@ -74,57 +68,3 @@ export default function WelcomePage() {
     </div>
   );
 }
-
-// export const getStaticProps = async () => {
-//   let commonRes: any;
-//   let commonData: any;
-//   let welcomePageDataRes: any;
-//   let welcomePageData: any;
-
-//   if (process.env.NODE_ENV !== 'production') {
-//     commonRes = await fetch(`http://localhost:3000/api/common-data`);
-//     commonData = await commonRes.json();
-
-//     welcomePageDataRes = await fetch(`http://localhost:3000/api/welcome-page`);
-//     welcomePageData = await welcomePageDataRes.json();
-//   } else {
-//     commonData = {
-//       siteName: 'WINGMAN',
-//       welcomeProgram: 'program 2022',
-//       discover: 'Discover',
-//       vip: 'VIP',
-//       insights: 'INSIGHTS',
-//     };
-//     welcomePageData = {
-//       countries: [
-//         'UAE',
-//         'MALDIVES',
-//         'PAKISTAN',
-//         'SRI LANKA',
-//         'ALGERIA',
-//         'NIGERIA',
-//         'ANGOLA',
-//         'MAURITIUS',
-//         'KENYA',
-//         'EGYPT',
-//         'OMAN',
-//         'KUWAIT',
-//         'QATAR',
-//         'JORDAN',
-//         'BAHRAIN',
-//         'KSA',
-//         'LEBANON',
-//         'GHANA',
-//       ],
-//       image: '/assets/logo.png',
-//       welcomeSelectACountryToStart: 'Select country to start',
-//     };
-//   }
-
-//   return {
-//     props: {
-//       welcomePageData: welcomePageData,
-//       commonData: commonData,
-//     },
-//   };
-// };
