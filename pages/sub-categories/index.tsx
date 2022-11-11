@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
 import styles from '../../styles/sub-categories.module.css';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';

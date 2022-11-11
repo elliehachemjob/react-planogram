@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { useEffect } from 'react';
 import getAndSetLanguage from '../../helpers/getAndSetLanguage';
 import useRouterFunctionalities from '../../helpers/router';

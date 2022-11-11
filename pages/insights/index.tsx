@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import Footer from '../../components/Footer';
 import getAndSetLanguage from '../../helpers/getAndSetLanguage';

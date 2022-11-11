@@ -1,4 +1,3 @@
-import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import getAndSetLanguage from '../../helpers/getAndSetLanguage';
 import getMethod from '../../helpers/getMethod';
