@@ -67,6 +67,7 @@ export default function Insights({ commonData, insightsPageData }: any) {
                           <Image
                             width={100}
                             height={100}
+                            priority
                             src={inSightsCategory.path}
                             alt='good-read-1'
                           />

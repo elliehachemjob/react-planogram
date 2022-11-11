@@ -71,6 +71,7 @@ export default function Vip({ commonData, vipData }: any) {
                 <Image
                   width={100}
                   height={100}
+                  priority
                   src='/assets/top-img.png'
                   alt='top-img'
                 />
@@ -79,6 +80,7 @@ export default function Vip({ commonData, vipData }: any) {
                 <Image
                   width={100}
                   height={100}
+                  priority
                   src='/assets/rb-cans.png'
                   alt='rb-cans'
                 />

@@ -143,6 +143,7 @@ export default function VipInnerPage({ commonData, vipInnerPageData }: any) {
                         <div className='sub-cats-inner-page-title'>
                           <div className='sub-cats-inner-page-img'>
                             <Image
+                              priority
                               width={100}
                               height={100}
                               src={vipCategoryDetailContent.path}

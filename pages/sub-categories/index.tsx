@@ -173,6 +173,7 @@ export default function SubCategories({
                               <Image
                                 width={100}
                                 height={100}
+                                priority
                                 src={subCategory.nestedDetails.imagePath}
                                 alt='{{subCategory'
                               />

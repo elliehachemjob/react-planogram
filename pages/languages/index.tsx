@@ -61,6 +61,7 @@ export default function Languages({ commonData, languagesPageData }: any) {
               <Image
                 width={100}
                 height={100}
+                priority
                 src='/assets/logo.png'
                 alt='Red Bull'
               />
