@@ -38,7 +38,7 @@ export default function Insights() {
                 <div className='good-read-section-wrapper flex-center-style'>
                   <div className='good-read-section'>
                     <div className='good-read-image'>
-                      <Image
+                      <img
                         width={100}
                         height={100}
                         priority

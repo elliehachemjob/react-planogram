@@ -110,7 +110,7 @@ export default function VipInnerPage() {
                       <div className='sub-cats-inner-page'>
                         <div className='sub-cats-inner-page-title'>
                           <div className='sub-cats-inner-page-img'>
-                            <Image
+                            <img
                               priority
                               width={100}
                               height={100}

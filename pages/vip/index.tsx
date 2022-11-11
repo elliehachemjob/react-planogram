@@ -36,7 +36,7 @@ export default function Vip() {
           <div className='vip-sec-content'>
             <div className='vip-sec-upper-part'>
               <div className='vip-top-img-wrapper'>
-                <Image
+                <img
                   width={100}
                   height={100}
                   priority
@@ -45,7 +45,7 @@ export default function Vip() {
                 />
               </div>
               <div className='vip-rb-cans-wrapper'>
-                <Image
+                <img
                   width={100}
                   height={100}
                   priority

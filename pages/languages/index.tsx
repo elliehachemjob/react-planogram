@@ -40,7 +40,7 @@ export default function Languages() {
         <div className='plano-wlc-page-container'>
           <div className='plano-wlc-page-content'>
             <div className='plano-bull-logo-cont'>
-              <Image
+              <img
                 width={100}
                 height={100}
                 priority

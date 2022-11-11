@@ -125,7 +125,7 @@ export default function SubCategories() {
                               {subCategory.nestedDetails.title}
                             </div>
                             <div className='sub-cats-inner-page-img'>
-                              <Image
+                              <img
                                 width={100}
                                 height={100}
                                 priority

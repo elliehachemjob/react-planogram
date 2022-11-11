@@ -26,7 +26,7 @@ export default function WelcomePage() {
         <div className='plano-wlc-page-container'>
           <div className='plano-wlc-page-content'>
             <div className='plano-bull-logo-cont'>
-              <Image
+              <img
                 priority
                 width='50'
                 height='50'
