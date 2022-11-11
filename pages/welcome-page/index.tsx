@@ -136,7 +136,6 @@ export const getStaticProps = async () => {
       image: '/assets/logo.png',
       welcomeSelectACountryToStart: 'Select country to start',
     };
-    const test = process.env.NODE_ENV !== 'production';
   }
 
   return {
