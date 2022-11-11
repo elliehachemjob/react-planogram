@@ -189,7 +189,7 @@ export const getStaticProps = async () => {
   let vipInnerPageData: any;
   let welcomePageData: any;
 
-  if (process.env.NODE_ENV === 'production') {
+  if (process.env.NODE_ENV !== 'production') {
     commonRes = await fetch(`http://localhost:3000/api/common-data`);
     commonData = await commonRes.json();
 
