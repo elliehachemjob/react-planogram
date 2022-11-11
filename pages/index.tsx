@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import useRouterFunctionalities from '../helpers/router';
 
 export default function Home() {
   let giftTableData: any;
-  let commonRes: any;
   let commonData: any;
   let innerPageData: any;
   let insightsPageData: any;
@@ -318,7 +318,7 @@ export default function Home() {
     welcomeSelectACountryToStart: 'Select country to start',
   };
 
-  const router = useRouter();
+  const router = useRouterFunctionalities();
 
   useEffect(() => {
     localStorage.setItem('commonData', JSON.stringify(commonData));
