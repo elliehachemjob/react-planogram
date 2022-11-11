@@ -24,8 +24,6 @@ export default function WelcomePage({ commonData, welcomePageData }: any) {
 
   useEffect(() => {
     langSelected = getAndSetLanguage(langSelected);
-
-    console.log(process.env.NODE_ENV);
   }, []);
 
   // basic loop needed

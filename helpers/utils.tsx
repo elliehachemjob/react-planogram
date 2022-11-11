@@ -260,5 +260,4 @@ export default function translator(value: string, lang: string) {
   }
 
   value = transform(value, lang);
-  console.log(value);
 }
