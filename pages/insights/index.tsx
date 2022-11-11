@@ -1,11 +1,9 @@
+import ISO6391 from 'iso-639-1';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 import Footer from '../../components/Footer';
-import styles from '../../styles/insights.module.css';
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
-import ISO6391 from 'iso-639-1';
 
 export default function Insights() {
   let commonData: any = JSON.parse(localStorage.getItem('commonData') as any);

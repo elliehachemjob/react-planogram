@@ -1,10 +1,8 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import Link from 'next/link';
-import styles from '../../styles/gift-table.module.css';
-import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
 import ISO6391 from 'iso-639-1';
+import Head from 'next/head';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 
 export default function GiftTable() {
   let giftTableData: any = JSON.parse(

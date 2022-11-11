@@ -1,9 +1,8 @@
+import ISO6391 from 'iso-639-1';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import styles from '../../styles/welcome-page.module.css';
 import { useRouter } from 'next/router';
-import ISO6391 from 'iso-639-1';
 import { useEffect } from 'react';
 
 export default function WelcomePage() {
@@ -31,10 +30,6 @@ export default function WelcomePage() {
   useEffect(() => {
     langSelected = getAndSetLanguage(langSelected);
   }, []);
-
-  // basic loop needed
-  // {welcomePageData.countries.map((country: string) => {}
-  // )}
 
   return (
     <div>

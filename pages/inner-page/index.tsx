@@ -1,11 +1,9 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import Link from 'next/link';
-import styles from '../../styles/inner-page.module.css';
-import { useRouter } from 'next/router';
-import { useState, useEffect } from 'react';
 import ISO6391 from 'iso-639-1';
+import Head from 'next/head';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import Footer from '../../components/Footer';
+import styles from '../../styles/inner-page.module.css';
 
 export default function InnerPage() {
   let commonData: any = JSON.parse(localStorage.getItem('commonData') as any);

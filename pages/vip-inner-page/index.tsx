@@ -1,11 +1,10 @@
+import ISO6391 from 'iso-639-1';
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
-import Footer from '../../components/Footer';
-import styles from '../../styles/vip-inner-page.module.css';
-import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
-import ISO6391 from 'iso-639-1';
+import { useEffect, useState } from 'react';
+import Footer from '../../components/Footer';
 
 export default function VipInnerPage() {
   let commonData: any = JSON.parse(localStorage.getItem('commonData') as any);
@@ -22,16 +21,8 @@ export default function VipInnerPage() {
     setRenderVipCategoriesDetailsContent,
   ] = useState([]);
 
-  function navigateInsightsPage(): void {
-    router.push('/insights');
-  }
-
   function navigateVipPage(): void {
     router.replace('/vip');
-  }
-
-  function navigateInnerPage(): void {
-    router.push('/inner-page');
   }
 
   function navigateGiftTablePage(): void {

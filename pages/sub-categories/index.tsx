@@ -1,19 +1,16 @@
 import Head from 'next/head';
 import Image from 'next/image';
 import Link from 'next/link';
+import React, { useEffect, useState } from 'react';
 import styles from '../../styles/sub-categories.module.css';
-import React, { useState, useEffect } from 'react';
 
 //For the accordion
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
-import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { style } from '@mui/system';
-import { ClassNames } from '@emotion/react';
-import { useRouter } from 'next/router';
 import ISO6391 from 'iso-639-1';
+import { useRouter } from 'next/router';
 import Footer from '../../components/Footer';
 
 export default function SubCategories() {
