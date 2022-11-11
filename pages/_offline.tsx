@@ -1,11 +1,8 @@
 import useRouterFunctionalities from '../helpers/router';
 import InnerPage from './inner-page';
 
-export default function Home() {
+export default function Offline() {
   const router = useRouterFunctionalities();
 
-  if (router.pathname === '/inner-page') {
-    return <InnerPage />;
-  }
-  return <>So here we will render each page</>;
+  return <InnerPage />;
 }
