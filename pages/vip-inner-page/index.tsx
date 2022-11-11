@@ -75,7 +75,6 @@ export default function VipInnerPage() {
         <div className='fxd-header-sect-cont sub-categories'>
           <div className='fxd-header-sect'>
             <div className='fxd-header-content'>
-              {/* { vipCategoriesDetailsHeader | CustomTranslation:langSelected } */}
               {vipInnerPageData.vipCategoriesDetailsHeader}
             </div>
             <div className='discover-proceed-arrow back-arrow'>
@@ -129,15 +128,11 @@ export default function VipInnerPage() {
                   <div className='sub-cats-container'>
                     <div className='sub-cats vip-inner'>
                       <div className='sub-cats-title'>
-                        {/* {vipCategoryDetailContent.title |
-                CustomTranslation:langSelected } */}
                         {vipCategoryDetailContent.title}
                       </div>
                       <div className='sub-cat-accordion-cont numbered-circle'>
                         <div className='sub-cat-accordion'>
                           <div className='numbered-elements'>
-                            {/* {vipCategoryDetailContent.numberedElementPartOne |
-                    CustomTranslation:langSelected} */}
                             {vipCategoryDetailContent.numberedElementPartOne}
                           </div>
                         </div>
@@ -157,8 +152,6 @@ export default function VipInnerPage() {
                           </div>
                         </div>
                         <div className='numbered-elements numbered-elements-part-two'>
-                          {/* {vipCategoryDetailContent.numberedElementPartTwo |
-                  CustomTranslation:langSelected} */}
                           {vipCategoryDetailContent.numberedElementPartTwo}
                         </div>
                       </div>
@@ -174,80 +167,3 @@ export default function VipInnerPage() {
     </div>
   );
 }
-
-// export const getStaticProps = async () => {
-//   let commonRes: any;
-//   let commonData: any;
-//   let vipInnerPageDataRes: any;
-//   let vipInnerPageData: any;
-
-//   if (process.env.NODE_ENV !== 'production') {
-//     commonRes = await fetch(`http://localhost:3000/api/common-data`);
-//     commonData = await commonRes.json();
-
-//     vipInnerPageDataRes = await fetch(
-//       `http://localhost:3000/api/vip-inner-page`
-//     );
-//     vipInnerPageData = await vipInnerPageDataRes.json();
-//   } else {
-//     commonData = {
-//       siteName: 'WINGMAN',
-//       welcomeProgram: 'program 2022',
-//       discover: 'Discover',
-//       vip: 'VIP',
-//       insights: 'INSIGHTS',
-//     };
-//     vipInnerPageData = {
-//       vipCategoriesDetailsHeader: 'vipCategoryA',
-//       vipCategoriesDetailsContent: [
-//         {
-//           country: 'Lebanon',
-//           content: [
-//             {
-//               title: 'MainPlacementChilled',
-//               numberedElementPartOne: '#1',
-//               numberedElementPartTwo: 'Min13facings',
-//               path: '/assets/vip/1.png',
-//             },
-//             {
-//               title: 'Range',
-//               numberedElementPartOne: ' #2',
-//               numberedElementPartTwo: 'MinTwelveFacings',
-//               path: '/assets/vip/1.png',
-//             },
-//             {
-//               title: 'Min13facings',
-//               numberedElementPartOne: ' #3',
-//               numberedElementPartTwo: 'Min13facings',
-//               path: '/assets/vip/1.png',
-//             },
-//           ],
-//         },
-//         {
-//           country: 'Qatar',
-//           content: [
-//             {
-//               title: 'MainPlacementChilled',
-//               numberedElementPartOne: '#1',
-//               numberedElementPartTwo: 'Min13facings',
-//               path: '/assets/vip/1.png',
-//             },
-//             {
-//               title: 'Range',
-//               numberedElementPartOne: ' #2',
-//               numberedElementPartTwo: 'MinTwelveFacings',
-//               path: '/assets/vip/1.png',
-//             },
-//           ],
-//         },
-//       ],
-//     };
-//   }
-
-//   return {
-//     props: {
-//       vipInnerPageData: vipInnerPageData,
-//       commonData: commonData,
-//     },
-//   };
-// };

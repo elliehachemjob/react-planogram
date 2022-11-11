@@ -28,10 +28,8 @@ export default function SubCategories() {
   const [renderSubCategories, setRenderSubCategories] = useState([]);
 
   const [expanded, setExpanded] = useState<string | false>(false);
-  //Animation Disable Variables
   const [animationsEnabled, enableAnimations] = React.useState(false);
   const stylesheetRef = React.useRef<HTMLStyleElement>();
-  //Animation Disable Variables
 
   const handleChange =
     (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
@@ -61,7 +59,6 @@ export default function SubCategories() {
     setRenderSubCategories(subCategories);
   }, []);
 
-  //Animation Disable Hook
   React.useEffect(() => {
     if (!stylesheetRef.current) {
       stylesheetRef.current = document.createElement('style');
@@ -84,7 +81,6 @@ export default function SubCategories() {
       sheet!.insertRule(styles, 0);
     }
   }, [animationsEnabled]);
-  //Animation Disable Hook
 
   function navigateInsightsPage(): void {
     router.push('/insights');
@@ -109,7 +105,6 @@ export default function SubCategories() {
         <div className='fxd-header-sect-cont sub-categories'>
           <div className='fxd-header-sect'>
             <div className='fxd-header-content'>
-              {/* {subCategoryName | CustomTranslation:langSelected} */}{' '}
               {subCategoriesPageData.subCategoryName}
             </div>
             <div
@@ -132,7 +127,6 @@ export default function SubCategories() {
             </div>
           </div>
         </div>
-        {/* //Keep this for now */}
         <div className={styles.headerPaddingDiv}></div>
         <div>
           {renderSubCategories.map((subCategory: any, index: any) => {
@@ -149,13 +143,10 @@ export default function SubCategories() {
                   >
                     <div>
                       <div className='sub-categories-content'>
-                        {/* {subCategory.title | CustomTranslation:langSelected} {subCategory.subTitle | CustomTranslation:langSelected} */}
                         <div className={styles.subCatsTitle}>
-                          {/* {{subCategory.title | CustomTranslation:langSelected}} */}
                           {subCategory.title}
                         </div>
                         <div className={styles.subCatSubTitle}>
-                          {/* {{subCategory.subTitle | CustomTranslation:langSelected}} */}
                           {subCategory.subTitle}
                         </div>
                       </div>
@@ -167,8 +158,6 @@ export default function SubCategories() {
                         <div className='sub-cats-inner-page-cont'>
                           <div className='sub-cats-inner-page'>
                             <div className='sub-cats-inner-page-title'>
-                              {/* {subCategory.nestedDetails.title |
-                  CustomTranslation:langSelected} */}{' '}
                               {subCategory.nestedDetails.title}
                             </div>
                             <div className='sub-cats-inner-page-img'>
@@ -181,8 +170,6 @@ export default function SubCategories() {
                               />
                             </div>
                             <div className='sub-cats-inner-page-flow'>
-                              {/* {subCategory.nestedDetails.flow |
-                  CustomTranslation:langSelected } */}{' '}
                               {subCategory.nestedDetails.flow}
                             </div>
                           </div>
@@ -201,106 +188,3 @@ export default function SubCategories() {
     </div>
   );
 }
-
-// export const getStaticProps = async () => {
-//   let commonRes: any;
-//   let commonData: any;
-//   let subCategoriesPageDataRes: any;
-//   let subCategoriesPageData: any;
-
-//   if (process.env.NODE_ENV !== 'production') {
-//     commonRes = await fetch(`http://localhost:3000/api/common-data`);
-//     commonData = await commonRes.json();
-
-//     subCategoriesPageDataRes = await fetch(
-//       `http://localhost:3000/api/sub-categories`
-//     );
-//     subCategoriesPageData = await subCategoriesPageDataRes.json();
-//   } else {
-//     commonData = {
-//       siteName: 'WINGMAN',
-//       welcomeProgram: 'program 2022',
-//       discover: 'Discover',
-//       vip: 'VIP',
-//       insights: 'INSIGHTS',
-//     };
-
-//     subCategoriesPageData = {
-//       subCategoryName: 'impulse',
-//       subCategories: [
-//         {
-//           country: 'Lebanon',
-//           content: [
-//             {
-//               id: 1,
-//               title: 'impulseA',
-//               subTitle: 'shelfMainPlacement',
-//               nestedDetails: {
-//                 title: 'MinTwelveFacings',
-//                 imagePath: '/assets/subCategory/1.png',
-//                 flow: 'TrafficFlow',
-//                 isEmptyContent: false,
-//               },
-//             },
-//             {
-//               id: 2,
-//               title: 'impulseB',
-//               subTitle: 'shelfMainPlacement',
-//               nestedDetails: {
-//                 title: 'MinTwelveFacings',
-//                 imagePath: '/assets/subCategory/1.png',
-//                 flow: 'TrafficFlow',
-//                 isEmptyContent: false,
-//               },
-//             },
-//             {
-//               id: 3,
-//               title: 'impulseC',
-//               subTitle: 'shelfMainPlacement',
-//               nestedDetails: {
-//                 title: 'MinTwelveFacings',
-//                 imagePath: '/assets/subCategory/1.png',
-//                 flow: 'TrafficFlow',
-//                 isEmptyContent: false,
-//               },
-//             },
-//           ],
-//         },
-//         {
-//           country: 'Qatar',
-//           content: [
-//             {
-//               id: 1,
-//               title: 'Impulse A',
-//               subTitle: 'shelfMainPlacement',
-//               nestedDetails: {
-//                 title: 'MinTwelveFacings',
-//                 imagePath: '/assets/subCategory/1.png',
-//                 flow: 'TrafficFlow',
-//                 isEmptyContent: false,
-//               },
-//             },
-//             {
-//               id: 2,
-//               title: 'impulseB',
-//               subTitle: 'shelfMainPlacement',
-//               nestedDetails: {
-//                 title: 'MinTwelveFacings',
-//                 imagePath: '/assets/subCategory/1.png',
-//                 flow: 'TrafficFlow',
-//                 isEmptyContent: false,
-//               },
-//             },
-//           ],
-//         },
-//       ],
-//     };
-//   }
-
-//   return {
-//     props: {
-//       subCategoriesPageData: subCategoriesPageData,
-//       commonData: commonData,
-//     },
-//   };
-// };

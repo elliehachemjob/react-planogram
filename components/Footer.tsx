@@ -6,7 +6,6 @@ function Footer({ commonData }: any) {
   let isVipLogoActive = false;
   let isInsightLogoActive = false;
 
-  // To it in a better way
   const [renderIsDiscoverLogoActive, setRenderIsDiscoverLogoActive] =
     useState(true);
   const [renderIsVipLogoActive, setRenderIsVipLogoActive] = useState(true);
@@ -110,10 +109,7 @@ function Footer({ commonData }: any) {
                   />
                 </svg>
               </div>
-              <div className='footer-elements-txt'>
-                {/* {"Discover" | CustomTranslation:langSelected} */}
-                {commonData?.discover}
-              </div>
+              <div className='footer-elements-txt'>{commonData?.discover}</div>
             </a>
           </div>
           <div className='footer-elements'>
@@ -141,10 +137,7 @@ function Footer({ commonData }: any) {
                     />
                   </svg>
                 </div>
-                <div className='footer-elements-txt'>
-                  {/* {"VIP" | CustomTranslation:langSelected} */}
-                  {commonData?.vip}
-                </div>
+                <div className='footer-elements-txt'>{commonData?.vip}</div>
               </a>
             </div>
           </div>
@@ -173,7 +166,6 @@ function Footer({ commonData }: any) {
                   </svg>
                 </div>
                 <div className='footer-elements-txt'>
-                  {/* {"INSIGHTS" | CustomTranslation:langSelected} */}
                   {commonData?.insights}
                 </div>
               </a>

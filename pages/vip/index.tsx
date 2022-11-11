@@ -22,14 +22,6 @@ export default function Vip() {
     router.replace('/vip-inner-page');
   }
 
-  function navigateInsightsPage(): void {
-    router.push('/insights');
-  }
-
-  function navigateVipPage(): void {
-    router.push('/vip');
-  }
-
   function navigateInnerPage(): void {
     router.push('/home');
   }
@@ -89,8 +81,6 @@ export default function Vip() {
                 />
               </div>
               <div className='vip-header-txt'>
-                {/* {vipHeaderText[0] | CustomTranslation:langSelected} */}
-                {/* {vipData.vipHeaderText} */}
                 {renderVipHeaderText.map((vipHeaderText: any, index: any) => {
                   return <div key={index}>{vipHeaderText}</div>;
                 })}
@@ -106,7 +96,6 @@ export default function Vip() {
                         className='sub-cats vip-cats default-margin'
                       >
                         <div className='sub-cats-title vip-cats-title'>
-                          {/* {vipCategory | CustomTranslation:langSelected} */}
                           {vipCategory}
                         </div>
                         <div className='vip-cats-redirect'>
@@ -145,58 +134,3 @@ export default function Vip() {
     </div>
   );
 }
-
-// export const getStaticProps = async () => {
-//   let commonRes: any;
-//   let commonData: any;
-
-//   let vipDataRes: any;
-//   let vipData: any;
-
-//   if (process.env.NODE_ENV !== 'production') {
-//     commonRes = await fetch(`http://localhost:3000/api/common-data`);
-//     commonData = await commonRes.json();
-
-//     vipDataRes = await fetch(`http://localhost:3000/api/vip`);
-//     vipData = await vipDataRes.json();
-//   } else {
-//     commonData = {
-//       siteName: 'WINGMAN',
-//       welcomeProgram: 'program 2022',
-//       discover: 'Discover',
-//       vip: 'VIP',
-//       insights: 'INSIGHTS',
-//     };
-//     vipData = {
-//       vipHeaderText: [
-//         {
-//           country: 'Lebanon',
-//           content: ['specialPromotion'],
-//         },
-//         {
-//           country: 'Qatar',
-//           content: [
-//             'This is a Qatar members club where you will receive discounts based on counterparts in store that will drive incremental sales, helping you earn more profit!',
-//           ],
-//         },
-//       ],
-//       vipCategories: [
-//         {
-//           country: 'Lebanon',
-//           content: ['CategoryA', 'CategoryB', 'CategoryC'],
-//         },
-//         {
-//           country: 'Qatar',
-//           content: ['CategoryA', 'CategoryB'],
-//         },
-//       ],
-//     };
-//   }
-
-//   return {
-//     props: {
-//       vipData: vipData,
-//       commonData: commonData,
-//     },
-//   };
-// };

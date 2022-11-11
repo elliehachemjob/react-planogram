@@ -55,8 +55,6 @@ export default function Insights() {
           <div className='fxd-header-sect-cont sub-categories'>
             <div className='fxd-header-sect'>
               <div className='fxd-header-content'>
-                {/* {"insightsPageHeaderContent" |
-                CustomTranslation:langSelected } */}
                 insightsPageHeaderContent
               </div>
             </div>
@@ -78,11 +76,9 @@ export default function Insights() {
                           />
                         </div>
                         <div className='good-read-title'>
-                          {/* {insight.title | CustomTranslation:langSelected} */}
                           {inSightsCategory.title}
                         </div>
                         <div className='good-read-description'>
-                          {/* {insight.description | CustomTranslation:langSelected } */}
                           {inSightsCategory.description}
                         </div>
                         <div className='good-read-explore-btn'>
@@ -91,7 +87,6 @@ export default function Insights() {
                             target='_blank'
                             rel='noreferrer'
                           >
-                            {/* {"insightsPageExplore" |CustomTranslation:langSelected} */}
                             {inSightsCategory.insightsPageExplore}
                           </a>
                         </div>
@@ -108,81 +103,3 @@ export default function Insights() {
     </div>
   );
 }
-
-// export const getStaticProps = async () => {
-//   let commonRes: any;
-//   let commonData: any;
-
-//   let insightsPageDataRes: any;
-//   let insightsPageData: any;
-//   if (process.env.NODE_ENV !== 'production') {
-//     commonRes = await fetch(`http://localhost:3000/api/common-data`);
-//     commonData = await commonRes.json();
-//     insightsPageDataRes = await fetch(`http://localhost:3000/api/insights`);
-//     insightsPageData = await insightsPageDataRes.json();
-//   } else {
-//     commonData = {
-//       siteName: 'WINGMAN',
-//       welcomeProgram: 'program 2022',
-//       discover: 'Discover',
-//       vip: 'VIP',
-//       insights: 'INSIGHTS',
-//     };
-//     insightsPageData = {
-//       inSightsCategories: [
-//         {
-//           country: 'Lebanon',
-//           content: [
-//             {
-//               title: 'insightTitleOne',
-//               description: 'insightDescriptionOne',
-//               insightsPageExplore: 'Explore',
-//               path: 'assets/good-read-1.PNG',
-//               explorePdf: '/assets/pdf/1.pdf',
-//             },
-//             {
-//               title: 'insightTitleTwo',
-//               description: 'insightDescriptionTwo',
-//               insightsPageExplore: 'Explore',
-//               path: 'assets/good-read-2.PNG',
-//               explorePdf: '/assets/pdf/2.pdf',
-//             },
-//             {
-//               title: 'insightTitleThree',
-//               description: 'insightDescriptionThree',
-//               insightsPageExplore: 'Explore',
-//               path: 'assets/good-read-3.PNG',
-//               explorePdf: '/assets/pdf/3.pdf',
-//             },
-//           ],
-//         },
-//         {
-//           country: 'Qatar',
-//           content: [
-//             {
-//               title: 'insightTitleOne',
-//               description: 'insightDescriptionTwo',
-//               insightsPageExplore: 'Explore',
-//               path: 'assets/good-read-1.PNG',
-//               explorePdf: '/assets/pdf/1.pdf',
-//             },
-//             {
-//               title: 'insightTitleThree',
-//               description: 'insightDescriptionTwo',
-//               insightsPageExplore: 'Explore',
-//               path: 'assets/good-read-2.PNG',
-//               explorePdf: '/assets/pdf/2.pdf',
-//             },
-//           ],
-//         },
-//       ],
-//     };
-//   }
-
-//   return {
-//     props: {
-//       insightsPageData: insightsPageData,
-//       commonData: commonData,
-//     },
-//   };
-// };

@@ -75,7 +75,6 @@ export default function Languages() {
             <div className='plano-wing-titles-cont'>
               <span className='wingman-title'>{commonData.siteName}</span>
               <br />
-              {/* {'welcomeProgram'| CustomTranslation:langSelected} */}
               {commonData.welcomeProgram}
             </div>
             <div
@@ -98,8 +97,6 @@ export default function Languages() {
 
               <div className='select-country'>
                 {languagesPageData.languagesPageSelectALanguageToStart}
-                {/* {'languagesPageSelectALanguageToStart'|
-                CustomTranslation:langSelected} */}
               </div>
             </div>
           </div>
@@ -108,48 +105,3 @@ export default function Languages() {
     </div>
   );
 }
-
-// export const getStaticProps = async () => {
-//   let commonRes: any;
-//   let commonData: any;
-
-//   let languagesPageDataRes: any;
-//   let languagesPageData: any;
-
-//   if (process.env.NODE_ENV !== 'production') {
-//     commonRes = await fetch(`http://localhost:3000/api/common-data`);
-//     commonData = await commonRes.json();
-//     languagesPageDataRes = await fetch(`http://localhost:3000/api/languages`);
-//     languagesPageData = await languagesPageDataRes.json();
-//   } else {
-//     commonData = {
-//       siteName: 'WINGMAN',
-//       welcomeProgram: 'program 2022',
-//       discover: 'Discover',
-//       vip: 'VIP',
-//       insights: 'INSIGHTS',
-//     };
-
-//     languagesPageData = {
-//       languages: [
-//         {
-//           country: 'Lebanon',
-//           content: ['Arabic', 'French', 'Urdu', 'English'],
-//         },
-//         {
-//           country: 'Qatar',
-//           content: ['Arabic', 'English'],
-//         },
-//       ],
-//       languagesPageSelectALanguageToStart:
-//         'Select language from above to start',
-//     };
-//   }
-
-//   return {
-//     props: {
-//       languagesPageData: languagesPageData,
-//       commonData: commonData,
-//     },
-//   };
-// };
