@@ -20,7 +20,7 @@ export default function handler(
           explorePdf: "/assets/pdf/2.pdf"
         }, {
           title: "insightTitleThree", description: "insightDescriptionThree", insightsPageExplore: "Explore",
-          path: "assets/good-read-3.PNG",
+          path: "/assets/good-read-3.PNG",
           explorePdf: "/assets/pdf/3.pdf"
         }
         ]
