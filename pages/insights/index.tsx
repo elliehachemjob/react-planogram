@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import Footer from '../../components/Footer';
 import getAndSetLanguage from '../../helpers/getAndSetLanguage';
+import getMethod from '../../helpers/getMethod';
 
 export default function Insights() {
   let commonData: any = JSON.parse(localStorage.getItem('commonData') as any);
@@ -12,15 +13,6 @@ export default function Insights() {
   let langSelected: any = '';
   let inSightsCategories: any = [];
   const [renderInSightsCategories, setRenderInSightsCategories] = useState([]);
-
-  function getMethod(mainContent: any, countryChosen: any): void {
-    mainContent = mainContent.filter(
-      (data: any): boolean =>
-        data.country.toLowerCase() === countryChosen.toLowerCase()
-    );
-    mainContent.map((item: any) => (mainContent = item.content));
-    return mainContent;
-  }
 
   useEffect(() => {
     langSelected = getAndSetLanguage(langSelected);

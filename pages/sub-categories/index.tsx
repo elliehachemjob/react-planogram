@@ -8,6 +8,7 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import Footer from '../../components/Footer';
 import getAndSetLanguage from '../../helpers/getAndSetLanguage';
 import useRouterFunctionalities from '../../helpers/router';
+import getMethod from '../../helpers/getMethod';
 
 export default function SubCategories() {
   let commonData: any = JSON.parse(localStorage.getItem('commonData') as any);
@@ -28,15 +29,6 @@ export default function SubCategories() {
     (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
       setExpanded(isExpanded ? panel : false);
     };
-
-  function getMethod(mainContent: any, countryChosen: any): void {
-    mainContent = mainContent.filter(
-      (data: any): boolean =>
-        data.country.toLowerCase() === countryChosen.toLowerCase()
-    );
-    mainContent.map((item: any) => (mainContent = item.content));
-    return mainContent;
-  }
 
   useEffect(() => {
     langSelected = getAndSetLanguage(langSelected);
@@ -66,14 +58,6 @@ export default function SubCategories() {
       sheet!.insertRule(styles, 0);
     }
   }, [animationsEnabled]);
-
-  function navigateInsightsPage(): void {
-    router.push('/insights');
-  }
-
-  function navigateVipPage(): void {
-    router.push('/vip');
-  }
 
   function navigateInnerPage(): void {
     router.push('/inner-page');

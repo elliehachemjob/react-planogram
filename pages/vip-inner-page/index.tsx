@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import Footer from '../../components/Footer';
 import getAndSetLanguage from '../../helpers/getAndSetLanguage';
+import getMethod from '../../helpers/getMethod';
 import useRouterFunctionalities from '../../helpers/router';
 
 export default function VipInnerPage() {
@@ -25,15 +26,6 @@ export default function VipInnerPage() {
 
   function navigateGiftTablePage(): void {
     router.replace('/gift-table');
-  }
-
-  function getMethod(mainContent: any, countryChosen: any): void {
-    mainContent = mainContent.filter(
-      (data: any): boolean =>
-        data.country.toLowerCase() === countryChosen.toLowerCase()
-    );
-    mainContent.map((item: any) => (mainContent = item.content));
-    return mainContent;
   }
 
   useEffect(() => {

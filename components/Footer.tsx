@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import useRouterFunctionalities from '../helpers/router';
 
 function Footer({ commonData }: any) {
   let isDiscoverLogoActive = false;
@@ -12,33 +12,7 @@ function Footer({ commonData }: any) {
   const [renderIsInsightLogoActive, setRenderIsInsightLogoActive] =
     useState(true);
 
-  const router = useRouter();
-  function setLogoActivation() {
-    if (
-      router.pathname.startsWith('/inner-page') ||
-      router.pathname.startsWith('/sub-categories')
-    ) {
-      isDiscoverLogoActive = true;
-      setRenderIsDiscoverLogoActive(isDiscoverLogoActive);
-    } else {
-      isDiscoverLogoActive = false;
-      setRenderIsDiscoverLogoActive(isDiscoverLogoActive);
-    }
-    if (router.pathname.startsWith('/vip')) {
-      isVipLogoActive = true;
-      setRenderIsVipLogoActive(isVipLogoActive);
-    } else {
-      isVipLogoActive = false;
-      setRenderIsVipLogoActive(isVipLogoActive);
-    }
-    if (router.pathname.startsWith('/insights')) {
-      isInsightLogoActive = true;
-      setRenderIsInsightLogoActive(isInsightLogoActive);
-    } else {
-      isInsightLogoActive = false;
-      setRenderIsInsightLogoActive(isInsightLogoActive);
-    }
-  }
+  const router = useRouterFunctionalities();
 
   function navigateInsightsPage(): void {
     router.push('/insights');
