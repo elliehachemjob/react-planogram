@@ -3,9 +3,20 @@ import NoSSR from '../components/noSSR';
 import '../styles/globals.css';
 
 export default function App({ Component, pageProps }: any) {
+  let isRTL: boolean = true;
+
+  // replace later
+  // if (localStorage.getItem('isRTL') === 'true') {
+  //   isRTL = true;
+  // } else {
+  //   isRTL = false;
+  // }
+
   return (
     <NoSSR>
-      <Component {...pageProps} />
+      <div dir={isRTL ? 'rtl' : 'ltr'}>
+        <Component {...pageProps} />
+      </div>
     </NoSSR>
   );
 }

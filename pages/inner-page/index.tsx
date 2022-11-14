@@ -5,6 +5,7 @@ import useRouterFunctionalities from '../../helpers/router';
 import styles from '../../styles/inner-page.module.css';
 
 export default function InnerPage() {
+  let isRTL: any;
   let commonData: any = JSON.parse(localStorage.getItem('commonData') as any);
   let innerPageData: any = JSON.parse(
     localStorage.getItem('innerPageData') as any
@@ -60,6 +61,7 @@ export default function InnerPage() {
     );
     setRenderCategories(categoryChosen);
     langSelected = getAndSetLanguage(langSelected);
+    isRTL = localStorage.getItem('isRTL');
   }, []);
 
   return (
