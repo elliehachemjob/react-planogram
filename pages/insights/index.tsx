@@ -39,12 +39,7 @@ export default function Insights() {
                 <div className='good-read-section-wrapper flex-center-style'>
                   <div className='good-read-section'>
                     <div className='good-read-image'>
-                      <img
-                        width={100}
-                        height={100}
-                        src={inSightsCategory.path}
-                        alt='good-read-1'
-                      />
+                      <img src={inSightsCategory.path} alt='good-read-1' />
                     </div>
                     <div className='good-read-title'>
                       {inSightsCategory.title}
