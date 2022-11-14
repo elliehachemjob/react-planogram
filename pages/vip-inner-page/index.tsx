@@ -110,8 +110,6 @@ export default function VipInnerPage() {
                         <div className='sub-cats-inner-page-title'>
                           <div className='sub-cats-inner-page-img'>
                             <img
-                              width={100}
-                              height={100}
                               src={vipCategoryDetailContent.path}
                               alt='1630222037'
                             />

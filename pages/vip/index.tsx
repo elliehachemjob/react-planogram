@@ -35,20 +35,10 @@ export default function Vip() {
           <div className='vip-sec-content'>
             <div className='vip-sec-upper-part'>
               <div className='vip-top-img-wrapper'>
-                <img
-                  width={100}
-                  height={100}
-                  src='/assets/top-img.png'
-                  alt='top-img'
-                />
+                <img src='/assets/top-img.png' alt='top-img' />
               </div>
               <div className='vip-rb-cans-wrapper'>
-                <img
-                  width={100}
-                  height={100}
-                  src='/assets/rb-cans.png'
-                  alt='rb-cans'
-                />
+                <img src='/assets/rb-cans.png' alt='rb-cans' />
               </div>
               <div className='vip-header-txt'>
                 {renderVipHeaderText.map((vipHeaderText: any, index: any) => {
