@@ -1,16 +1,17 @@
-import { useEffect } from 'react';
 import NoSSR from '../components/noSSR';
 import '../styles/globals.css';
 
 export default function App({ Component, pageProps }: any) {
-  let isRTL: boolean = true;
+  let isRTL: any;
 
-  // replace later
-  // if (localStorage.getItem('isRTL') === 'true') {
-  //   isRTL = true;
-  // } else {
-  //   isRTL = false;
-  // }
+  if (typeof window !== 'undefined') {
+    // Perform localStorage action
+    if (localStorage.getItem('isRTL') === 'true') {
+      isRTL = true;
+    } else {
+      isRTL = false;
+    }
+  }
 
   return (
     <NoSSR>
