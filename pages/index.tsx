@@ -18,7 +18,7 @@ export default function Home() {
 
   useEffect(() => {
     langSelected = getAndSetLanguage(langSelected);
-    if (langSelected === 'english') {
+    if (langSelected === 'arabic') {
       commonData = {
         siteName: 'WINGMAN',
         welcomeProgram: 'program 2022',
@@ -99,7 +99,7 @@ export default function Home() {
             country: 'Lebanon',
             content: [
               { title: 'impulse', background: 'impulse' },
-              { title: 'cAndG', background: 'cg' },
+              { title: 'C&G', background: 'cg' },
               { title: 'retail', background: 'retail' },
               { title: 'coolers', background: 'coolers' },
             ],
@@ -111,6 +111,7 @@ export default function Home() {
         ],
       };
       insightsPageData = {
+        insightsPageHeaderContent: 'Good Read',
         inSightsCategories: [
           {
             country: 'Lebanon',
@@ -122,6 +123,7 @@ export default function Home() {
                 Explore: 'Explore',
                 path: '/assets/good-read-1.PNG',
                 explorePdf: '/assets/pdf/1.pdf',
+                insightsPageExplore: 'Explore',
               },
               {
                 title: 'FUNCTIONAL PLACEMENTS: MEDIUM FORMATS',
@@ -130,6 +132,7 @@ export default function Home() {
                 Explore: 'Explore',
                 path: '/assets/good-read-2.PNG',
                 explorePdf: '/assets/pdf/2.pdf',
+                insightsPageExplore: 'Explore',
               },
               {
                 title: 'FUNCTIONAL PLACEMENTS: SMALL FORMATS',
@@ -137,6 +140,7 @@ export default function Home() {
                 Explore: 'Explore',
                 path: '/assets/good-read-3.PNG',
                 explorePdf: '/assets/pdf/3.pdf',
+                insightsPageExplore: 'Explore',
               },
             ],
           },
@@ -150,6 +154,7 @@ export default function Home() {
                 Explore: 'Explore',
                 path: '/assets/good-read-1.PNG',
                 explorePdf: '/assets/pdf/1.pdf',
+                insightsPageExplore: 'Explore',
               },
               {
                 title: 'FUNCTIONAL PLACEMENTS: SMALL FORMATS',
@@ -158,6 +163,7 @@ export default function Home() {
                 Explore: 'Explore',
                 path: '/assets/good-read-2.PNG',
                 explorePdf: '/assets/pdf/2.pdf',
+                insightsPageExplore: 'Explore',
               },
             ],
           },
@@ -185,8 +191,8 @@ export default function Home() {
             content: [
               {
                 id: 1,
-                title: 'impulseA',
-                subTitle: 'shelf Main Placement',
+                title: 'impulse A',
+                subTitle: 'shelf Main Placement 1',
                 nestedDetails: {
                   title: 'Min 12 Facings',
                   imagePath: '/assets/subCategory/1.png',
@@ -196,8 +202,8 @@ export default function Home() {
               },
               {
                 id: 2,
-                title: 'impulseB',
-                subTitle: 'shelf Main Placement',
+                title: 'impulse B',
+                subTitle: 'shelf Main Placement 2',
                 nestedDetails: {
                   title: 'Min 12 Facings',
                   imagePath: '/assets/subCategory/1.png',
@@ -207,8 +213,8 @@ export default function Home() {
               },
               {
                 id: 3,
-                title: 'impulseC',
-                subTitle: 'shelf Main Placement',
+                title: 'impulse C',
+                subTitle: 'shelf Main Placement 3',
                 nestedDetails: {
                   title: 'Min 12 Facings',
                   imagePath: '/assets/subCategory/1.png',
@@ -252,7 +258,7 @@ export default function Home() {
           {
             country: 'Lebanon',
             content: [
-              'speciThis is a special members club where you will receive discounts based on counterparts in store that will drive incremental sales, helping you earn more profit!!alPromotion',
+              'This is a special members club where you will receive discounts based on counterparts in store that will drive incremental sales, helping you earn more profit!!alPromotion',
             ],
           },
           {
@@ -432,9 +438,9 @@ export default function Home() {
             country: 'Lebanon',
             content: [
               { title: 'بقالة', background: 'impulse' },
-              { title: 'cAndG', background: 'cg' },
-              { title: 'retail', background: 'retail' },
-              { title: 'coolers', background: 'coolers' },
+              { title: 'تأجير مؤقت', background: 'cg' },
+              { title: 'تجارة التجزئة', background: 'retail' },
+              { title: 'مبردات', background: 'coolers' },
             ],
           },
           {
@@ -444,6 +450,7 @@ export default function Home() {
         ],
       };
       insightsPageData = {
+        insightsPageHeaderContent: 'قراءة جيدة',
         inSightsCategories: [
           {
             country: 'Lebanon',
@@ -452,25 +459,25 @@ export default function Home() {
                 title: 'المواضع الوظيفية: تنسيقات كبيرة',
                 description:
                   'لذا أشعر أنك بقيت على البوابة. يكون سبتمبر واسع النطاق يا استنتاج يقين. في قراءة معظم البوابة في الجسم عقدها على الإطلاق لا. الحديث عن العدالة رسالة الترحيب الاستفسار في البداية أنا أنا. أدى قلبه الخاص أعلى زيارة دائمة سيدي من خلال البوصلة له. ضيف البلاط كان سريعًا حتى هذه الأشجار. تعلن عن التغيير في مقارنة محاطة',
-                insightsPageExplore: 'استكشف',
                 path: '/assets/good-read-1.PNG',
                 explorePdf: '/assets/pdf/1.pdf',
+                insightsPageExplore: 'استكشف',
               },
               {
                 title: 'المواضع الوظيفية: الصيغ المتوسطة',
                 description:
                   'على إنتاج وأشار العقيد. أربعة فقط تباع تحتاج إلى أي شيء. في سبتمبر الشك في تحديد أنه ساد الاعتراف. على تكييفها كما تم إلصاق محدود على. إعطاء ابن عم بحرارة الأشياء لا ربيع السيد يكون في الخارج. تتكرر تربية العلاقة كما اتبعت بدقة مارغريت. جلب أحد أبناء الجاذبية الخجل في انتظار لحم الخنزير',
-                insightsPageExplore: 'استكشف',
                 path: '/assets/good-read-2.PNG',
                 explorePdf: '/assets/pdf/2.pdf',
+                insightsPageExplore: 'استكشف',
               },
               {
                 title: 'المواضع الوظيفية: تنسيقات صغيرة',
                 description:
                   'انها سمينة تماما نافذة المدى سواء الرسمية. إزالة الكياسة المرحب بها أو التعجيل هو. العدل عجوز بل ربما نفقة ستة لها فقرة أخرى. ممتلئًا لها العشرة مغرمًا بالمشي لا تسقط. لطلب صريح عام غير معروف هي. كان في جسد باب السيد فقط عقد جون أسفله. لذلك رحلة كبيرة أو الثغرات. أبقى رسم الباب تفعل ذلك تعال يعني فتح. لقد حفز التقدير مدى معقولية التقليل من البساطة يا سيدي ولكن. الأسئلة التي أنا بصدق خلص إليها بحماسة تتكون أو لا يوجد رجل نبيل',
-                insightsPageExplore: 'استكشف',
                 path: '/assets/good-read-3.PNG',
                 explorePdf: '/assets/pdf/3.pdf',
+                insightsPageExplore: 'استكشف',
               },
             ],
           },
@@ -481,17 +488,17 @@ export default function Home() {
                 title: 'المواضع الوظيفية: تنسيقات كبيرة',
                 description:
                   'على إنتاج وأشار العقيد. أربعة فقط تباع تحتاج إلى أي شيء. في سبتمبر الشك في تحديد أنه ساد الاعتراف. على تكييفها كما تم إلصاق محدود على. إعطاء ابن عم بحرارة الأشياء لا ربيع السيد يكون في الخارج. تتكرر تربية العلاقة كما اتبعت بدقة مارغريت. جلب أحد أبناء الجاذبية الخجل في انتظار لحم الخنزير',
-                insightsPageExplore: 'استكشف',
                 path: '/assets/good-read-1.PNG',
                 explorePdf: '/assets/pdf/1.pdf',
+                insightsPageExplore: 'استكشف',
               },
               {
                 title: 'المواضع الوظيفية: تنسيقات صغيرة',
                 description:
                   'على إنتاج وأشار العقيد. أربعة فقط تباع تحتاج إلى أي شيء. في سبتمبر الشك في تحديد أنه ساد الاعتراف. على تكييفها كما تم إلصاق محدود على. إعطاء ابن عم بحرارة الأشياء لا ربيع السيد يكون في الخارج. تتكرر تربية العلاقة كما اتبعت بدقة مارغريت. جلب أحد أبناء الجاذبية الخجل في انتظار لحم الخنزير',
-                insightsPageExplore: 'استكشف',
                 path: '/assets/good-read-2.PNG',
                 explorePdf: '/assets/pdf/2.pdf',
+                insightsPageExplore: 'استكشف',
               },
             ],
           },
@@ -520,9 +527,9 @@ export default function Home() {
               {
                 id: 1,
                 title: 'مكان رئيسي صغير',
-                subTitle: 'تدفق حركة المرور',
+                subTitle: 'تدفق حركة المرور ١',
                 nestedDetails: {
-                  title: 'MinTwelveFacings',
+                  title: 'واجهات اثني عشر على الأقل',
                   imagePath: '/assets/subCategory/1.png',
                   flow: 'تدفق حركة المرور',
                   isEmptyContent: false,
@@ -531,9 +538,9 @@ export default function Home() {
               {
                 id: 2,
                 title: 'مكان رئيسي متوسط',
-                subTitle: 'تدفق حركة المرور',
+                subTitle: 'تدفق حركة المرور ٢',
                 nestedDetails: {
-                  title: 'MinTwelveFacings',
+                  title: 'واجهات اثني عشر على الأقل',
                   imagePath: '/assets/subCategory/1.png',
                   flow: 'تدفق حركة المرور',
                   isEmptyContent: false,
@@ -542,11 +549,11 @@ export default function Home() {
               {
                 id: 3,
                 title: 'مكان رئيسي كبير',
-                subTitle: 'تدفق حركة المرور',
+                subTitle: 'تدفق حركة المرور ٣',
                 nestedDetails: {
-                  title: 'MinTwelveFacings',
+                  title: 'واجهات اثني عشر على الأقل',
                   imagePath: '/assets/subCategory/1.png',
-                  flow: 'تدفق حركة المرور',
+                  flow: 'تدفق حركة المرور ',
                   isEmptyContent: false,
                 },
               },
@@ -558,9 +565,9 @@ export default function Home() {
               {
                 id: 1,
                 title: 'Impulse A',
-                subTitle: 'تدفق حركة المرور',
+                subTitle: 'تدفق حركة المرور ١',
                 nestedDetails: {
-                  title: 'MinTwelveFacings',
+                  title: 'واجهات اثني عشر على الأقل',
                   imagePath: '/assets/subCategory/1.png',
                   flow: 'تدفق حركة المرور',
                   isEmptyContent: false,
@@ -569,9 +576,9 @@ export default function Home() {
               {
                 id: 2,
                 title: 'مكان رئيسي متوسط',
-                subTitle: 'تدفق حركة المرور',
+                subTitle: 'تدفق حركة المرور ٢',
                 nestedDetails: {
-                  title: 'MinTwelveFacings',
+                  title: 'واجهات اثني عشر على الأقل',
                   imagePath: '/assets/subCategory/1.png',
                   flow: 'تدفق حركة المرور',
                   isEmptyContent: false,
@@ -623,7 +630,7 @@ export default function Home() {
                 title: 'Range',
                 numberedElementPartOne: '#2',
                 numberedElementPartTwo:
-                  'MinTwelveFacings: "دلیل المتجر المثالي [عبوة واحدة 1]',
+                  'واجهات اثني عشر على الأقل: "دلیل المتجر المثالي [عبوة واحدة 1]',
                 path: '/assets/vip/1.png',
               },
               {
@@ -646,7 +653,7 @@ export default function Home() {
               {
                 title: 'دلیل المتجر المثالي',
                 numberedElementPartOne: ' #2',
-                numberedElementPartTwo: 'MinTwelveFacings',
+                numberedElementPartTwo: 'واجهات اثني عشر على الأقل',
                 path: '/assets/vip/1.png',
               },
             ],
@@ -677,311 +684,337 @@ export default function Home() {
         image: '/assets/logo.png',
         welcomeSelectACountryToStart: 'Select country to start',
       };
-    } else if (langSelected === 'fr') {
+    }
+    if (langSelected === 'english') {
       commonData = {
         siteName: 'WINGMAN',
         welcomeProgram: 'program 2022',
-        Découvrir: 'Découvrir',
+        discover: 'Découvrir',
         vip: 'VIP',
-        APERÇU: 'APERÇU',
-       };
-       
-       giftTableData = {
+        insights: 'APERÇU',
+      };
+
+      giftTableData = {
         tableCategoryName: 'Catégorie A',
         tableCategoryHeaderName: {
-         title: 'Impulse VIP A',
-         before: 'before',
-         after: 'after',
+          title: ' VIP A',
+          before: 'before',
+          after: 'after',
         },
         categoriesTableContent: [
-         {
-          country: 'Lebanon',
-          content: [
-           {
-            title: 'RECOMMENDED SHELF PRICE',
-            beforeValue: '10.00',
-            afterValue: '10.00',
-           },
-           { title: 'VAT', beforeValue: '0.48', afterValue: '0.48' },
-           {
-            title: 'SHELF PRICE EXCLUDING VAT',
-            beforeValue: '53.70	',
-            afterValue: '55.337',
-           },
-           { title: 'EXCISE TAX', beforeValue: '10.00', afterValue: '10.00	' },
-           { title: 'REBATE %', beforeValue: '10.00', afterValue: '55.337' },
-           { title: 'TOTAL REBATES', beforeValue: '14.00', afterValue: '11' },
-           {
-            title: 'RECOMMENDED SHELF PRICE',
-            beforeValue: '27.120',
-            afterValue: '10',
-           },
-          ],
-         },
-         {
-          country: 'Qatar',
-          content: [
-           {
-            title: 'RECOMMENDED SHELF PRICE',
-            beforeValue: '10.00',
-            afterValue: '10.00',
-           },
-           { title: 'VAT', beforeValue: '0.48', afterValue: '0.48' },
-           {
-            title: 'SHELF PRICE EXCLUDING VAT',
-            beforeValue: '53.70	',
-            afterValue: '55.337',
-           },
-           { title: 'EXCISE TAX', beforeValue: '10.00', afterValue: '10.00	' },
-          ],
-         },
+          {
+            country: 'Lebanon',
+            content: [
+              {
+                title: 'PRIX EN RAYON RECOMMANDÉ',
+                beforeValue: '10.00',
+                afterValue: '10.00',
+              },
+              { title: 'T.V.A.', beforeValue: '0.48', afterValue: '0.48' },
+              {
+                title: 'PRIX DISPONIBLE HORS TVA',
+                beforeValue: '53.70	',
+                afterValue: '55.337',
+              },
+              {
+                title: 'TAXE DACCISE',
+                beforeValue: '10.00',
+                afterValue: '10.00	',
+              },
+              { title: 'RABAIS %', beforeValue: '10.00', afterValue: '55.337' },
+              {
+                title: 'REMISES TOTALES',
+                beforeValue: '14.00',
+                afterValue: '11',
+              },
+              {
+                title: 'PRIX EN RAYON RECOMMANDÉ',
+                beforeValue: '27.120',
+                afterValue: '10',
+              },
+            ],
+          },
+          {
+            country: 'Qatar',
+            content: [
+              {
+                title: 'PRIX EN RAYON RECOMMANDÉ',
+                beforeValue: '10.00',
+                afterValue: '10.00',
+              },
+              { title: 'VAT', beforeValue: '0.48', afterValue: '0.48' },
+              {
+                title: 'PRIX DISPONIBLE HORS TVA',
+                beforeValue: '53.70	',
+                afterValue: '55.337',
+              },
+              {
+                title: 'TAXE DACCISE',
+                beforeValue: '10.00',
+                afterValue: '10.00	',
+              },
+            ],
+          },
         ],
-       };
-       innerPageData = {
+      };
+      innerPageData = {
         siteName: 'WINGMAN',
-        Recherche rapide: 'Planogram Quick Search ',
+        planogramQuickSearchPlaceHolder: 'recherche rapide de planogramme ',
         chosenLanguages: ['English', 'Arabic', 'French'],
         categories: [
-         {
-          country: 'Lebanon',
-          content: [
-           { title: 'impulse', background: 'impulse' },
-           { title: 'cAndG', background: 'cg' },
-           { title: 'retail', background: 'retail' },
-           { title: 'coolers', background: 'coolers' },
-          ],
-         },
-         {
-          country: 'Qatar',
-          content: [{ title: 'impulse', background: 'impulse' }],
-         },
+          {
+            country: 'Lebanon',
+            content: [
+              { title: 'Impulsion', background: 'impulse' },
+              { title: 'C&G', background: 'cg' },
+              { title: 'Essai', background: 'retail' },
+              { title: 'Glacières', background: 'coolers' },
+            ],
+          },
+          {
+            country: 'Qatar',
+            content: [{ title: 'impulse', background: 'impulse' }],
+          },
         ],
-       };
-       APERÇUPageData = {
-        APERÇUCategories: [
-         {
-          country: 'Lebanon',
-          content: [
-           {
-            title: 'PLACEMENTS FONCTIONNELS : GRANDS FORMATS',
-            description: 'Parler de la justice demande de message de bienvenue au début de moi.',
-            explorer: 'Explore',
-            path: '/assets/good-read-1.PNG',
-            explorePdf: '/assets/pdf/1.pdf',
-           },
-           {
-            title: 'STAGES FONCTIONNELS : FORMATS MOYENS',
-            description: 'de la relation soit aussi répété que margaret strictement suivi. Un fils de gravité a apporté de la timidité en attendant un jambon conduit régulier',
-            explorer: 'Explore',
-            path: '/assets/good-read-2.PNG',
-            explorePdf: '/assets/pdf/2.pdf',
-           },
-           {
-            title: 'insightTitleThree',
-            description: 'Elle entièrement grasse, qui étend la fenêtre soit formelle. La suppression de la civilité bienvenue ou accélérée est. La justice âgée mais peut-être les dépenses de six sont-elles un autre passage.',
-            explorer: 'Explore',
-            path: '/assets/good-read-3.PNG',
-            explorePdf: '/assets/pdf/3.pdf',
-           },
-          ],
-         },
-         {
-          country: 'Qatar',
-          content: [
-           {
-            title: 'PLACEMENTS FONCTIONNELS : GRANDS FORMATS',
-            description: 'de la relation soit aussi répété que margaret strictement suivi. Un fils de gravité a apporté de la timidité en attendant un jambon conduit régulier',
-            explorer: 'Explore',
-            path: '/assets/good-read-1.PNG',
-            explorePdf: '/assets/pdf/1.pdf',
-           },
-           {
-            title: 'insightTitleThree',
-            description: 'de la relation soit aussi répété que margaret strictement suivi. Un fils de gravité a apporté de la timidité en attendant un jambon conduit régulier',
-            explorer: 'Explore',
-            path: '/assets/good-read-2.PNG',
-            explorePdf: '/assets/pdf/2.pdf',
-           },
-          ],
-         },
+      };
+      insightsPageData = {
+        insightsPageHeaderContent: 'Bonne lecture',
+        inSightsCategories: [
+          {
+            country: 'Lebanon',
+            content: [
+              {
+                title: 'PLACEMENTS FONCTIONNELS : GRANDS FORMATS',
+                description:
+                  'Parler de la justice demande de message de bienvenue au début de moi.',
+                explorer: 'Explorer',
+                path: '/assets/good-read-1.PNG',
+                explorePdf: '/assets/pdf/1.pdf',
+                insightsPageExplore: 'Explorer',
+              },
+              {
+                title: 'STAGES FONCTIONNELS : FORMATS MOYENS',
+                description:
+                  'de la relation soit aussi répété que margaret strictement suivi. Un fils de gravité a apporté de la timidité en attendant un jambon conduit régulier',
+                explorer: 'Explorer',
+                path: '/assets/good-read-2.PNG',
+                explorePdf: '/assets/pdf/2.pdf',
+                insightsPageExplore: 'Explorer',
+              },
+              {
+                title: 'insightTitleThree',
+                description:
+                  'Elle entièrement grasse, qui étend la fenêtre soit formelle. La suppression de la civilité bienvenue ou accélérée est. La justice âgée mais peut-être les dépenses de six sont-elles un autre passage.',
+                explorer: 'Explorer',
+                path: '/assets/good-read-3.PNG',
+                insightsPageExplore: 'Explorer',
+              },
+            ],
+          },
+          {
+            country: 'Qatar',
+            content: [
+              {
+                title: 'PLACEMENTS FONCTIONNELS : GRANDS FORMATS',
+                description:
+                  'de la relation soit aussi répété que margaret strictement suivi. Un fils de gravité a apporté de la timidité en attendant un jambon conduit régulier',
+                explorer: 'Explorer',
+                path: '/assets/good-read-1.PNG',
+                explorePdf: '/assets/pdf/1.pdf',
+                insightsPageExplore: 'Explorer',
+              },
+              {
+                title: 'insightTitleThree',
+                description:
+                  'de la relation soit aussi répété que margaret strictement suivi. Un fils de gravité a apporté de la timidité en attendant un jambon conduit régulier',
+                explorer: 'Explorer',
+                path: '/assets/good-read-2.PNG',
+                explorePdf: '/assets/pdf/2.pdf',
+                insightsPageExplore: 'Explorer',
+              },
+            ],
+          },
         ],
-       };
-       languagesPageData = {
+      };
+      languagesPageData = {
         languages: [
-         {
-          country: 'Lebanon',
-          content: ['Arabic', 'French', 'Urdu', 'English'],
-         },
-         {
-          country: 'Qatar',
-          content: ['Arabic', 'English'],
-         },
+          {
+            country: 'Lebanon',
+            content: ['Arabic', 'French', 'Urdu', 'English'],
+          },
+          {
+            country: 'Qatar',
+            content: ['Arabic', 'English'],
+          },
         ],
-        languagesPageSelectALanguageToStart: 'Select language from above to start',
-       };
-       subCategoriesPageData = {
+        languagesPageSelectALanguageToStart:
+          'Select language from above to start',
+      };
+      subCategoriesPageData = {
         subCategoryName: 'impulse',
         subCategories: [
-         {
-          country: 'Lebanon',
-          content: [
-           {
-            id: 1,
-            title: 'petite place principale',
-            subTitle: '1 étagère - place principale',
-            nestedDetails: {
-             title: 'Le Guide du Magasin Parfait Un Pack 2',
-             imagePath: '/assets/subCategory/1.png',
-             flow: 'Flux de trafic',
-             isEmptyContent: false,
-            },
-           },
-           {
-            id: 2,
-            title: 'Place principale moyenne',
-            subTitle: '1 étagère - place principale',
-            nestedDetails: {
-             title: 'Le Guide du Magasin Parfait Un Pack 2',
-             imagePath: '/assets/subCategory/1.png',
-             flow: 'Flux de trafic',
-             isEmptyContent: false,
-            },
-           },
-           {
-            id: 3,
-            title: 'Grande place principale',
-            subTitle: '1 étagère - place principale',
-            nestedDetails: {
-             title: 'Le Guide du Magasin Parfait Un Pack 2',
-             imagePath: '/assets/subCategory/1.png',
-             flow: 'Flux de trafic',
-             isEmptyContent: false,
-            },
-           },
-          ],
-         },
-         {
-          country: 'Qatar',
-          content: [
-           {
-            id: 1,
-            title: 'Impulse A',
-            subTitle: '1 étagère - place principale',
-            nestedDetails: {
-             title: 'Le Guide du Magasin Parfait Un Pack 2',
-             imagePath: '/assets/subCategory/1.png',
-             flow: 'Flux de trafic',
-             isEmptyContent: false,
-            },
-           },
-           {
-            id: 2,
-            title: 'Place principale moyenne',
-            subTitle: '1 étagère - place principale',
-            nestedDetails: {
-             title: 'Le Guide du Magasin Parfait Un Pack 2',
-             imagePath: '/assets/subCategory/1.png',
-             flow: 'Flux de trafic',
-             isEmptyContent: false,
-            },
-           },
-          ],
-         },
+          {
+            country: 'Lebanon',
+            content: [
+              {
+                id: 1,
+                title: 'Petite place principale',
+                subTitle: '1 étagère - place principale 1',
+                nestedDetails: {
+                  title: 'Le Guide du Magasin Parfait Un Pack 2',
+                  imagePath: '/assets/subCategory/1.png',
+                  flow: 'Flux de trafic',
+                  isEmptyContent: false,
+                },
+              },
+              {
+                id: 2,
+                title: 'Place principale moyenne',
+                subTitle: '1 étagère - place principale 2',
+                nestedDetails: {
+                  title: 'Le Guide du Magasin Parfait Un Pack 2',
+                  imagePath: '/assets/subCategory/1.png',
+                  flow: 'Flux de trafic',
+                  isEmptyContent: false,
+                },
+              },
+              {
+                id: 3,
+                title: 'Grande place principale',
+                subTitle: '1 étagère - place principale 3',
+                nestedDetails: {
+                  title: 'Le Guide du Magasin Parfait Un Pack 2',
+                  imagePath: '/assets/subCategory/1.png',
+                  flow: 'Flux de trafic',
+                  isEmptyContent: false,
+                },
+              },
+            ],
+          },
+          {
+            country: 'Qatar',
+            content: [
+              {
+                id: 1,
+                title: 'Impulse A',
+                subTitle: '1 étagère - place principale 1 ',
+                nestedDetails: {
+                  title: 'Le Guide du Magasin Parfait Un Pack 2',
+                  imagePath: '/assets/subCategory/1.png',
+                  flow: 'Flux de trafic',
+                  isEmptyContent: false,
+                },
+              },
+              {
+                id: 2,
+                title: 'Place principale moyenne',
+                subTitle: '1 étagère - place principale 2 ',
+                nestedDetails: {
+                  title: 'Le Guide du Magasin Parfait Un Pack 2',
+                  imagePath: '/assets/subCategory/1.png',
+                  flow: 'Flux de trafic',
+                  isEmptyContent: false,
+                },
+              },
+            ],
+          },
         ],
-       };
-       vipData = {
+      };
+      vipData = {
         vipHeaderText: [
-         {
-          country: 'Lebanon',
-          content: ['Il s'agit d'un club de membres spécial où vous recevrez des remises basées sur les homologues en magasin qui généreront des ventes supplémentaires, vous aidant à gagner plus de profit !'],
-         },
-         {
-          country: 'Qatar',
-          content: [
-           'This is a Qatar members club where you will receive discounts based on counterparts in store that will drive incremental sales, helping you earn more profit!',
-          ],
-         },
+          {
+            country: 'Lebanon',
+            content: [
+              'Il  club de membres spécial où vous recevrez des remises basées sur les homologues en magasin qui généreront des ventes supplémentaires, vous aidant à gagner plus de profit !',
+            ],
+          },
+          {
+            country: 'Qatar',
+            content: [
+              'This is a Qatar members club where you will receive discounts based on counterparts in store that will drive incremental sales, helping you earn more profit!',
+            ],
+          },
         ],
         vipCategories: [
-         {
-          country: 'Lebanon',
-          content: ['Catégorie A', 'Catégorie B', 'Catégorie C'],
-         },
-         {
-          country: 'Qatar',
-          content: ['Catégorie A', 'Catégorie B'],
-         },
+          {
+            country: 'Lebanon',
+            content: ['Catégorie A', 'Catégorie B', 'Catégorie C'],
+          },
+          {
+            country: 'Qatar',
+            content: ['Catégorie A', 'Catégorie B'],
+          },
         ],
-       };
-       vipInnerPageData = {
+      };
+      vipInnerPageData = {
         vipCategoriesDetailsHeader: 'vipCatégorie A',
         vipCategoriesDetailsContent: [
-         {
-          country: 'Lebanon',
-          content: [
-           {
-            title: 'Disponibilité de toutes les unités de stockage',
-            numberedElementPartOne: '#1',
-            numberedElementPartTwo: 'Le Guide du Magasin Parfait Un Pack 1',
-            path: '/assets/vip/1.png',
-           },
-           {
-            title: 'Disponibilité de toutes les unités de stockage',
-            numberedElementPartOne: ' #2',
-            numberedElementPartTwo: 'Le Guide du Magasin Parfait Un Pack 2',
-            path: '/assets/vip/1.png',
-           },
-           {
-            title: 'Le Guide du Magasin Parfait Un Pack 1',
-            numberedElementPartOne: ' #3',
-            numberedElementPartTwo: 'Le Guide du Magasin Parfait Un Pack 1',
-            path: '/assets/vip/1.png',
-           },
-          ],
-         },
-         {
-          country: 'Qatar',
-          content: [
-           {
-            title: 'Disponibilité de toutes les unités de stockage',
-            numberedElementPartOne: '#1',
-            numberedElementPartTwo: 'Le Guide du Magasin Parfait Un Pack 1',
-            path: '/assets/vip/1.png',
-           },
-           {
-            title: 'Disponibilité de toutes les unités de stockage',
-            numberedElementPartOne: ' #2',
-            numberedElementPartTwo: 'Le Guide du Magasin Parfait Un Pack 2',
-            path: '/assets/vip/1.png',
-           },
-          ],
-         },
+          {
+            country: 'Lebanon',
+            content: [
+              {
+                title: 'Disponibilité de toutes les unités de stockage',
+                numberedElementPartOne: '#1',
+                numberedElementPartTwo: 'Le Guide du Magasin Parfait Un Pack 1',
+                path: '/assets/vip/1.png',
+              },
+              {
+                title: 'Disponibilité de toutes les unités de stockage',
+                numberedElementPartOne: ' #2',
+                numberedElementPartTwo: 'Le Guide du Magasin Parfait Un Pack 2',
+                path: '/assets/vip/1.png',
+              },
+              {
+                title: 'Le Guide du Magasin Parfait Un Pack 1',
+                numberedElementPartOne: ' #3',
+                numberedElementPartTwo: 'Le Guide du Magasin Parfait Un Pack 1',
+                path: '/assets/vip/1.png',
+              },
+            ],
+          },
+          {
+            country: 'Qatar',
+            content: [
+              {
+                title: 'Disponibilité de toutes les unités de stockage',
+                numberedElementPartOne: '#1',
+                numberedElementPartTwo: 'Le Guide du Magasin Parfait Un Pack 1',
+                path: '/assets/vip/1.png',
+              },
+              {
+                title: 'Disponibilité de toutes les unités de stockage',
+                numberedElementPartOne: ' #2',
+                numberedElementPartTwo: 'Le Guide du Magasin Parfait Un Pack 2',
+                path: '/assets/vip/1.png',
+              },
+            ],
+          },
         ],
-       };
-       welcomePageData = {
+      };
+      welcomePageData = {
         countries: [
-         'UAE',
-         'MALDIVES',
-         'PAKISTAN',
-         'SRI LANKA',
-         'ALGERIA',
-         'NIGERIA',
-         'ANGOLA',
-         'MAURITIUS',
-         'KENYA',
-         'EGYPT',
-         'OMAN',
-         'KUWAIT',
-         'QATAR',
-         'JORDAN',
-         'BAHRAIN',
-         'KSA',
-         'LEBANON',
-         'GHANA',
+          'UAE',
+          'MALDIVES',
+          'PAKISTAN',
+          'SRI LANKA',
+          'ALGERIA',
+          'NIGERIA',
+          'ANGOLA',
+          'MAURITIUS',
+          'KENYA',
+          'EGYPT',
+          'OMAN',
+          'KUWAIT',
+          'QATAR',
+          'JORDAN',
+          'BAHRAIN',
+          'KSA',
+          'LEBANON',
+          'GHANA',
         ],
         image: '/assets/logo.png',
         welcomeSelectACountryToStart: 'Select country to start',
-       };
+      };
     }
 
     localStorage.setItem('commonData', JSON.stringify(commonData));

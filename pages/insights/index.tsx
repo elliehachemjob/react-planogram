@@ -27,7 +27,9 @@ export default function Insights() {
       <div className='insights-sec-wrapper'>
         <div className='fxd-header-sect-cont sub-categories'>
           <div className='fxd-header-sect'>
-            <div className='fxd-header-content'>insightsPageHeaderContent</div>
+            <div className='fxd-header-content'>
+              {insightsPageData.insightsPageHeaderContent}
+            </div>
           </div>
         </div>
         <div className='insights-sec-container'>
