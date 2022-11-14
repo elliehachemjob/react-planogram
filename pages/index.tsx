@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import getAndSetLanguage from '../helpers/getAndSetLanguage';
 import useRouterFunctionalities from '../helpers/router';
 
 export default function Home() {
@@ -316,10 +317,12 @@ export default function Home() {
     image: '/assets/logo.png',
     welcomeSelectACountryToStart: 'Select country to start',
   };
-
+  let langSelected: any;
   const router = useRouterFunctionalities();
 
   useEffect(() => {
+    langSelected = getAndSetLanguage(langSelected);
+
     localStorage.setItem('commonData', JSON.stringify(commonData));
     localStorage.setItem('giftTableData', JSON.stringify(giftTableData));
     localStorage.setItem(
@@ -346,5 +349,5 @@ export default function Home() {
     }
   }, []);
 
-  return <></>;
+  return <div dir='ltr'></div>;
 }

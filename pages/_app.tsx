@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import NoSSR from '../components/noSSR';
 import '../styles/globals.css';
 
