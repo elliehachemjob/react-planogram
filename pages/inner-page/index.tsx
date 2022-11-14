@@ -6,6 +6,16 @@ import styles from '../../styles/inner-page.module.css';
 
 export default function InnerPage() {
   let isRTL: any;
+
+  if (typeof window !== 'undefined') {
+    // Perform localStorage action
+    if (localStorage.getItem('isRTL') === 'false') {
+      isRTL = true;
+    } else {
+      isRTL = false;
+    }
+  }
+
   let commonData: any = JSON.parse(localStorage.getItem('commonData') as any);
   let innerPageData: any = JSON.parse(
     localStorage.getItem('innerPageData') as any
@@ -66,6 +76,7 @@ export default function InnerPage() {
 
   return (
     <div
+      dir={isRTL ? 'rtl' : 'ltr'}
       onClick={() => {
         if (!isOverlayOpen) setIsOverlayOpen(!isOverlayOpen);
       }}

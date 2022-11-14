@@ -4,6 +4,13 @@ import getMethod from '../../helpers/getMethod';
 import useRouterFunctionalities from '../../helpers/router';
 
 export default function Languages() {
+  let isRTL: boolean;
+  if (localStorage.getItem('isRTL') === 'false') {
+    isRTL = true;
+  } else {
+    isRTL = false;
+  }
+
   let commonData: any = JSON.parse(localStorage.getItem('commonData') as any);
   let languagesPageData: any = JSON.parse(
     localStorage.getItem('languagesPageData') as any
@@ -34,7 +41,7 @@ export default function Languages() {
   }, []);
 
   return (
-    <div>
+    <div dir={isRTL ? 'rtl' : 'ltr'}>
       <div className='plano-wlc-page-wrapper' id='welcome-page'>
         <div className='plano-wlc-page-container'>
           <div className='plano-wlc-page-content'>

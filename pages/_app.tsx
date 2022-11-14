@@ -6,7 +6,7 @@ export default function App({ Component, pageProps }: any) {
 
   if (typeof window !== 'undefined') {
     // Perform localStorage action
-    if (localStorage.getItem('isRTL') === 'true') {
+    if (localStorage.getItem('isRTL') === 'false') {
       isRTL = true;
     } else {
       isRTL = false;
